@@ -1,2 +1,2 @@
 # restoapp
- 
+ El proyecto consistirá en desarrollar una plataforma en torno a un restaurant, que permitirá a los clientes loguearse y realizar su reserva, obtener descuentos por conductas de consumo, como también indicar el menú con anticipación. Esto permitirá una mejor experiencia, acortando tiempos de espera, y permitiendo al dueño del local prever la necesidad de personal como también de insumos.
