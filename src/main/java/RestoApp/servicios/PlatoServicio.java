@@ -2,7 +2,7 @@ package RestoApp.servicios;
 
 import RestoApp.entidades.Foto;
 import RestoApp.entidades.Plato;
-import RestoApp.error.ErrorService;
+import RestoApp.servicios.ErrorServicio;
 import RestoApp.repositorios.PlatoRepositorio;
 import java.util.List;
 import java.util.Optional;
@@ -12,16 +12,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
-public class PlatoService {
+public class PlatoServicio {
 
     @Autowired
     private PlatoRepositorio platoRepo;
 
     @Autowired
-    private FotoService fS;
+    private FotoServicio fS;
 
     @Transactional
-    public Plato guardarPlato(MultipartFile archivo, String nombre, Integer valor, String descripcion) throws ErrorService {
+    public Plato guardarPlato(MultipartFile archivo, String nombre, Integer valor, String descripcion) throws ErrorServicio {
 
         validar(nombre, valor, descripcion);
 
@@ -37,7 +37,7 @@ public class PlatoService {
     }
 
     @Transactional
-    public Plato modificarPlato(MultipartFile archivo, String id, String nombre, Integer valor, String descripcion) throws ErrorService {
+    public Plato modificarPlato(MultipartFile archivo, String id, String nombre, Integer valor, String descripcion) throws ErrorServicio {
         validar(nombre, valor, descripcion);
         Optional<Plato> respuesta = platoRepo.findById(id);
         if (respuesta.isPresent()) {
@@ -54,30 +54,30 @@ public class PlatoService {
             plato.setFoto(foto);
             return platoRepo.save(plato);
         } else {
-            throw new ErrorService("El plato no fue encontrado");
+            throw new ErrorServicio("El plato no fue encontrado");
         }
 
     }
     @Transactional
-    public void bajaPlato (String id) throws ErrorService{
+    public void bajaPlato (String id) throws ErrorServicio{
         Optional<Plato> respuesta = platoRepo.findById(id);
         if (respuesta.isPresent()) {
             Plato plato = respuesta.get();
             plato.setAlta(false);
             platoRepo.save(plato);
         }else{
-            throw new ErrorService ("El plato no fue encontrado");
+            throw new ErrorServicio ("El plato no fue encontrado");
         }
     }
     @Transactional
-    public void altaPlato (String id) throws ErrorService{
+    public void altaPlato (String id) throws ErrorServicio{
         Optional<Plato> respuesta = platoRepo.findById(id);
         if (respuesta.isPresent()) {
             Plato plato = respuesta.get();
             plato.setAlta(true);
             platoRepo.save(plato);
         }else{
-            throw new ErrorService ("El plato no fue encontrado");
+            throw new ErrorServicio ("El plato no fue encontrado");
         }
     }
     
@@ -85,16 +85,16 @@ public class PlatoService {
         return platoRepo.findAll();
     }
 
-    public void validar(String nombre, Integer valor, String descripcion) throws ErrorService {
+    public void validar(String nombre, Integer valor, String descripcion) throws ErrorServicio {
 
         if (nombre == null || nombre.isEmpty()) {
-            throw new ErrorService("El nombre es incorrecto");
+            throw new ErrorServicio("El nombre es incorrecto");
         }
         if (valor == null) {
-            throw new ErrorService("El valor es incorrecto");
+            throw new ErrorServicio("El valor es incorrecto");
         }
         if (descripcion == null || descripcion.isEmpty()) {
-            throw new ErrorService("La descripcion es incorrecta");
+            throw new ErrorServicio("La descripcion es incorrecta");
         }
     }
 }

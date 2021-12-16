@@ -1,12 +1,10 @@
-package RestoApp.controlador;
+package RestoApp.Controladores;
 
 import RestoApp.entidades.Plato;
-import RestoApp.error.ErrorService;
-import RestoApp.servicios.PlatoService;
+import RestoApp.servicios.ErrorServicio;
+import RestoApp.servicios.PlatoServicio;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class PlatoControlador {
 
     @Autowired
-    private PlatoService pS;
+    private PlatoServicio pS;
 
     List<Plato> platos = new ArrayList<>();
 
@@ -43,7 +41,7 @@ public class PlatoControlador {
 //para mostrar el error en pantalla
         try {
             pS.guardarPlato(archivo, nombre, valor, descripcion);
-        } catch (ErrorService ex) {
+        } catch (ErrorServicio ex) {
             model.put("error", ex.getMessage());
             model.put("nombre", nombre);
             model.put("valor", valor);
@@ -62,10 +60,10 @@ public class PlatoControlador {
     }
 
     @PostMapping("modifiplato")
-    public String modifiPlato(ModelMap model, MultipartFile archivo, @RequestParam String idPlato, @RequestParam String nombre, @RequestParam Integer valor, @RequestParam String descripcion) throws ErrorService {
+    public String modifiPlato(ModelMap model, MultipartFile archivo, @RequestParam String idPlato, @RequestParam String nombre, @RequestParam Integer valor, @RequestParam String descripcion) throws ErrorServicio {
         try {
             pS.modificarPlato(archivo, idPlato, nombre, valor, descripcion);
-        } catch (ErrorService ex) {
+        } catch (ErrorServicio ex) {
             model.put("error", ex.getMessage());
             model.put("nombre", nombre);
             model.put("valor", valor);
@@ -80,7 +78,7 @@ public class PlatoControlador {
     public String eliminarPlato(ModelMap model, @RequestParam String idPlato) {
         try {
             pS.bajaPlato(idPlato);
-        } catch (ErrorService ex) {
+        } catch (ErrorServicio ex) {
             model.put("error", ex.getMessage());
             return "";
         }
@@ -91,7 +89,7 @@ public class PlatoControlador {
     public String altaPlato(ModelMap model, @RequestParam String idPlato) {
         try {
             pS.altaPlato(idPlato);
-        } catch (ErrorService ex) {
+        } catch (ErrorServicio ex) {
             model.put("error", ex.getMessage());
             return "";
         }
