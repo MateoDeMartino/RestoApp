@@ -1,0 +1,27 @@
+header{
+    text-align: center;
+    background-color: rgb(222, 131, 77);
+}
+h1{
+    text-align: center;
+    background-color: rgb(222, 131, 77);
+}
+
+body{
+    background-color: rgb(222, 131, 77);
+    text-align: center;
+}
+
+table{
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-spacing: 1px;
+    width: 50%;
+    background-color: rgb(240, 210, 144);
+}
+
+#info{
+    width: 100%;
+    padding-left: 25%;
+}
