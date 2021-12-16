@@ -10,8 +10,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RestauranteRepositorio extends JpaRepository<Restaurante, String> {
 
-    @Query("SELECT c FROM Autor c WHERE c.nombre = :nombre")
+    @Query("SELECT c FROM Restaurante c WHERE c.nombre = :nombre")
     public Restaurante buscarRestaurantePorNombre(@Param("nombre") String nombre);
+    
+    @Query("SELECT c FROM Restaurante c WHERE c.zona = :zona")
+    public Restaurante buscarRestaurantePorZona(@Param("zona") String nombre);
 
 }
 

@@ -3,6 +3,7 @@ package RestoApp.Entidades;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -13,9 +14,12 @@ public class Restaurante {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
+    @OneToOne
     private Menu menu;
     private Integer mesas;
+    @OneToOne
     private Zona zona;
+    
     private Boolean abierto;
 
     public Restaurante() {
@@ -71,11 +75,11 @@ public class Restaurante {
     }
 
     public Boolean getAbierto() {
-        return Abierto;
+        return abierto;
     }
 
-    public void setAbierto(Boolean Abierto) {
-        this.Abierto = Abierto;
+    public void setAbierto(Boolean abierto) {
+        this.abierto = abierto;
     }
 
     @Override
