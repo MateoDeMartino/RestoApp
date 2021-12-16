@@ -1,10 +1,10 @@
 
-package RestoApp.Service;
+package RestoApp.servicios;
 
 import RestoApp.Entidades.Restaurante;
 import RestoApp.Entidades.Zona;
 import RestoApp.Errores.ErrorService;
-import RestoApp.Repository.RestauranteRepositorio;
+import RestoApp.repositorios.RestauranteRepositorio;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;

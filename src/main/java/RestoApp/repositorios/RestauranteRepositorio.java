@@ -1,5 +1,5 @@
 
-package RestoApp.Repository;
+package RestoApp.repositorios;
 
 import RestoApp.Entidades.Restaurante;
 import org.springframework.data.jpa.repository.JpaRepository;
