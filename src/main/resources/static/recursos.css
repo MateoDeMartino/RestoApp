@@ -43,7 +43,7 @@ color:#DE934D;
 .btn-outline-secondary {
     color: #DE934D;
     border-color: #DE934D;
-  }
+}
 .btn-outline-secondary:hover {
     color: #fff;
     background-color: #DE934D;
@@ -87,9 +87,10 @@ section{
     height: 800px;
 
 }
-table table-dark table-striped{
-    width:80%;
-    padding-left: 20px;
+table.table{
+    width: 90%;
+    
+    margin: 0 auto;
 }
 
 
