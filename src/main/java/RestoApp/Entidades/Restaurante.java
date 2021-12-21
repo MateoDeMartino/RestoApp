@@ -25,8 +25,7 @@
 //    public Restaurante() {
 //    }
 //
-//    public Restaurante(String id, String nombre, Menu menu, Integer mesas, Zona zona, Boolean abierto) {
-//        this.id = id;
+//    public Restaurante(String nombre, Menu menu, Integer mesas, Zona zona, Boolean abierto) {
 //        this.nombre = nombre;
 //        this.menu = menu;
 //        this.mesas = mesas;

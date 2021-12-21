@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class RestauranteController {
+public class RestauranteControlador {
     
     @GetMapping("")
     public String index() {
