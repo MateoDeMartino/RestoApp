@@ -1,0 +1,49 @@
+
+header{
+    text-align: center;
+    background-color: rgb(222, 131, 77);
+}
+h1{
+    text-align: center;
+    background-color: rgb(222, 131, 77);
+}
+
+body{
+    background-color: rgb(222, 131, 77);
+}
+
+
+form{
+    background-color: rgb(240, 210, 144);
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+    text-align: center;
+    width: 50%;
+    height: 70%;
+    margin-left: 25%;
+    margin-top: 5%;
+    padding: 2%;
+    line-height: 250%
+}
+
+#nombre{
+    width: 20%;
+}
+
+#apellido{
+    width: 20%;
+    
+}
+
+#email{
+    width: 41%;
+}
+
+#contrasena{
+    width: 41%;
+}
+
+#generos{
+    text-align: 
+}
