@@ -9,11 +9,11 @@ spring:
                 starttls:
                     required: true
                     enable: true
-    username: ElNahuel2003@gmail.com
-    password: miclavenahuelmdq
+    username: restoapp4@gmail.com
+    password: RestoApp4@
 
   datasource: 
-    url: jdbc:mysql://localhost:3306/RestoApp?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/restoapp?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver 
