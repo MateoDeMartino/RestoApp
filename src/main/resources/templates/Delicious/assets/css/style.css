@@ -668,6 +668,20 @@ section {
   animation: none;
   border-radius: 0;
 }
+.btn-outline-success {
+  color: #ffb03b;
+  border-color: #ffb03b;
+  
+}
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #ffb03b;
+  border-color: #ffb03b;
+}
+.me-2 {
+  margin-right: 0.5rem !important;
+  margin-left: 0.7rem !important;
+}
 @media (max-width: 1024px) {
   .about .content, .about .accordion-list {
     padding-left: 0;
