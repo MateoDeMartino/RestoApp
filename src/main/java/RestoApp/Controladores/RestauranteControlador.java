@@ -18,10 +18,10 @@ public class RestauranteControlador {
     @Autowired
     private RestauranteServicio restauranteServicio;
     
-    @GetMapping("")
-    public String index() {
-        return "index";
-    }
+//    @GetMapping("")
+//    public String index() {
+//        return "index";
+//    }
     
     @PostMapping("/guadarRestaurante")
     public String guardarRestaurante(String nombre, Menu menu,Integer mesas,Zona zona,Boolean abierto){

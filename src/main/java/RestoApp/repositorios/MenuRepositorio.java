@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MenuRepositorio extends JpaRepository<Menu, String> {
-    @Query ("SELECT c FROM autor c WHERE c.nombre =:nombre")
-    public Menu buscarMenuPorNombre(@Param("id") String id);
+//    @Query ("SELECT c FROM autor c WHERE c.nombre =:nombre")
+//    public Menu buscarMenuPorNombre(@Param("id") String id);
 
-    public Menu buscarMenuPorId(String id);
+//    public Menu buscarMenuPorId(String id);
 }
