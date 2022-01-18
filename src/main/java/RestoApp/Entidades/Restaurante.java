@@ -19,6 +19,7 @@ public class Restaurante {
     private Integer mesas;
     @OneToOne
     private Zona zona;
+    
     private Boolean abierto;
 
     public Restaurante() {
