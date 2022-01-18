@@ -4,5 +4,5 @@ package RestoApp.enums;
 /**@author Salo
  */
 public enum Role {
-    ANDMIN,USER,SELLER;
+    ADMIN,USER,SELLER;
 }
