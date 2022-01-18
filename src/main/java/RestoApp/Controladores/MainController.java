@@ -8,9 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/")
 public class MainController {
     
     @Autowired
@@ -18,7 +20,7 @@ public class MainController {
     
     @GetMapping("/")
     public String index() {
-        return "index.html";
+        return "index";
     }
     
     @GetMapping("/login")
@@ -26,12 +28,12 @@ public class MainController {
         if (error != null) {
             model.put(error, "Usuario o clave incorrectos");
         }
-        return "login.html";
+        return "login";
     }
     
     @GetMapping("/registro")
     public String registro() {
-        return "registro.html";
+        return "registro";
     }
     
     @PostMapping("/registrar")
@@ -46,7 +48,7 @@ public class MainController {
             modelo.put("clave", clave);
             return "registroUsuario.html";
         }
-        return "index.html";
+        return "index";
     }
     
 }

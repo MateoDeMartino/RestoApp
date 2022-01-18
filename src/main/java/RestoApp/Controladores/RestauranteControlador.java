@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/Restaurante")
 public class RestauranteControlador {
     
     @Autowired
     private RestauranteServicio restauranteServicio;
     
-//    @GetMapping("")
+//    @GetMapping("/")
 //    public String index() {
 //        return "index";
 //    }
