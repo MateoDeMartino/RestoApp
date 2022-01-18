@@ -1,9 +1,9 @@
 
 package RestoApp.servicios;
 
+import RestoApp.Entidades.Menu;
 import RestoApp.Entidades.Restaurante;
 import RestoApp.Entidades.Zona;
-import RestoApp.Errores.ErrorServicio;
 import RestoApp.repositorios.RestauranteRepositorio;
 import java.util.List;
 import java.util.Optional;
@@ -25,12 +25,12 @@ public class RestauranteServicio {
         if (nombre == null || nombre.isEmpty()) {
             throw new ErrorServicio("El nombre no puede ser nulo");
         }
-        if (menu == null || menu.isEmpty()) {
+        if ( menu.getPlato().getNombre().isEmpty() || menu == null ) {
             throw new ErrorServicio("Se necesita un menu");
         }
-        if (mesas == null || mesas == 0) {
+        if ( mesas == 0 || mesas == null) {
             throw new ErrorServicio("Se necesita la cantidad de mesas");
-        }
+        } 
         if (zona == null) {
             throw new ErrorServicio("Se necesita saber la zona");
         }
