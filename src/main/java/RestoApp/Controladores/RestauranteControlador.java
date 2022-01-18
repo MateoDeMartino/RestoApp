@@ -1,6 +1,7 @@
 
 package RestoApp.Controladores;
 
+import RestoApp.Entidades.Menu;
 import RestoApp.Entidades.Zona;
 import RestoApp.servicios.RestauranteServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class RestauranteControlador {
     public String guardarRestaurante(String nombre, Menu menu,Integer mesas,Zona zona,Boolean abierto){
         
         try{
-            restauranteServicio.guardarRestaurante(nombre,menu, zona, mesas, zona, abierto);
+            restauranteServicio.guardarRestaurante(nombre,menu, mesas, zona , abierto);
         }catch(Exception e){           
             System.out.println(e.getMessage());     
         }
