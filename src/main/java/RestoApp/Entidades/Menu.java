@@ -1,7 +1,7 @@
 
 package RestoApp.Entidades;
 
-import RestoApp.Entidades.Plato;
+import RestoApp.entidades.Plato;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
