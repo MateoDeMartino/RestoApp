@@ -38,7 +38,7 @@ public class RestauranteServicio {
             throw new ErrorServicio("Se necesita saber si esta abierto o cerrado");
         }
         
-        
+       
         restaurante.setNombre(nombre);
         restaurante.setMenu(menu);
         restaurante.setMesas(mesas);
