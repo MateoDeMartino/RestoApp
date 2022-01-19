@@ -31,7 +31,7 @@ public class PlatoControlador {
     @GetMapping("/crearplato")
     public String crearPlato(ModelMap model) {
         model.put("platos", pS.listarPlatos());
-        return "";
+        return "plato";
     }
 
     @PostMapping("/guardarplato")
