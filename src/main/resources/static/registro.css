@@ -5,6 +5,7 @@ h1{
 
 body{
     background-color: rgb(222, 131, 77);
+    height: 100%;
 }
 
 
@@ -15,10 +16,14 @@ body{
     border-color: gray;
     text-align: center;
     width: 50%;
-    height: 70%;
+    height: 100%;
     margin-left: 25%;
     padding: 1%;
-    line-height: 210%
+    line-height: 200%;
+}
+
+#espacio{
+    height: 30px;
 }
 
 #nombre{
