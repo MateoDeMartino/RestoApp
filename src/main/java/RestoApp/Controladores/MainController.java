@@ -51,4 +51,10 @@ public class MainController {
         return "index";
     }
     
+    @GetMapping("/Reserva")
+    public String Reserva(){
+        
+        
+        return "Reserva";
+    }
 }
