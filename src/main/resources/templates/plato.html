@@ -51,7 +51,10 @@
             <label for="exampleInputEmail1" class="form-label">Descripcion</label>
             <textarea type="text" class="form-control" rows="5" name="descripcion" th:value="${descripcion}"></textarea>
           </div>
-        
+            <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Ingrese Foto de plato</label>
+                            <input type="file" class="form-control" name="archivo">
+                        </div>
          
           <button type="submit" class="btn btn-primary">Guardar</button>
           <button class="btn btn-primary" type="button" ><a href="/">Volver a principal</a></button>
