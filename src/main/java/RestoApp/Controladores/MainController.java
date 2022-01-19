@@ -2,7 +2,9 @@
 package RestoApp.Controladores;
 
 import RestoApp.servicios.ErrorServicio;
+import RestoApp.servicios.ReservaServicio;
 import RestoApp.servicios.UsuarioServicio;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,6 +19,9 @@ public class MainController {
     
     @Autowired
     UsuarioServicio usuarioServicio;
+    
+    @Autowired
+    ReservaServicio reservaServicio;
     
     @GetMapping("/")
     public String index() {
@@ -59,6 +64,18 @@ public class MainController {
     @GetMapping("/Reserva")
     public String Reserva(){
         
+        return "Reserva";
+    }
+    
+    @PostMapping("/guardarReserva")
+    public String guardarReserva( @RequestParam String nombre,@RequestParam Integer cantidad,@RequestParam Date dia){
+        try{
+            
+            reservaServicio.guardarReserva(nombre, cantidad, dia);
+            
+        }catch(ErrorServicio ex) {
+            ex.getMessage();
+        }
         
         return "Reserva";
     }

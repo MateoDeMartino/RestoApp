@@ -18,7 +18,7 @@ public class Reserva {
     private String id;
     private String nombre;
     private Integer cantidad;
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date dia;
 
     public Reserva() {
