@@ -1,11 +1,6 @@
 
-header{
-    text-align: center;
-    background-color: rgb(222, 131, 77);
-}
 h1{
     text-align: center;
-    background-color: rgb(222, 131, 77);
 }
 
 body{
@@ -13,7 +8,7 @@ body{
 }
 
 
-form{
+#formulario{
     background-color: rgb(240, 210, 144);
     border-width: 1px;
     border-style: solid;
@@ -22,9 +17,8 @@ form{
     width: 50%;
     height: 70%;
     margin-left: 25%;
-    margin-top: 5%;
-    padding: 2%;
-    line-height: 250%
+    padding: 1%;
+    line-height: 210%
 }
 
 #nombre{
