@@ -39,6 +39,7 @@ public class PlatoControlador {
 //<form action = "/guardarplato" method="POST" enctype="multipart/form-data">      
 //adentro del form de html usar  <p th:if= "${error != null}" "th:text = ${error}"></p>
 //para mostrar el error en pantalla
+//Aca se podria poner a que restaurante pertenece el plato, pensaba para simplificarlo poner una lista desplegable tambien hay que modificar la entidad plato//
         try {
             pS.guardarPlato(archivo, nombre, valor, descripcion);
         } catch (ErrorServicio ex) {
@@ -47,7 +48,7 @@ public class PlatoControlador {
             model.put("valor", valor);
             model.put("descripcion", descripcion);
             //en el form poner th:value="${nombre.variable}" para conservar los datos llenados
-            return "";
+            return "plato.html";
         }
 
         return "redirect:/plato/pagplato";

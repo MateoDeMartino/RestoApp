@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS Propio-->
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../static/formularios.css">
     <title>Cargar Plato</title>
 </head>
 <body>
@@ -24,29 +24,42 @@
 
 <!--logo Y BOTONES DE REGISTRO Y INICIO-->
 <header>
-
+  <div class="logo">
+    <p  class="animate_animated animate_bounde"> RESTO APP</p>     
+</div>
 </header>
 <!-- NAVEGADOR-->
-<p> Cargue el plato</P>
+
 <section>
-
-<form action="/guardarplato" method="POST">
-    
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Ingrese el ISBN del libro</label>
-    <input type="text" class="form-control" name="isbn" th:value="${isbn}">
-  </div>
-    
+  <div class="card">
+    <div class="card-header">
+      Cargue su plato
+    </div>
+    <div class="card-body">
  
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-    <div class="container">
-            <div class="d-grid gap-2">
-              <button class="btn btn-primary" type="button" ><a href="/">Volver a principal</a></button>
-
-            </div>
+        <form action="/guardarplato" method="POST" enctype="multipart/form-data">
+          <p th:if= "${error != null}" th:text = ${error}></p>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre del plato</label>
+            <input type="text" class="form-control" name="nombre" th:value="${nombre}">
           </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Valor del plato</label>
+            <input type="text" class="form-control" name="valor" th:value="${valor}">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Descripcion</label>
+            <textarea type="text" class="form-control" rows="5" name="descripcion" th:value="${descripcion}"></textarea>
+          </div>
+        
+         
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button class="btn btn-primary" type="button" ><a href="/">Volver a principal</a></button>
+        </form>
+          </div>
+</div>
+           
+
 </section>
 
  <!--PIE-->

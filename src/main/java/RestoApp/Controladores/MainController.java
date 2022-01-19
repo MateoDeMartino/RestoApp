@@ -35,6 +35,11 @@ public class MainController {
     public String registro() {
         return "registro";
     }
+    @GetMapping("/restoOpciones")
+    public String restoOpciones() {
+        return "restoOpciones";
+    }
+    
     
     @PostMapping("/registrar")
     public String registrar(ModelMap modelo ,@RequestParam String nombre, @RequestParam String apellido, @RequestParam String mail, @RequestParam String clave) {
