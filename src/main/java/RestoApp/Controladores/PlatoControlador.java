@@ -48,19 +48,19 @@ public class PlatoControlador {
             model.put("valor", valor);
             model.put("descripcion", descripcion);
             //en el form poner th:value="${nombre.variable}" para conservar los datos llenados
-            return "plato.html";
+            return "plato";
         }
 
-        return "redirect:/plato/pagplato";
+        return "redirect:/plato/crearplato";
     }
 
     @GetMapping("/modplato")
     public String modPlato(ModelMap model) {
         model.put("platos", pS.listarPlatos());
-        return "";
+        return "modplato";
     }
 
-    @PostMapping("modifiplato")
+    @PostMapping("/modifiplato")
     public String modifiPlato(ModelMap model, MultipartFile archivo, @RequestParam String idPlato, @RequestParam String nombre, @RequestParam Integer valor, @RequestParam String descripcion) throws ErrorServicio {
         try {
             pS.modificarPlato(archivo, idPlato, nombre, valor, descripcion);

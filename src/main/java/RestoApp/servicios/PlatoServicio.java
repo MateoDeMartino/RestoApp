@@ -30,8 +30,8 @@ public class PlatoServicio {
         plato.setValor(valor);
         plato.setDescripcion(descripcion);
 
-        Foto foto = fS.guardar(archivo);
-        plato.setFoto(foto);
+       // Foto foto = fS.guardar(archivo);
+        //plato.setFoto(foto);
 
         return platoRepo.save(plato);
     }
