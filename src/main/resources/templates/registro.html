@@ -43,9 +43,10 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                  
                     <div class="container-fluid">
-                      <a class="navbar-brand"  href="#">Carrito</a>
-                      <a class="navbar-brand"  href="#">Nosotros</a>
+                      <a class="navbar-brand"  href="/">Menu</a>
                       <a class="navbar-brand"  href="#">Reservas</a>
+                      <a class="navbar-brand"  href="#">Nosotros</a>
+                      <a class="navbar-brand"  href="#">Carrito</a>
                       <a class="navbar-brand"  href="#">Beneficios</a>
                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -78,19 +79,13 @@
             </nav>
 
         <h1>Crear tu cuenta en RestoApp</h1>
-        <form>
+        
+        <form action="/registrar" method="post">
             <input type="text" id="nombre" name="nombre" placeholder="Nombre"/>
             <input type="text" id="apellido" name="apellido" placeholder="Apellido"/> <br/>
-            <input type="email" id="email" name="email" placeholder="Correo electrónico"/> <br/>
-            <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña"/><br/>
-            <label for="nacimiento">Fecha de nacimiento</label> <br/>
-            <input type="date" id="nacimiento" name="nacimiento"/> <br/>
-            <label for="genero">Género</label><br/>
-            <div id="generos">
-                <input type="radio" name="genero" value="1"> Hombre <br/>
-                <input type="radio" name="genero" value="2"> Mujer <br/>
-                <input type="radio" name="genero" value="3"> Otro <br/>
-            </div>
+            <input type="email" id="mail" name="mail" placeholder="Correo electrónico"/> <br/>
+            <input type="password" id="clave" name="clave" placeholder="Contraseña"/><br/>
+            
             <button type="submit">Registrarte</button>
 
         </form>
