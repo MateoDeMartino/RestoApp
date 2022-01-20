@@ -77,8 +77,9 @@ public class MainController {
             
         }catch(ErrorServicio ex) {
             ex.getMessage();
+            return "Reserva";
         }
         
-        return "Reserva";
+        return "index";
     }
 }

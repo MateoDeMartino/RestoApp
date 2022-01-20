@@ -58,7 +58,7 @@ public class UsuarioServicio implements UserDetailsService{ //esta interface Use
         
         usuarioRepositorio.save(usuario);       //por ultimo le decimos al repositorio que lo guarde en la BD
         
-        notificacionServicio.enviar("Bienvenido a RestoApp", "RestoApp", usuario.getMail());
+        //notificacionServicio.enviar("Bienvenido a RestoApp", "RestoApp", usuario.getMail());
     }
     
     public void validar(String nombre, String apellido, String mail, String clave) throws ErrorServicio {
@@ -74,7 +74,7 @@ public class UsuarioServicio implements UserDetailsService{ //esta interface Use
             throw new ErrorServicio("Mail no puede ser vacio");
         }
 
-        if (clave == null || clave.isEmpty() || clave.length() < 6) {
+        if (clave == null || clave.isEmpty()) {
             throw new ErrorServicio("Clave no puede ser vacio o tener menos de 6 caracteres");
         }
     }
