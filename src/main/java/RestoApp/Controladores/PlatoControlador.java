@@ -48,10 +48,11 @@ public class PlatoControlador {
             model.put("valor", valor);
             model.put("descripcion", descripcion);
             //en el form poner th:value="${nombre.variable}" para conservar los datos llenados
+            
             return "plato";
         }
-
-        return "redirect:/plato/crearplato";
+        model.put("exito","El plato fue ingresado exitosamente");     
+        return "plato";
     }
 
     @GetMapping("/modplato")
@@ -72,7 +73,8 @@ public class PlatoControlador {
             //en el form poner th:value="${nombre.variable}" para conservar los datos llenados
             return "";
         }
-        return "redirect:/plato/pagplato";
+        model.put("error","El plato fue modificado con éxito");
+        return "redirect:/plato/modplato";
     }
 
     @PostMapping("/eliminarplato")

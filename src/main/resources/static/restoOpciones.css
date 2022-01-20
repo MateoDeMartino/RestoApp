@@ -149,5 +149,10 @@ img{
 p{
     color:#fff;
 }
-
+p.error{
+color: red;
+}
+p.exito{
+  color: green;
+  }
 

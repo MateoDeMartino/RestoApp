@@ -36,7 +36,8 @@
       Cargue su plato
     </div>
     <div class="card-body">
-       <p th:if= "${error != null}" th:text = ${error}></p>
+       <p class="error" th:if= "${error != null}" th:text = ${error}></p>
+       <p class="exito" th:if= "${exito != null}" th:text = ${exito}></p>
 
         <form action="/plato/guardarplato" method="POST" enctype="multipart/form-data">
           
@@ -58,7 +59,7 @@
           </div>
          
           <button type="submit" class="btn btn-primary">Guardar</button>
-          <button class="btn btn-primary" type="button" ><a href="/">Volver a principal</a></button>
+          <button class="btn btn-primary" type="button" ><a href="/restoOpciones">Volver al Menu</a></button>
         </form>
           </div>
 </div>

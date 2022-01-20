@@ -82,19 +82,20 @@ public class PlatoServicio {
     }
     
     public List <Plato> listarPlatos(){
+              
         return platoRepo.findAll();
     }
 
     public void validar(String nombre, Integer valor, String descripcion) throws ErrorServicio {
 
         if (nombre == null || nombre.isEmpty()) {
-            throw new ErrorServicio("El nombre es incorrecto");
+            throw new ErrorServicio("El nombre no puede estar vacio");
         }
-        if (valor == null) {
-            throw new ErrorServicio("El valor es incorrecto");
+        if (valor == null || valor<0) {
+            throw new ErrorServicio("El valor no puede ser nulo ni negativo");
         }
         if (descripcion == null || descripcion.isEmpty()) {
-            throw new ErrorServicio("La descripcion es incorrecta");
+            throw new ErrorServicio("Agregue una descripción");
         }
     }
 }
