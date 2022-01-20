@@ -17,7 +17,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSS Propio-->
-        <link rel="stylesheet" href="">
+        <link href="../static/vendor/animate.css/animate.min.css" rel="stylesheet">
+        <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        <link href="../static/css/style.css" rel="stylesheet">
         <title>RestoApp</title>
     </head>
     <body>
@@ -104,7 +108,178 @@
 
             <!-- menu-->
 
-
+                <!-- ======= Menu Section ======= -->
+    <section id="menu" class="menu">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2>Mira nuestro sabroso <span>Menu</span></h2>
+          </div>
+  
+          <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+              <ul id="menu-flters">
+                <li data-filter=".filter-starters" class="filter-active">Platos Principales</li>
+                <li data-filter=".filter-bebidas">Bebidas</li>
+                <li data-filter=".filter-postre">Postre</li>
+                <li data-filter=".filter-cafeteria">Cafetería</li>
+              </ul>
+            </div>
+          </div>
+  
+          <div class="row menu-container">
+  
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Lomo de Cerdo</a><span>$900</span>
+              </div>
+              <img src="../static/img/lomoCerdo.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+  
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Lasaña </a><span>$600</span>
+              </div>
+              <img src="../static/img/lasaña.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+  
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Tagliatelle a la primavera</a><span>$1000</span>
+              </div>
+              <img src="../static/img/Tagliatelle_a_la_primavera.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+  
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Angnolotis de Ricota y Espinaca</a><span>$500</span>
+              </div>
+              <img src="../static/img/Agnolotis_de_Ricota_y_Espinaca.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+  
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Asado de Tira</a><span>$1200</span>
+              </div>
+              <img src="../static/img/Asado_tira.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+  
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Brochette Mixto</a><span>$2000</span>
+              </div>
+              <img src="../static/img/Brochette_mixto.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+  
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Lechón a la Parrilla</a><span>$1500</span>
+              </div>
+              <img src="../static/img/Lechón_parrilla.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+  
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Milanesas a la Napolitana con Papas</a><span>$250</span>
+              </div>
+              <img src="../static/img/Milanesas_Napo.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+  
+            <!--bebidas-->
+            <div class="col-lg-6 menu-item filter-bebidas">
+              <div class="menu-content">
+                <a href="#">Coca Cola 500cc</a><span>$190</span>
+              </div>
+              <img src="../static/img/coca.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+            <div class="col-lg-6 menu-item filter-bebidas">
+              <div class="menu-content">
+                <a href="#">Sprite 500cc</a><span>$190</span>
+              </div>
+              <img src="../static/img/sprite.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+            <div class="col-lg-6 menu-item filter-bebidas">
+              <div class="menu-content">
+                <a href="#">Fernet</a><span>$300</span>
+              </div>
+              <img src="../static/img/fernet.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+            <div class="col-lg-6 menu-item filter-bebidas">
+              <div class="menu-content">
+                <a href="#">Vino Blanco</a><span>$500</span>
+              </div>
+              <img src="../static/img/blancos.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+  
+            <!--Postre-->
+            <div class="col-lg-6 menu-item filter-postre">
+              <div class="menu-content">
+                <a href="#">Helado Mixto</a><span>$250</span>
+              </div>
+              <img src="../static/img/HeladoMixto.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+            <div class="col-lg-6 menu-item filter-postre">
+              <div class="menu-content">
+                <a href="#">Flan Casero</a><span>$150</span>
+              </div>
+              <img src="../static/img/FlanCasero.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+            <div class="col-lg-6 menu-item filter-postre">
+              <div class="menu-content">
+                <a href="#">Copa Primavera</a><span>$350</span>
+              </div>
+              <img src="../static/img/Copaprimavera.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+  
+            <!--Cafeteria-->
+            <div class="col-lg-6 menu-item filter-cafeteria">
+              <div class="menu-content">
+                <a href="#">Café con leche</a><span>$150</span>
+              </div>
+              <img src="../static/img/cafeLeche.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+            <div class="col-lg-6 menu-item filter-cafeteria">
+              <div class="menu-content">
+                <a href="#">Capuccino</a><span>$250</span>
+              </div>
+              <img src="../static/img/capuccino.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+            <div class="col-lg-6 menu-item filter-cafeteria">
+              <div class="menu-content">
+                <a href="#">Medialuna</a><span>$85</span>
+              </div>
+              <img src="../static/img/Medialuna.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+            <div class="col-lg-6 menu-item filter-cafeteria">
+              <div class="menu-content">
+                <a href="#">Porcion Torta Chocolate</a><span>$350</span>
+              </div>
+              <img src="../static/img/PorcionTorta.jpg" class="rounded float-start" alt="" width="100"
+                height="100">
+            </div>
+            
+          </div>
+  
+        </div>
+      </section><!-- End Menu Section -->
 
 
 
@@ -112,6 +287,12 @@
             <button type="reset"> Cancelar Reserva</button>
 
         </form>
+
+        <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="../static/js/main.js"></script>
 
     </body>
 </html>
