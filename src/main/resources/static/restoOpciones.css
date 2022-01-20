@@ -8,11 +8,11 @@ header{
     height: 15%;
 }
 a{
-  color:#DE934D;  
+  color:#fff;  
  text-decoration: none; 
 }
 a:hover{
-    color:#DE934D;
+    color:#fff;
 }
 
 .logo{
@@ -81,6 +81,15 @@ color:#DE934D;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Paytone One', sans-serif;
     
+}
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #212529;
+  text-decoration: none;
+  background-color: #444343;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 

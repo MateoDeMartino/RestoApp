@@ -29,9 +29,9 @@ public class PlatoServicio {
         plato.setNombre(nombre);
         plato.setValor(valor);
         plato.setDescripcion(descripcion);
-
-       // Foto foto = fS.guardar(archivo);
-        //plato.setFoto(foto);
+        plato.setAlta(true);
+        Foto foto = fS.guardar(archivo);
+        plato.setFoto(foto);
 
         return platoRepo.save(plato);
     }

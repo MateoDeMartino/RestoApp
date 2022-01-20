@@ -16,7 +16,7 @@ public class Foto {
     @GenericGenerator(name = "uuid", strategy = "uuid2")    
     private String id;
     private String mime;
-    private String nombre;
+   
     
     
     @Lob //identifica que el tipo de dato es pesado
@@ -26,10 +26,10 @@ public class Foto {
     public Foto() {
     }
 
-    public Foto(String id, String mime, String nombre, byte[] contenido) {
+    public Foto(String id, String mime,byte[] contenido) {
         this.id = id;
         this.mime = mime;
-        this.nombre = nombre;
+        
         this.contenido = contenido;
     }
 
@@ -49,13 +49,7 @@ public class Foto {
         this.mime = mime;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+  
 
     public byte[] getContenido() {
         return contenido;
@@ -67,7 +61,7 @@ public class Foto {
 
     @Override
     public String toString() {
-        return "Foto{" + "id=" + id + ", mime=" + mime + ", nombre=" + nombre + ", contenido=" + contenido + '}';
+        return "Foto{" + "id=" + id + ", mime=" + mime + ", nombre=" + ", contenido=" + contenido + '}';
     }
     
     

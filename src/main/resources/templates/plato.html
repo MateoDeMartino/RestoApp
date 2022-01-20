@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS Propio-->
-    <link rel="stylesheet" href="restoOpciones.css">
+    <link rel="stylesheet" href="../restoOpciones.css">
     <title>Cargar Plato</title>
 </head>
 <body>
@@ -36,9 +36,10 @@
       Cargue su plato
     </div>
     <div class="card-body">
- 
-        <form action="/guardarplato" method="POST" enctype="multipart/form-data">
-          <p th:if= "${error != null}" th:text = ${error}></p>
+       <p th:if= "${error != null}" th:text = ${error}></p>
+
+        <form action="/plato/guardarplato" method="POST" enctype="multipart/form-data">
+          
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nombre del plato</label>
             <input type="text" class="form-control" name="nombre" th:value="${nombre}">
@@ -51,10 +52,10 @@
             <label for="exampleInputEmail1" class="form-label">Descripcion</label>
             <textarea type="text" class="form-control" rows="5" name="descripcion" th:value="${descripcion}"></textarea>
           </div>
-            <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Ingrese Foto de plato</label>
-                            <input type="file" class="form-control" name="archivo">
-                        </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Ingrese Foto de plato</label>
+            <input type="file" class="form-control" name="archivo">
+          </div>
          
           <button type="submit" class="btn btn-primary">Guardar</button>
           <button class="btn btn-primary" type="button" ><a href="/">Volver a principal</a></button>

@@ -3,6 +3,7 @@ package RestoApp.servicios;
 import RestoApp.entidades.Foto;
 import RestoApp.repositorios.FotoRepositorio;
 import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,13 +13,13 @@ public class FotoServicio {
 
     @Autowired
     private FotoRepositorio fotoRepo;
-
+    @Transactional
     public Foto guardar(MultipartFile archivo) {
         if (archivo != null) {
             try {
                 Foto foto = new Foto();
                 foto.setMime(archivo.getContentType());
-                foto.setNombre(archivo.getName());
+              
                 foto.setContenido(archivo.getBytes());
 
                 return fotoRepo.save(foto);
@@ -29,7 +30,7 @@ public class FotoServicio {
         }
         return null;
     }
-
+    @Transactional
     public Foto actualizar(String idFoto, MultipartFile archivo) {
 
         if (archivo != null) {
@@ -41,7 +42,7 @@ public class FotoServicio {
                 }
 
                 foto.setMime(archivo.getContentType());
-                foto.setNombre(archivo.getName());
+            
                 foto.setContenido(archivo.getBytes());
 
                 return fotoRepo.save(foto);
