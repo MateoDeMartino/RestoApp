@@ -44,7 +44,7 @@ public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter{
                                 .loginProcessingUrl("/logincheck")      //Url que usa Spring Secutiry para que validar un usuario, esa URL es la que hay q usar en el form de login en la pagina login.html
                                 .usernameParameter("username")          //nombre del parametro con los que van a viajar el nombre de usuario
                                 .passwordParameter("password")          //idem con password
-                                .defaultSuccessUrl("/inicio")           //URL  a la que va a ingresar si el usuario se autentico con exito
+                                .defaultSuccessUrl("/")           //URL  a la que va a ingresar si el usuario se autentico con exito
                                 .permitAll()    
                             .and().logout()
                                 .logoutUrl("/logout")                   //URl de salida, con que URL el usuario se va deslogear del sistema     
