@@ -27,7 +27,7 @@ public class RestauranteControlador {
     public String guardarRestaurante(String nombre, Menu menu,Integer mesas,Zona zona,Boolean abierto){
         
         try{
-            restauranteServicio.guardarRestaurante(nombre,menu, mesas, zona , abierto);
+            restauranteServicio.guardarRestaurante(nombre,menu,mesas,abierto);
         }catch(Exception e){           
             System.out.println(e.getMessage());     
         }

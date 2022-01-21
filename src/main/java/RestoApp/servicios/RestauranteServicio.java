@@ -17,8 +17,11 @@ public class RestauranteServicio {
     @Autowired
     private RestauranteRepositorio restauranteRepositorio;
     
+    @Autowired
+    private ZonaServicio zonaServicio;
+    
     @Transactional
-    public void guardarRestaurante(String nombre, Menu menu,Integer mesas,Zona zona,Boolean abierto)throws ErrorServicio{
+    public void guardarRestaurante(String nombre, Menu menu,Integer mesas,Boolean abierto)throws ErrorServicio{
         
         Restaurante restaurante = new Restaurante();
         
@@ -31,8 +34,11 @@ public class RestauranteServicio {
         if ( mesas == 0 || mesas == null) {
             throw new ErrorServicio("Se necesita la cantidad de mesas");
         } 
-        if (zona == null) {
+        if (restaurante.getZona() == null) {
             throw new ErrorServicio("Se necesita saber la zona");
+        }else{
+            restaurante.setZona(zonaServicio.crearZona(restaurante.getZona()));
+            
         }
         if (abierto == null ) {
             throw new ErrorServicio("Se necesita saber si esta abierto o cerrado");
@@ -41,8 +47,7 @@ public class RestauranteServicio {
        
         restaurante.setNombre(nombre);
         restaurante.setMenu(menu);
-        restaurante.setMesas(mesas);
-        restaurante.setZona(zona);
+        restaurante.setMesas(mesas);        
         restaurante.setAbierto(abierto);
         
         restauranteRepositorio.save(restaurante);

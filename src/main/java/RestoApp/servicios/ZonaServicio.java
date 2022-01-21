@@ -7,6 +7,7 @@ package RestoApp.servicios;
 
 import RestoApp.Entidades.Zona;
 import RestoApp.repositorios.ZonaRepositorio;
+import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +24,16 @@ public class ZonaServicio {
     ZonaRepositorio zonarepositorio;
 
     @Transactional
-    public Zona crearZona(String nombreZona) throws ErrorServicio {
-        if (nombreZona.isEmpty() || nombreZona == null) {
-            throw new ErrorServicio("La zona no puede estar vacia");
-        }
+    public Zona crearZona(String nombreZona) {
         Zona zona = new Zona();
         zona.setNombreZona(nombreZona);
+        return zonarepositorio.save(zona);
+    }
+    @Transactional
+    public Zona crearZona(Zona zona) throws ErrorServicio{
+        if (zona == null) {
+            throw new ErrorServicio ("La zona no puede ser nula");
+        }        
         return zonarepositorio.save(zona);
     }
 
@@ -46,5 +51,9 @@ public class ZonaServicio {
             zona.setNombreZona(nombreZona);
         }
         return zonarepositorio.save(zona);
+    }
+    
+    public List<Zona> listarZonas(){
+        return zonarepositorio.findAll();
     }
 }
