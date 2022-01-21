@@ -12,7 +12,7 @@
     <!-- Animación-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <meta charset="UTF-8">
-  
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS Propio-->
@@ -33,7 +33,7 @@
 <section>
 <div class="card">
     <div class="card-header">
-        Indique la Zona de su Restaurante
+        Registre una Zona
     </div>
     <div class="card-body">
 
@@ -41,11 +41,11 @@
             <p th:if= "${error != null}" th:text = ${error}></p>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Zona</label>
-                <input type="text" class="form-control" th:value="${zona.nombreZona}" placeholder = "Zona..">
+                <input type="text" class="form-control" name= "nombreZona" placeholder = "Zona..">
             </div>
             
             <button type="submit" class="btn btn-primary">Guardar</button>
-            <button class="btn btn-primary" type="button" ><a href="/">Volver a principal</a></button>
+            <button class="btn btn-primary" type="button" ><a href="/restoOpciones">Volver al menu</a></button>
         </form>
     </div>
 </div>
