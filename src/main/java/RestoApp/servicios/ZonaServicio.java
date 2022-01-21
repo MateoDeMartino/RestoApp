@@ -53,6 +53,19 @@ public class ZonaServicio {
         return zonarepositorio.save(zona);
     }
     
+    
+    @Transactional
+    public void deshabilitarZona(String id) throws ErrorServicio{
+        
+        Optional<Zona> respuesta = zonarepositorio.findById(id);
+        if (respuesta.isPresent()) {
+            Zona zona = respuesta.get();
+            zonarepositorio.delete(zona);           
+        } else {
+            throw new ErrorServicio("La zona no fue encontrado");
+        }
+    }
+    
     public List<Zona> listarZonas(){
         return zonarepositorio.findAll();
     }

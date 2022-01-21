@@ -5,6 +5,7 @@ import RestoApp.Entidades.Menu;
 import RestoApp.Entidades.Restaurante;
 import RestoApp.Entidades.Zona;
 import RestoApp.repositorios.RestauranteRepositorio;
+import RestoApp.repositorios.ZonaRepositorio;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -18,37 +19,26 @@ public class RestauranteServicio {
     private RestauranteRepositorio restauranteRepositorio;
     
     @Autowired
-    private ZonaServicio zonaServicio;
+    private ZonaRepositorio zonaRepo;
     
     @Transactional
-    public void guardarRestaurante(String nombre, Menu menu,Integer mesas,Boolean abierto)throws ErrorServicio{
+    public void guardarRestaurante(String nombre, Menu menu,Integer mesas,Boolean abierto, String idZona)throws ErrorServicio{
         
-        Restaurante restaurante = new Restaurante();
+        validar(nombre,menu,mesas, abierto, idZona);
         
-        if (nombre == null || nombre.isEmpty()) {
-            throw new ErrorServicio("El nombre no puede ser nulo");
-        }
-        if ( menu.getPlato().getNombre().isEmpty() || menu == null ) {
-            throw new ErrorServicio("Se necesita un menu");
-        }
-        if ( mesas == 0 || mesas == null) {
-            throw new ErrorServicio("Se necesita la cantidad de mesas");
-        } 
-        if (restaurante.getZona() == null) {
-            throw new ErrorServicio("Se necesita saber la zona");
-        }else{
-            restaurante.setZona(zonaServicio.crearZona(restaurante.getZona()));
-            
-        }
-        if (abierto == null ) {
-            throw new ErrorServicio("Se necesita saber si esta abierto o cerrado");
-        }
-        
-       
+        Restaurante restaurante = new Restaurante();      
         restaurante.setNombre(nombre);
         restaurante.setMenu(menu);
         restaurante.setMesas(mesas);        
         restaurante.setAbierto(abierto);
+        
+        Optional<Zona> respuesta = zonaRepo.findById(idZona);
+        if (respuesta.isPresent()) {
+            Zona zona = respuesta.get();
+            restaurante.setZona(zona);
+        } else {
+            throw new ErrorServicio("No se encontro la zona");
+        }
         
         restauranteRepositorio.save(restaurante);
         
@@ -92,6 +82,24 @@ public class RestauranteServicio {
         restaurante.get().setAbierto(false);
         restauranteRepositorio.save(restaurante.get());
         
+    }
+    
+    public void validar(String nombre, Menu menu,Integer mesas,Boolean abierto, String idZona) throws ErrorServicio{
+        if (nombre == null || nombre.isEmpty()) {
+            throw new ErrorServicio("El nombre no puede ser nulo");
+        }
+        if ( menu.getPlato().getNombre().isEmpty() || menu == null ) {
+            throw new ErrorServicio("Se necesita un menu");
+        }
+        if ( mesas == 0 || mesas == null) {
+            throw new ErrorServicio("Se necesita la cantidad de mesas");
+        } 
+        if (idZona ==null || idZona.isEmpty()) {
+            throw new ErrorServicio("Se necesita saber la zona");
+        }
+        if (abierto == null ) {
+            throw new ErrorServicio("Se necesita saber si esta abierto o cerrado");
+        }
     }
     
     public List<Restaurante> listaraRestaurantes() {

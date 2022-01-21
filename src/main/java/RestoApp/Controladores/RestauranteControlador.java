@@ -4,6 +4,7 @@ package RestoApp.Controladores;
 import RestoApp.Entidades.Menu;
 import RestoApp.Entidades.Zona;
 import RestoApp.servicios.RestauranteServicio;
+import RestoApp.servicios.ZonaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,16 +19,19 @@ public class RestauranteControlador {
     @Autowired
     private RestauranteServicio restauranteServicio;
     
+    @Autowired
+    private ZonaServicio zS;
+    
 //    @GetMapping("/")
 //    public String index() {
 //        return "index";
 //    }
     
     @PostMapping("/guadarRestaurante")
-    public String guardarRestaurante(String nombre, Menu menu,Integer mesas,Zona zona,Boolean abierto){
+    public String guardarRestaurante(String nombre, Menu menu,Integer mesas, String idZona,Boolean abierto){
         
         try{
-            restauranteServicio.guardarRestaurante(nombre,menu,mesas,abierto);
+            restauranteServicio.guardarRestaurante(nombre,menu,mesas,abierto, idZona);
         }catch(Exception e){           
             System.out.println(e.getMessage());     
         }

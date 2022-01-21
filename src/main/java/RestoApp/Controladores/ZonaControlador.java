@@ -31,4 +31,29 @@ public class ZonaControlador {
         zS.crearZona(nombreZona);
         return "restoOpciones";
     }
+    
+    @GetMapping("/modautor")
+    public String modAutor(ModelMap model){
+        model.put("zonas", zS.listarZonas());
+        return "zonamod";
+    }
+    
+    @PostMapping("/modifizona")
+    public String modifiZona (@RequestParam String id, @RequestParam String nombreZona) throws ErrorServicio{
+        zS.modificarZona(id, nombreZona);
+        return "restoOpciones";
+    }
+    
+    @PostMapping("/eliminarzona")
+    public String eliminarZona(@RequestParam String id) throws ErrorServicio {
+        zS.deshabilitarZona(id);
+        return "restoOpciones";
+    }
+
+    @GetMapping("/lista")
+    public String listarZona(ModelMap model){        
+        model.put("zonas", zS.listarZonas());
+        return "zona";
+    }
+    
 }
