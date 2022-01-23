@@ -20,23 +20,34 @@
 
 
 <!--logo Y BOTONES DE REGISTRO Y INICIO-->
-<header>
-  <div class="container-fluid top"> 
-    <div class="">
+<div class="container-fluid" id='mainContainer'> 
+    <header>
+    
          <div class="logo">
-                 <p  class="animate_animated animate_bounde"> RESTO APP</p>     
+                 <p  class="animate_animated animate_bounde"> RESTO APP</p>  
          </div>
 
-       
-          <div class="botones">
-          <a href="##"><button type="button" class="btn btn-outline-secondary">Registrate</button></a>         
-          <a href="##"><button type="button" class="btn btn-outline-secondary">Iniciar Sesión</button></a>
+         <div class="botones">
+          <a href="#"><button type="button" class="btn btn-outline-secondary">Registrate</button></a>         
+          <a href="#"><button type="button" class="btn btn-outline-secondary">Iniciar Sesión</button></a>
+          </div>   
+           
+         
+          <div class="fs-2 mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
+<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+</svg>
+            <p class='usuario'>@Usuario</p>
           </div>
         
+
+       
+         
+        
      
-    </div>
-  </div>  
-</header>
+    
+  </header>
+  
 <!-- NAVEGADOR-->
 <div class="navegador">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -81,7 +92,7 @@
 
 <section>
   
-  
+  <div class="container">
   <!-- cartas de los diferentes restaruantes-->
   <div class="row row-cols-1 row-cols-md-4 g-4">
     <div class="col">
@@ -134,12 +145,15 @@
     </div>
   </div>
    
+</div>
 </section>
+
 
  <!--PIE-->
 <footer>
     <p>Copyright 2001-2021 RestoApp. Todos los derechos reservados. Prohibida la duplicación, distribución o almacenamiento en cualquier medio.</p>
 </footer>
+</div>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 </body>
 </html>

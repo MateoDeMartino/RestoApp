@@ -1,26 +1,31 @@
 
-body{
+#mainContainer{
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0px;
+  padding-right: 0px;
+}
 
+body{
+ margin:0;
 }
 header{
     width: 100%;
     background-color:#461111;
-    height: 15%;
+    height: 150px;
 }
 
 .logo{
-width: 20%;
+width: 100%;
 height: 90px;
 font-family: 'Open Sans', sans-serif;
 font-family: 'Paytone One', sans-serif;
-float: left;
 
 }
 /* LOGO */
 .logo p{
   padding-left: 15px;
 font-size:60px;
-position: absolute;
 animation: jackInTheBox;
 animation-duration:3s;
 text-align: center;
@@ -31,13 +36,7 @@ font-family: 'Paytone One', sans-serif;
 color:#DE934D;
 }
 .botones{
-  display:inline-block;
-  width: 70%;
-  height: 90px;
-  
-  margin: 0 auto;
- padding-top: 25px;
- padding-left:65em;
+ float:right;
   
 }
 .btn-outline-secondary {
@@ -60,10 +59,10 @@ color:#DE934D;
 .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
   color: #DE934D;
 }
-.row {
+/* .row {
   padding-left: 20px;
   padding-right: 20px;
-}
+} */
 .bg-light{
     
     
@@ -128,4 +127,10 @@ img{
   width: 60px;
   height: 100px;
   
+}
+
+.usuario{
+  display: inline-block;
+  color: white; 
+  margin: 0;
 }
