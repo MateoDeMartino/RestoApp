@@ -24,16 +24,18 @@ public class RestauranteServicio {
     @Transactional
     public void guardarRestaurante(String nombre, Menu menu,Integer mesas,String zona,Boolean abierto)throws ErrorServicio{
         
-        validar(nombre,menu,mesas, abierto, zona);
+        //validar(nombre,menu,mesas, abierto, zona);
         
         Restaurante restaurante = new Restaurante();      
         restaurante.setNombre(nombre);
+        menu = null;
         restaurante.setMenu(menu);
-        restaurante.setMesas(mesas);        
+        restaurante.setMesas(mesas);   
+        abierto = null;
         restaurante.setAbierto(abierto);
         String zonaMayusc = zona.toUpperCase();
         Zona respuesta = zonaRepositorio.buscarZonaPorNombre(zonaMayusc);
-        if (respuesta.getNombre()==zona) {
+        if (respuesta.getNombre().equals(zonaMayusc)) {
             restaurante.setZona(respuesta);
         } else {
             throw new ErrorServicio("No se encontro la zona");
