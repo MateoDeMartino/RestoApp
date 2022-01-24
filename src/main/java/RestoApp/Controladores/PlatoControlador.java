@@ -64,7 +64,7 @@ public class PlatoControlador {
         model.put("nombre1", plato.getNombre());
         model.put("valor1", plato.getValor());
         model.put("descripcion1", plato.getDescripcion());
-        return "plato";
+        return "redirect:/plato/modplato";
     }
 
     @GetMapping("/modplato")
@@ -94,10 +94,23 @@ public class PlatoControlador {
             pS.bajaPlato(idPlato);
         } catch (ErrorServicio ex) {
             model.put("error", ex.getMessage());
-            return "";
+            return "redirect:/plato/modplato";
         }
+        model.put("exito", "Plato eliminado correctamente");
         return "redirect:/plato/pagplato";
     }
+    
+//    @GetMapping("/eliminarplato")
+//    public String eliminarPlato(@RequestParam String Id) {
+//        try{
+//            pS.bajaPlato(Id);
+//        }catch(ErrorServicio e){
+//            e.getMessage();
+//        }
+//
+//        return "redirect:/plato/pagplato";
+//    }
+
 
     @PostMapping("/altaplato")
     public String altaPlato(ModelMap model, @RequestParam String idPlato) {

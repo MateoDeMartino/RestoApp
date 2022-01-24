@@ -52,7 +52,7 @@
       </thead>
 
       <tbody>
-        <tr  th:each="Plato :${platos}">
+        <tr  th:each="Plato :${platos}" th:if="${Plato.alta!=false}">
           <td th:text="${Plato.nombre}"></td>
           <td th:text="${Plato.valor}"></td>
           <td th:text="${Plato.descripcion}"></td>
@@ -62,14 +62,18 @@
           <td>
             <a class="btn btn-warning" th:href="@{/plato/modplato/} + ${Plato.id}">Editar <i class="fa fa-edit"></i></a>
           </td>
-          <td></td>
+          <td>
+            <a class="btn btn-warning" th:href="@{/plato/eliminarplato/} + ${Plato.id}">Eliminar <i class="fa fa-edit"></i></a>
+            <!-- <a class="btn btn-warning" th:href="@{/eliminarplato(Id=__${plato.Id}__)}"> <button>Eliminar</button></a> -->
+  
+          </td>
         </tr>
       </tbody>
     
 
 
     </table>
-          <button class="btn btn-primary" type="button" ><a href="/restoOpciones">Volver </a></button>
+    <button class="btn btn-warning" type="button" ><a href="/">Volver al Menu</a></button>
 </div>
            
 
