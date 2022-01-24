@@ -24,21 +24,22 @@ public class ZonaServicio {
     ZonaRepositorio zonarepositorio;
 
     @Transactional
-    public Zona crearZona(String nombreZona) {
+    public Zona crearZona(String nombre) {
         Zona zona = new Zona();
-        zona.setNombreZona(nombreZona);
+        String nombreMayusc = nombre.toUpperCase();
+        zona.setNombre(nombreMayusc);
         return zonarepositorio.save(zona);
     }
-    @Transactional
-    public Zona crearZona(Zona zona) throws ErrorServicio{
-        if (zona == null) {
-            throw new ErrorServicio ("La zona no puede ser nula");
-        }        
-        return zonarepositorio.save(zona);
-    }
+//    @Transactional
+//    public Zona crearZona(Zona zona) throws ErrorServicio{
+//        if (zona == null) {
+//            throw new ErrorServicio ("La zona no puede ser nula");
+//        }        
+//        return zonarepositorio.save(zona);
+//    }
 
     @Transactional
-    public Zona modificarZona(String id, String nombreZona) throws ErrorServicio {
+    public Zona modificarZona(String id, String nombre) throws ErrorServicio {
         if (id.isEmpty()) {
 
             throw new ErrorServicio("La zona no existe");
@@ -48,7 +49,7 @@ public class ZonaServicio {
         Optional<Zona> respuesta = zonarepositorio.findById(id);
         if (respuesta.isPresent()) {
             zona = respuesta.get();
-            zona.setNombreZona(nombreZona);
+            zona.setNombre(nombre);
         }
         return zonarepositorio.save(zona);
     }

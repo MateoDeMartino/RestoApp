@@ -1,7 +1,9 @@
-    package RestoApp.Controladores;
+package RestoApp.Controladores;
 
+import RestoApp.Entidades.Menu;
 import RestoApp.servicios.ErrorServicio;
 import RestoApp.servicios.ReservaServicio;
+import RestoApp.servicios.RestauranteServicio;
 import RestoApp.servicios.UsuarioServicio;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class MainController {
 
     @Autowired
     ReservaServicio reservaServicio;
+
+    @Autowired
+    RestauranteServicio restauranteServicio;
 
     @GetMapping("/")
     public String index() {
@@ -80,8 +85,31 @@ public class MainController {
 
     @GetMapping("/restoOpciones")
     /*En este get se colocan la lista de opciones que tendrán los dueños de los restos para cargar su información*/
-    
+
     public String restoOpciones() {
         return "restoOpciones";
     }
+
+    @GetMapping("/Restaurante")
+    public String restaurante() {
+        return "Restaurante";
+    }
+
+    @PostMapping("/guardarRestaurante")
+    public String guardarRestaurante(String nombre, Menu menu, Integer mesas, String zona, Boolean abierto) {
+
+        try {
+            restauranteServicio.guardarRestaurante(nombre, menu, mesas, zona, abierto);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return "index";
+    }
+
+    @GetMapping("/zona")
+    public String zona() {
+        return "zona";
+    }
+
 }

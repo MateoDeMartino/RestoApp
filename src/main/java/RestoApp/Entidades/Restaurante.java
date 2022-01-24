@@ -3,9 +3,7 @@ package RestoApp.Entidades;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -25,6 +23,7 @@ public class Restaurante {
     private Boolean abierto;
 
     public Restaurante() {
+        this.abierto = true;
     }
 
     public Restaurante(String nombre, Menu menu, Integer mesas, Zona zona, Boolean abierto) {
@@ -32,7 +31,7 @@ public class Restaurante {
         this.menu = menu;
         this.mesas = mesas;
         this.zona = zona;
-        this.abierto = abierto;
+        this.abierto = true;
     }
 
     public String getId() {

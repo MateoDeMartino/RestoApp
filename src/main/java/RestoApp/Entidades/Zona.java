@@ -12,13 +12,13 @@ public class Zona {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    private String nombreZona;
+    private String nombre;
 
     public Zona() {
     }
 
-    public Zona(String nombreZona) {
-        this.nombreZona = nombreZona;
+    public Zona(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getId() {
@@ -29,17 +29,17 @@ public class Zona {
         this.id = id;
     }
 
-    public String getNombreZona() {
-        return nombreZona;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombreZona(String nombreZona) {
-        this.nombreZona = nombreZona;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     @Override
     public String toString() {
-        return "Zona{" + "id=" + id + ", nombreZona=" + nombreZona + '}';
+        return "Zona{" + "id=" + id + ", nombreZona=" + nombre + '}';
     }
 
 }
