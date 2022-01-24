@@ -56,10 +56,10 @@ public class MainController {
             modelo.put("apellido", apellido);
             modelo.put("mail", mail);
             modelo.put("clave", clave);
-            return "registroUsuario.html";
+            return "registro";
         }
         modelo.put("exito", "El usuario fue ingresado exitosamente");
-        return "registroUsuario.html";
+        return "registro";
     }
 
     @GetMapping("/Reserva")

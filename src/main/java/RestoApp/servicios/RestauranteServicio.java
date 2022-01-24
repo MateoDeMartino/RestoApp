@@ -31,8 +31,7 @@ public class RestauranteServicio {
         menu = null;
         restaurante.setMenu(menu);
         restaurante.setMesas(mesas);   
-        abierto = null;
-        restaurante.setAbierto(abierto);
+        restaurante.setAbierto(true);
         String zonaMayusc = zona.toUpperCase();
         Zona respuesta = zonaRepositorio.buscarZonaPorNombre(zonaMayusc);
         if (respuesta.getNombre().equals(zonaMayusc)) {
