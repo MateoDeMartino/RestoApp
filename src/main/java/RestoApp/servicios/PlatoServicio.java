@@ -80,10 +80,17 @@ public class PlatoServicio {
             throw new ErrorServicio ("El plato no fue encontrado");
         }
     }
-    
+    @Transactional
     public List <Plato> listarPlatos(){
               
         return platoRepo.findAll();
+    }
+     @Transactional
+    public Plato buscarPlatoId(String id){
+              Plato p1 = new Plato();
+              p1=platoRepo.buscarPlatoId(id);
+            
+        return p1;
     }
 
     public void validar(String nombre, Integer valor, String descripcion) throws ErrorServicio {
