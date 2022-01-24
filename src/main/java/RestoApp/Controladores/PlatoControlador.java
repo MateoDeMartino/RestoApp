@@ -24,14 +24,8 @@ public class PlatoControlador {
 
     List<Plato> platos = new ArrayList<>();
 
-    @GetMapping("/pagplato")
-    public String pagPlato() {
-        return "";
-    }
-
     @GetMapping("/crearplato")
-    public String crearPlato(ModelMap model) {
-        model.put("platos", pS.listarPlatos());     
+    public String crearPlato() {    
         return "plato";
     }
 
@@ -55,6 +49,7 @@ public class PlatoControlador {
         model.put("exito","El plato fue ingresado exitosamente");     
         return "plato";
     }
+<<<<<<< Updated upstream
     
    @GetMapping("/listaPlatos")
     public String listarPlatos(ModelMap model) {
@@ -73,6 +68,11 @@ public class PlatoControlador {
         model.put("descripcion1",plato.getDescripcion());
         
         
+=======
+
+    @GetMapping("/modplato")
+    public String modPlato() {
+>>>>>>> Stashed changes
         return "modplato";
     }
 
