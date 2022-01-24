@@ -7,6 +7,8 @@ package RestoApp.repositorios;
 
 import RestoApp.Entidades.Zona;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -14,6 +16,9 @@ import org.springframework.stereotype.Repository;
  * @author Federico
  */
 @Repository
-public interface ZonaRepositorio extends JpaRepository<Zona, String>{
-    
+public interface ZonaRepositorio extends JpaRepository<Zona, String> {
+
+    @Query("SELECT c FROM Zona c WHERE c.nombre = :zona")
+    public Zona buscarZonaPorNombre(@Param("zona") String zona);
+
 }

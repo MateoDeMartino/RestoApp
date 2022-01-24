@@ -19,23 +19,22 @@ public class RestauranteServicio {
     private RestauranteRepositorio restauranteRepositorio;
     
     @Autowired
-    private ZonaRepositorio zonaRepo;
+    private ZonaRepositorio zonaRepositorio;
     
     @Transactional
-    public void guardarRestaurante(String nombre, Menu menu,Integer mesas,Boolean abierto, String idZona)throws ErrorServicio{
+    public void guardarRestaurante(String nombre, Menu menu,Integer mesas,String zona,Boolean abierto)throws ErrorServicio{
         
-        validar(nombre,menu,mesas, abierto, idZona);
+        validar(nombre,menu,mesas, abierto, zona);
         
         Restaurante restaurante = new Restaurante();      
         restaurante.setNombre(nombre);
         restaurante.setMenu(menu);
         restaurante.setMesas(mesas);        
         restaurante.setAbierto(abierto);
-        
-        Optional<Zona> respuesta = zonaRepo.findById(idZona);
-        if (respuesta.isPresent()) {
-            Zona zona = respuesta.get();
-            restaurante.setZona(zona);
+        String zonaMayusc = zona.toUpperCase();
+        Zona respuesta = zonaRepositorio.buscarZonaPorNombre(zonaMayusc);
+        if (respuesta.getNombre()==zona) {
+            restaurante.setZona(respuesta);
         } else {
             throw new ErrorServicio("No se encontro la zona");
         }

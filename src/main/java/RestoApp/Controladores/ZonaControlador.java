@@ -16,34 +16,36 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/zona")
 public class ZonaControlador {
-     @Autowired
-     ZonaServicio zS = new ZonaServicio();
-     
-     List<Zona> zonas = new ArrayList<>();
-     
-     @GetMapping("/crearzona")
-    public String crearPlato(ModelMap model) {
+
+    @Autowired
+    ZonaServicio zS = new ZonaServicio();
+
+    List<Zona> zonas = new ArrayList<>();
+    
+    @PostMapping("/crearzona")
+    public String crearZona(ModelMap model) {
         model.put("zonas", zS.listarZonas());
         return "zona";
     }
-     @PostMapping("/guardarzona")
-    public String guardarPlato(ModelMap model, @RequestParam String nombreZona) {
-        zS.crearZona(nombreZona);
-        return "restoOpciones";
+
+    @PostMapping("/guardarzona")
+    public String guardarZona(ModelMap model, @RequestParam String nombre) {
+        zS.crearZona(nombre);
+        return "zona";
     }
-    
-    @GetMapping("/modautor")
-    public String modAutor(ModelMap model){
+
+    @GetMapping("/modzona")
+    public String modZona(ModelMap model) {
         model.put("zonas", zS.listarZonas());
         return "zonamod";
     }
-    
+
     @PostMapping("/modifizona")
-    public String modifiZona (@RequestParam String id, @RequestParam String nombreZona) throws ErrorServicio{
-        zS.modificarZona(id, nombreZona);
+    public String modifiZona(@RequestParam String id, @RequestParam String nombre) throws ErrorServicio {
+        zS.modificarZona(id, nombre);
         return "restoOpciones";
     }
-    
+
     @PostMapping("/eliminarzona")
     public String eliminarZona(@RequestParam String id) throws ErrorServicio {
         zS.deshabilitarZona(id);
@@ -51,9 +53,9 @@ public class ZonaControlador {
     }
 
     @GetMapping("/lista")
-    public String listarZona(ModelMap model){        
+    public String listarZona(ModelMap model) {
         model.put("zonas", zS.listarZonas());
         return "zona";
     }
-    
+
 }
