@@ -1,4 +1,4 @@
-package RestoApp.Controladores;
+    package RestoApp.Controladores;
 
 import RestoApp.servicios.ErrorServicio;
 import RestoApp.servicios.ReservaServicio;
@@ -79,6 +79,8 @@ public class MainController {
     }
 
     @GetMapping("/restoOpciones")
+    /*En este get se colocan la lista de opciones que tendrán los dueños de los restos para cargar su información*/
+    
     public String restoOpciones() {
         return "restoOpciones";
     }
