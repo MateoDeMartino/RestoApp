@@ -25,7 +25,7 @@ public class PlatoControlador {
     List<Plato> platos = new ArrayList<>();
 
     @GetMapping("/crearplato")
-    public String crearPlato() {    
+    public String crearPlato() {
         return "plato";
     }
 
@@ -43,31 +43,29 @@ public class PlatoControlador {
             model.put("valor", valor);
             model.put("descripcion", descripcion);
             //en el form poner th:value="${nombre.variable}" para conservar los datos llenados
-            
+
             return "plato";
         }
-        model.put("exito","El plato fue ingresado exitosamente");     
+        model.put("exito", "El plato fue ingresado exitosamente");
         return "plato";
     }
-    
-   @GetMapping("/listaPlatos")
+
+    @GetMapping("/listar")
     public String listarPlatos(ModelMap model) {
-       
+
         model.put("platos", pS.listarPlatos());
-        
-        
+
         return "listaPlatos";
     }
-    
-    @GetMapping("/modplato/{id}")
-    public String modPlato(@PathVariable("id") String id,ModelMap model) {
-        Plato plato =pS.buscarPlatoId(id);
-        model.put("nombre1",plato.getNombre())  ;
-        model.put("valor1",plato.getValor());
-        model.put("descripcion1",plato.getDescripcion());
-        return "plato";
-    }  
 
+    @GetMapping("/modplato/{id}")
+    public String modPlato(@PathVariable("id") String id, ModelMap model) {
+        Plato plato = pS.buscarPlatoId(id);
+        model.put("nombre1", plato.getNombre());
+        model.put("valor1", plato.getValor());
+        model.put("descripcion1", plato.getDescripcion());
+        return "plato";
+    }
 
     @GetMapping("/modplato")
     public String modPlato() {
@@ -86,7 +84,7 @@ public class PlatoControlador {
             //en el form poner th:value="${nombre.variable}" para conservar los datos llenados
             return "redirect:/plato/modplato";
         }
-        model.put("error","El plato fue modificado con éxito");
+        model.put("error", "El plato fue modificado con éxito");
         return "redirect:/plato/modplato";
     }
 
@@ -112,5 +110,4 @@ public class PlatoControlador {
         return "redirect:/plato/pagplato";
     }
 
- 
 }

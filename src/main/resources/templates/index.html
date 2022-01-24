@@ -54,24 +54,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
      
         <div class="container-fluid">
-<<<<<<< Updated upstream
-          <a class="navbar-brand"  href="/">Menu</a>  
-          <a class="navbar-brand"  href="/Reserva">Reserva</a>
-          <a class="navbar-brand"  href="#">Carrito</a>
-          <a class="navbar-brand"  href="#">Nosotros</a>
-          <a class="navbar-brand"  href="/Restaurante">Restaurante</a>
-          <a class="navbar-brand"  href="#">Beneficios</a>
-          <a class="navbar-brand"  href="/zona">Zona</a>         
-          <a class="navbar-brand"  href="/restoOpciones">Recursos</a>
-=======
           <a class="navbar-brand"  sec:authorize="hasRole('ROLE_USER')" href="#">Carrito</a>
-          <a class="navbar-brand"  href="#">Nosotros</a>
           <a class="navbar-brand"  sec:authorize="hasRole('ROLE_USER')" href="/Reserva">Reservas</a>
           <a class="navbar-brand"  sec:authorize="hasRole('ROLE_USER')" href="#">Beneficios</a>
           <a class="navbar-brand"  sec:authorize="hasRole('ROLE_SELLER')" href="/restaurante">Mi Restaurante</a>
-          <a class="navbar-brand"  sec:authorize="hasRole('ROLE_SELLER')" href="/restoOpciones">Recursos</a>
-          <a class="navbar-brand"  sec:authorize="hasRole('ROLE_SELLER')" href="/zona">Zona</a>
->>>>>>> Stashed changes
+          <!-- <a class="navbar-brand"  sec:authorize="hasRole('ROLE_SELLER')" href="/restoOpciones">Recursos</a> -->
+          
+
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -80,18 +69,14 @@
                       
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
+                  Plato
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="/plato/crearplato">Crear</a></li>
+                  <li><a class="dropdown-item" href="/plato/listar">Listar</a></li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
+              <a class="navbar-brand"  href="#">Nosotros</a>
             </ul>
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
