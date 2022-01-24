@@ -49,7 +49,6 @@ public class PlatoControlador {
         model.put("exito","El plato fue ingresado exitosamente");     
         return "plato";
     }
-<<<<<<< Updated upstream
     
    @GetMapping("/listaPlatos")
     public String listarPlatos(ModelMap model) {
@@ -66,13 +65,12 @@ public class PlatoControlador {
         model.put("nombre1",plato.getNombre())  ;
         model.put("valor1",plato.getValor());
         model.put("descripcion1",plato.getDescripcion());
-        
-        
-=======
+        return "plato";
+    }  
+
 
     @GetMapping("/modplato")
     public String modPlato() {
->>>>>>> Stashed changes
         return "modplato";
     }
 
