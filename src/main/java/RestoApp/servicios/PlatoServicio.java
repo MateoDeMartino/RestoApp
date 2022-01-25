@@ -81,6 +81,17 @@ public class PlatoServicio {
         }
     }
     @Transactional
+    public void eliminarPlatoId(String id)throws ErrorServicio{
+        Optional<Plato> respuesta= platoRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Plato plato = respuesta.get();
+            platoRepo.delete(plato);
+            System.out.println("SE EJECUTO LA ELIMINACION");
+        }else{
+            throw new ErrorServicio("El plato a eliminar no fue encontrado");
+        }
+    }
+    @Transactional
     public List <Plato> listarPlatos(){
               
         return platoRepo.findAll();

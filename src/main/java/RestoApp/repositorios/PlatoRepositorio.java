@@ -12,4 +12,6 @@ public interface PlatoRepositorio extends JpaRepository<Plato, String> {
       @Query("SELECT e FROM Plato e  WHERE e.id = :id")/*hacemos la busqueda para que al buscar un plato me traiga un objeto y no un optional*/
     public Plato buscarPlatoId(@Param("id") String id);
     
+  
+    
 }

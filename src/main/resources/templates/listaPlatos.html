@@ -32,8 +32,10 @@
 
 <section>
   <div class="card">
+    <p class="error" th:if= "${error != null}" th:text = ${error}></p>
+      <p class="exito" th:if= "${exito != null}" th:text = ${exito}></p>
     <div class="card-header">
-      Cargue su plato
+      Lista de Platos
     </div>
     <div class="card-body">
  
@@ -63,7 +65,7 @@
             <a class="btn btn-warning" th:href="@{/plato/modplato/} + ${Plato.id}">Editar <i class="fa fa-edit"></i></a>
           </td>
           <td>
-            <a class="btn btn-warning" th:href="@{/plato/eliminarplato/} + ${Plato.id}">Eliminar <i class="fa fa-edit"></i></a>
+            <a class="btn btn-danger" th:href="@{/plato/eliminarPlato/} + ${Plato.id}">Eliminar <i class="fa fa-edit"></i></a>
             <!-- <a class="btn btn-warning" th:href="@{/eliminarplato(Id=__${plato.Id}__)}"> <button>Eliminar</button></a> -->
   
           </td>

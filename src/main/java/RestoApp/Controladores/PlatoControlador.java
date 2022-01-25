@@ -78,13 +78,14 @@ public class PlatoControlador {
             model.put("nombre", nombre);
             model.put("valor", valor);
             model.put("descripcion", descripcion);
+            return "modplato";
             //en el form poner th:value="${nombre.variable}" para conservar los datos l
         }
-        model.put("error", "El plato fue modificado con éxito");
+        model.put("exito", "El plato fue modificado con éxito");
         return "redirect:/plato/listar";
     }
 
-//    @PostMapping("/eliminarplato")
+//    @PostMapping("/bajaplato")
 //    public String eliminarPlato(ModelMap model, @RequestParam String idPlato) {
 //        try {
 //            pS.bajaPlato(idPlato);
@@ -95,6 +96,19 @@ public class PlatoControlador {
 //        model.put("exito", "Plato eliminado correctamente");
 //        return "redirect:/plato/pagplato";
 //    }
+//    
+      @PostMapping("/eliminarplato/{id}")
+    public String eliminarPlato(@PathVariable("id") String id,ModelMap model) {
+        try {
+           pS.eliminarPlatoId(id);
+        } catch (ErrorServicio ex) {
+            model.put("error", ex.getMessage());
+            return "redirect:/plato/listar";
+        }
+        model.put("exito", "Plato eliminado correctamente");
+        return "listaPlatos";
+    }
+    
     @PostMapping("/altaplato")
     public String altaPlato(ModelMap model, @RequestParam String idPlato) {
         try {
