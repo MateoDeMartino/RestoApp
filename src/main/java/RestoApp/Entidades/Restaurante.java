@@ -1,9 +1,12 @@
 package RestoApp.Entidades;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -15,19 +18,22 @@ public class Restaurante {
     private String id;
     private String nombre;
     private Integer mesas;
+    @OneToOne
+    private Plato plato;
     @ManyToOne
     private Zona zona;
     private Boolean abierto;
 
     public Restaurante() {
-        this.abierto = true;
     }
 
-    public Restaurante(String nombre, Integer mesas, Zona zona, Boolean abierto) {
+    public Restaurante(String id, String nombre, Integer mesas, Plato plato, Zona zona, Boolean abierto) {
+        this.id = id;
         this.nombre = nombre;
         this.mesas = mesas;
+        this.plato = plato;
         this.zona = zona;
-        this.abierto = true;
+        this.abierto = abierto;
     }
 
     public String getId() {
@@ -54,6 +60,14 @@ public class Restaurante {
         this.mesas = mesas;
     }
 
+    public Plato getPlato() {
+        return plato;
+    }
+
+    public void setPlato(Plato plato) {
+        this.plato = plato;
+    }
+
     public Zona getZona() {
         return zona;
     }
@@ -72,7 +86,16 @@ public class Restaurante {
 
     @Override
     public String toString() {
-        return "Restaurante{" + "id=" + id + ", nombre=" + nombre + ", mesas=" + mesas + ", zona=" + zona + ", Abierto=" + abierto + '}';
+        return "Restaurante{" + "id=" + id + ", nombre=" + nombre + ", mesas=" + mesas + ", plato=" + plato + ", zona=" + zona + ", abierto=" + abierto + '}';
     }
-
+    
+    
+    
+    
+    
+    
+    
+    
 }
+
+ 
