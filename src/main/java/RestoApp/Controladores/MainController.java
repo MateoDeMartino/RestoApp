@@ -5,6 +5,7 @@ import RestoApp.servicios.ErrorServicio;
 import RestoApp.servicios.ReservaServicio;
 import RestoApp.servicios.RestauranteServicio;
 import RestoApp.servicios.UsuarioServicio;
+import RestoApp.servicios.ZonaServicio;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -27,6 +28,9 @@ public class MainController {
 
     @Autowired
     RestauranteServicio restauranteServicio;
+    
+    @Autowired
+    ZonaServicio zS;
 
     @GetMapping("/")
     public String index() {
@@ -91,7 +95,8 @@ public class MainController {
     }
 
     @GetMapping("/Restaurante")
-    public String restaurante() {
+    public String restaurante(ModelMap model) {
+        model.put("zonas", zS.listarZonas());
         return "Restaurante";
     }
 

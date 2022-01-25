@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS Propio-->
     <link rel="stylesheet" href="../static/formularios.css">
-    <title>Cargar Zona</title>
+    <title>Editar Zona</title>
 </head>
 <body>
 
@@ -33,21 +33,44 @@
 <section>
 <div class="card">
     <div class="card-header">
-        Registre una Zona
+        Modifique o elimine una Zona
     </div>
     <div class="card-body">
+        <div class="col d-flex justify-content-center">
+            <form action="/zona/modifizona" method="POST">
+                <p th:if= "${error != null}" th:text = ${error}></p>
+                <div class="mb-3">
+                    <label for="zona" class="form-label">Seleccione la Zona</label>
+                    <select name="id" class="form-select" >
+                        <option selected>Seleccione una opcion</option>
+                        <option th:each="z:${zonas}" th:value="${z.id}" th:text="${z.nombre}"></option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" >Nuevo Nombre</label>
+                    <input type="text" name="nombre" class="form-control" placeholder="Introduzca el nuevo nombre">               
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button class="btn btn-primary" type="button" ><a href="/restoOpciones">Volver al Menu</a></button>
+            </form>
+        </div>
 
-        <form action="/zona/guardarzona" method="POST">
-            <p th:if= "${error != null}" th:text = ${error}></p>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Zona</label>
-                <input type="text" class="form-control" name= "nombre" placeholder = "Zona..">
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <button class="btn btn-primary" type="button" ><a href="/zona/modzona">Opciones Zona</a></button>
-            <button class="btn btn-primary" type="button" ><a href="/restoOpciones">Volver al Menu</a></button>
-        </form>
+        
+    </div>
+    <div class="card-body">
+        <div class="col d-flex justify-content-center">                    
+                        
+            <form action="/zona/eliminarzona" method="POST">
+                <div class="mb-3">
+                    <label for="zona">Elimine la zona</label>
+                    <select name="id" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option th:each="z: ${zonas}" th:value="${z.id}" th:text="${z.nombre}"></option>
+                    </select>
+                </div>
+                <input type="submit" class="btn btn-outline-dark" value="Eliminar Zona">                  
+            </form>
+        </div>
     </div>
 </div>
 
