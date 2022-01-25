@@ -50,6 +50,7 @@
         <th>Estado(true/false)</th>
         <th>Modificar</th>
         <th>Dar de baja</th>
+        <th>Eliminar</th>
       </tr>
       </thead>
 
@@ -62,12 +63,13 @@
           
         
           <td>
-            <a class="btn btn-warning" th:href="@{/plato/modplato/} + ${Plato.id}">Editar <i class="fa fa-edit"></i></a>
+            <a class="btn btn-success" th:href="@{/plato/modplato/} + ${Plato.id}">Editar <i class="fa fa-edit"></i></a>
           </td>
           <td>
-            <a class="btn btn-danger" th:href="@{/plato/eliminarPlato/} + ${Plato.id}">Eliminar <i class="fa fa-edit"></i></a>
-            <!-- <a class="btn btn-warning" th:href="@{/eliminarplato(Id=__${plato.Id}__)}"> <button>Eliminar</button></a> -->
-  
+            <a class="btn btn-warning" th:href="@{/plato/bajaplato/} + ${Plato.id}">Baja <i class="fa fa-edit"></i></a> 
+          </td>
+          <td>
+            <a class="btn btn-danger" th:href="@{/plato/eliminarplato/} + ${Plato.id}">Eliminar <i class="fa fa-edit"></i></a> 
           </td>
         </tr>
       </tbody>

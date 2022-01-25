@@ -85,19 +85,19 @@ public class PlatoControlador {
         return "redirect:/plato/listar";
     }
 
-//    @PostMapping("/bajaplato")
-//    public String eliminarPlato(ModelMap model, @RequestParam String idPlato) {
-//        try {
-//            pS.bajaPlato(idPlato);
-//        } catch (ErrorServicio ex) {
-//            model.put("error", ex.getMessage());
-//            return "redirect:/plato/modplato";
-//        }
-//        model.put("exito", "Plato eliminado correctamente");
-//        return "redirect:/plato/pagplato";
-//    }
-//    
-      @PostMapping("/eliminarplato/{id}")
+    @GetMapping("/bajaplato/{id}")
+    public String eliminarPlato(ModelMap model, @PathVariable("id")String id) {
+        try {
+            pS.bajaPlato(id);
+        } catch (ErrorServicio ex) {
+            model.put("error", ex.getMessage());
+            return "redirect:/plato/listar";
+        }
+        model.put("exito", "Plato dado de baja correctamente");
+        return "redirect:/plato/listar";
+    }
+    
+      @GetMapping("/eliminarplato/{id}")
     public String eliminarPlato(@PathVariable("id") String id,ModelMap model) {
         try {
            pS.eliminarPlatoId(id);
@@ -106,7 +106,7 @@ public class PlatoControlador {
             return "redirect:/plato/listar";
         }
         model.put("exito", "Plato eliminado correctamente");
-        return "listaPlatos";
+       return "redirect:/plato/listar";
     }
     
     @PostMapping("/altaplato")
