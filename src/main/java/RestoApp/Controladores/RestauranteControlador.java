@@ -25,7 +25,6 @@ public class RestauranteControlador {
 //    public String index() {
 //        return "Restaurante";
 //    }
-    
 //    @PostMapping("/Restaurante/guardarRestaurante")
 //    public String guardarRestaurante(String nombre, Menu menu, Integer mesas, String zona, Boolean abierto) {
 //
@@ -37,12 +36,11 @@ public class RestauranteControlador {
 //
 //        return "index";
 //    }
-
     @PostMapping("/modificarRestaurante")
-    public String modificarRestaurante(String Id, @RequestParam String nombre, @RequestParam Menu menu, @RequestParam Integer mesas, @RequestParam Zona zona, @RequestParam Boolean abierto) {
+    public String modificarRestaurante(String Id, @RequestParam String nombre, @RequestParam Integer mesas, @RequestParam Zona zona, @RequestParam Boolean abierto) {
 
         try {
-            restauranteServicio.modificarRestaurante(nombre, menu, mesas, zona, abierto);
+            restauranteServicio.modificarRestaurante(nombre, mesas, zona, abierto);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

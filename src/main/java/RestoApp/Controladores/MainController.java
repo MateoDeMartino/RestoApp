@@ -28,7 +28,7 @@ public class MainController {
 
     @Autowired
     RestauranteServicio restauranteServicio;
-    
+
     @Autowired
     ZonaServicio zS;
 
@@ -101,10 +101,10 @@ public class MainController {
     }
 
     @PostMapping("/guardarRestaurante")
-    public String guardarRestaurante(String nombre, Menu menu, Integer mesas, String zona, Boolean abierto) {
+    public String guardarRestaurante(String nombre, Integer mesas, String zona, Boolean abierto) {
 
         try {
-            restauranteServicio.guardarRestaurante(nombre, menu, mesas, zona, abierto);
+            restauranteServicio.guardarRestaurante(nombre, mesas, zona, abierto);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

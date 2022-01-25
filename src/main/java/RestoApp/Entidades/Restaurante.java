@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -15,8 +14,6 @@ public class Restaurante {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
-    @OneToOne
-    private Menu menu;
     private Integer mesas;
     @ManyToOne
     private Zona zona;
@@ -26,9 +23,8 @@ public class Restaurante {
         this.abierto = true;
     }
 
-    public Restaurante(String nombre, Menu menu, Integer mesas, Zona zona, Boolean abierto) {
+    public Restaurante(String nombre, Integer mesas, Zona zona, Boolean abierto) {
         this.nombre = nombre;
-        this.menu = menu;
         this.mesas = mesas;
         this.zona = zona;
         this.abierto = true;
@@ -48,14 +44,6 @@ public class Restaurante {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Menu menu) {
-        this.menu = menu;
     }
 
     public Integer getMesas() {
@@ -84,8 +72,7 @@ public class Restaurante {
 
     @Override
     public String toString() {
-        return "Restaurante{" + "id=" + id + ", nombre=" + nombre + ", menu=" + menu + ", mesas=" + mesas + ", zona=" + zona + ", Abierto=" + abierto + '}';
+        return "Restaurante{" + "id=" + id + ", nombre=" + nombre + ", mesas=" + mesas + ", zona=" + zona + ", Abierto=" + abierto + '}';
     }
-    
-    
+
 }
