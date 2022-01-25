@@ -61,14 +61,11 @@ public class PlatoControlador {
     @GetMapping("/modplato/{id}")
     public String modPlato(@PathVariable("id") String id, ModelMap model) {
         Plato plato = pS.buscarPlatoId(id);
+        model.put("id", id);
         model.put("nombre1", plato.getNombre());
         model.put("valor1", plato.getValor());
         model.put("descripcion1", plato.getDescripcion());
-        return "redirect:/plato/modplato";
-    }
 
-    @GetMapping("/modplato")
-    public String modPlato() {
         return "modplato";
     }
 
@@ -81,37 +78,23 @@ public class PlatoControlador {
             model.put("nombre", nombre);
             model.put("valor", valor);
             model.put("descripcion", descripcion);
-            //en el form poner th:value="${nombre.variable}" para conservar los datos llenados
-            return "redirect:/plato/modplato";
+            //en el form poner th:value="${nombre.variable}" para conservar los datos l
         }
         model.put("error", "El plato fue modificado con éxito");
-        return "redirect:/plato/modplato";
+        return "redirect:/plato/listar";
     }
 
-    @PostMapping("/eliminarplato")
-    public String eliminarPlato(ModelMap model, @RequestParam String idPlato) {
-        try {
-            pS.bajaPlato(idPlato);
-        } catch (ErrorServicio ex) {
-            model.put("error", ex.getMessage());
-            return "redirect:/plato/modplato";
-        }
-        model.put("exito", "Plato eliminado correctamente");
-        return "redirect:/plato/pagplato";
-    }
-    
-//    @GetMapping("/eliminarplato")
-//    public String eliminarPlato(@RequestParam String Id) {
-//        try{
-//            pS.bajaPlato(Id);
-//        }catch(ErrorServicio e){
-//            e.getMessage();
+//    @PostMapping("/eliminarplato")
+//    public String eliminarPlato(ModelMap model, @RequestParam String idPlato) {
+//        try {
+//            pS.bajaPlato(idPlato);
+//        } catch (ErrorServicio ex) {
+//            model.put("error", ex.getMessage());
+//            return "redirect:/plato/modplato";
 //        }
-//
+//        model.put("exito", "Plato eliminado correctamente");
 //        return "redirect:/plato/pagplato";
 //    }
-
-
     @PostMapping("/altaplato")
     public String altaPlato(ModelMap model, @RequestParam String idPlato) {
         try {

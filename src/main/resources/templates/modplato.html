@@ -48,10 +48,10 @@
        <p class="exito" th:if= "${exito != null}" th:text = ${exito}></p>
 
         <form action="/plato/modifiplato" method="POST" enctype="multipart/form-data">
-          
+          <input type="hidden" name="idPlato" th:value="${id}"/>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label" th:text="${nombre}"></label>
-            <input type="text" class="form-control" name="nombre" th:value="${nombre}" placeholder="${nombre1}">
+            <input type="text" class="form-control" name="nombre" th:value="${nombre}" >
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Valor del plato</label>
@@ -59,7 +59,7 @@
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Descripcion</label>
-            <textarea type="text" class="form-control" rows="5" name="descripcion" th:value="${descripcion}" placeholder="${descripcion1}"></textarea>
+            <textarea type="text" class="form-control" rows="5" name="descripcion" th:value="${descripcion}" ></textarea>
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Ingrese Foto de plato</label>
