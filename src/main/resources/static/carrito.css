@@ -1,6 +1,7 @@
 body{
-    background-color: rgb(222, 131, 77) ;
-    text-align: center;
+    background-image: url('../static/fondo2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -27,3 +28,11 @@ table{
     height: 30px;
 }
 
+footer {
+    background-color:#781D42;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:5%;
+    width:100%;
+  }
