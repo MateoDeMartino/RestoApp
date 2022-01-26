@@ -1,5 +1,6 @@
 package RestoApp.entidades;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,7 +10,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Plato {
-    
     
     @Id
     @GeneratedValue(generator = "uuid")
@@ -23,21 +23,20 @@ public class Plato {
     @OneToOne
     private Foto foto;
     
-    @ManyToOne
-    private Restaurante resto;
+//    @ManyToOne
+//    private Restaurante resto;
 
     public Plato() {
         this.alta = true;
     }
 
-    public Plato(String id, String nombre, Integer valor, String descripcion, Boolean alta, Foto foto, Restaurante resto) {
+    public Plato(String id, String nombre, Integer valor, String descripcion, Boolean alta, Foto foto) {
         this.id = id;
         this.nombre = nombre;
         this.valor = valor;
         this.descripcion = descripcion;
         this.alta = alta;
         this.foto = foto;
-        this.resto = resto;
     }
 
     public String getId() {
@@ -88,18 +87,14 @@ public class Plato {
         this.foto = foto;
     }
 
-    public Restaurante getResto() {
-        return resto;
-    }
+//    public Restaurante getResto() {
+//        return resto;
+//    }
+//
+//    public void setResto(Restaurante resto) {
+//        this.resto = resto;
+//    }
 
-    public void setResto(Restaurante resto) {
-        this.resto = resto;
-    }
-
-    @Override
-    public String toString() {
-        return "Plato{" + "id=" + id + ", nombre=" + nombre + ", valor=" + valor + ", descripcion=" + descripcion + ", alta=" + alta + ", foto=" + foto + ", resto=" + resto + '}';
-    }
 
     
     
