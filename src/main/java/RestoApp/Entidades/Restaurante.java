@@ -1,14 +1,17 @@
 package RestoApp.Entidades;
 
 
+import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Restaurante {
+public class Restaurante implements Serializable{
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -19,7 +22,8 @@ public class Restaurante {
     @ManyToOne
     private Zona zona;
     private Boolean abierto;
-
+    
+    
     public Restaurante() {
     }
 
@@ -71,10 +75,8 @@ public class Restaurante {
         this.abierto = abierto;
     }
 
-    @Override
-    public String toString() {
-        return "Restaurante{" + "id=" + id + ", nombre=" + nombre + ", mesas=" + mesas + ", zona=" + zona + ", abierto=" + abierto + '}';
-    }
+
+    
 
     
     

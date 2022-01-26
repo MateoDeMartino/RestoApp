@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Plato {
+public class Plato implements Serializable {
     
     @Id
     @GeneratedValue(generator = "uuid")
@@ -23,11 +23,9 @@ public class Plato {
     @OneToOne
     private Foto foto;
     
-//    @ManyToOne
-//    private Restaurante resto;
+   
 
     public Plato() {
-        this.alta = true;
     }
 
     public Plato(String id, String nombre, Integer valor, String descripcion, Boolean alta, Foto foto) {
@@ -37,6 +35,7 @@ public class Plato {
         this.descripcion = descripcion;
         this.alta = alta;
         this.foto = foto;
+       
     }
 
     public String getId() {
@@ -87,13 +86,8 @@ public class Plato {
         this.foto = foto;
     }
 
-//    public Restaurante getResto() {
-//        return resto;
-//    }
-//
-//    public void setResto(Restaurante resto) {
-//        this.resto = resto;
-//    }
+   
+   
 
 
     

@@ -80,6 +80,14 @@ public class RestauranteServicio {
         restauranteRepositorio.save(restaurante.get());
 
     }
+     @Transactional
+    public Restaurante buscarRestauranteId(String Id) {
+
+        Optional<Restaurante> restaurante = restauranteRepositorio.findById(Id);
+          Restaurante r =restaurante.get();
+        return r;
+
+    }
 
     public void validar(String nombre, Integer mesas, Boolean abierto, String idZona) throws ErrorServicio {
         if (nombre == null || nombre.isEmpty()) {

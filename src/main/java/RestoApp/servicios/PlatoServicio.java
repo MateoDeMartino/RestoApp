@@ -19,7 +19,10 @@ public class PlatoServicio {
 
     @Autowired
     private FotoServicio fS;
-
+    
+    @Autowired
+    private RestauranteServicio rS;
+    
     @Transactional
     public Plato guardarPlato(MultipartFile archivo, String nombre, Integer valor, String descripcion) throws ErrorServicio {
 
@@ -30,6 +33,7 @@ public class PlatoServicio {
         plato.setValor(valor);
         plato.setDescripcion(descripcion);
         plato.setAlta(true);
+        
         Foto foto = fS.guardar(archivo);
         plato.setFoto(foto);
 
@@ -45,7 +49,7 @@ public class PlatoServicio {
             plato.setNombre(nombre);
             plato.setValor(valor);
             plato.setDescripcion(descripcion);
-
+            
             String idFoto = null;
             if (plato.getFoto() != null ) {
                 idFoto = plato.getFoto().getId();
@@ -103,6 +107,7 @@ public class PlatoServicio {
             
         return p1;
     }
+    
 
     public void validar(String nombre, Integer valor, String descripcion) throws ErrorServicio {
 

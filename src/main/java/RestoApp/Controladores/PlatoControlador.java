@@ -30,7 +30,7 @@ public class PlatoControlador {
     }
 
     @PostMapping("/guardarplato")
-    public String guardarPlato(ModelMap model, MultipartFile archivo, @RequestParam String nombre, @RequestParam Integer valor, @RequestParam String descripcion) {
+    public String guardarPlato(ModelMap model, MultipartFile archivo, @RequestParam String nombre, @RequestParam Integer valor, @RequestParam String descripcion,@RequestParam String idresto) {
 //<form action = "/guardarplato" method="POST" enctype="multipart/form-data">      
 //adentro del form de html usar  <p th:if= "${error != null}" "th:text = ${error}"></p>
 //para mostrar el error en pantalla
@@ -70,7 +70,7 @@ public class PlatoControlador {
     }
 
     @PostMapping("/modifiplato")
-    public String modifiPlato(ModelMap model, MultipartFile archivo, @RequestParam String idPlato, @RequestParam String nombre, @RequestParam Integer valor, @RequestParam String descripcion) throws ErrorServicio {
+    public String modifiPlato(ModelMap model, MultipartFile archivo, @RequestParam String idPlato, @RequestParam String nombre, @RequestParam Integer valor, @RequestParam String descripcion,@RequestParam String idresto) throws ErrorServicio {
         try {
             pS.modificarPlato(archivo, idPlato, nombre, valor, descripcion);
         } catch (ErrorServicio ex) {
