@@ -2,8 +2,6 @@ package RestoApp.servicios;
 
 import RestoApp.Entidades.Restaurante;
 import RestoApp.Entidades.Zona;
-import RestoApp.entidades.Plato;
-import RestoApp.repositorios.PlatoRepositorio;
 import RestoApp.repositorios.RestauranteRepositorio;
 import RestoApp.repositorios.ZonaRepositorio;
 import java.util.List;
@@ -21,22 +19,17 @@ public class RestauranteServicio {
     @Autowired
     private ZonaRepositorio zonaRepositorio;
 
-    @Autowired
-    private PlatoRepositorio platoRespositorio;
-
     @Transactional
-    public void guardarRestaurante(String nombre, Integer mesas, String idPlato, String zona, Boolean abierto) throws ErrorServicio {
-        
-        
-        Plato plato = platoRespositorio.getById(idPlato);
-        
-        //validar(nombre,mesas, abierto, zona);
+    public void guardarRestaurante(String nombre, Integer mesas, String zona, Boolean abierto) throws ErrorServicio {
+  
+        validar(nombre,mesas, abierto, zona);
         
         Restaurante restaurante = new Restaurante();
+        
         restaurante.setNombre(nombre);
         restaurante.setMesas(mesas);
-        restaurante.setPlato(plato);
         restaurante.setAbierto(true);
+        
         String zonaMayusc = zona.toUpperCase();
         Zona respuesta = zonaRepositorio.buscarZonaPorNombre(zonaMayusc);
         if (respuesta.getNombre().equals(zonaMayusc)) {

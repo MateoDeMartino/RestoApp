@@ -3,6 +3,7 @@ package RestoApp.entidades;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -21,28 +22,23 @@ public class Plato {
     
     @OneToOne
     private Foto foto;
+    
+    @ManyToOne
+    private Restaurante resto;
 
     public Plato() {
         this.alta = true;
     }
 
-    public Plato(String id, String nombre, Integer valor, String descripcion, Foto foto) {
+    public Plato(String id, String nombre, Integer valor, String descripcion, Boolean alta, Foto foto, Restaurante resto) {
         this.id = id;
         this.nombre = nombre;
         this.valor = valor;
         this.descripcion = descripcion;
-        this.foto = foto;
-        this.alta = true;
-    }
-
-    public Boolean getAlta() {
-        return alta;
-    }
-
-    public void setAlta(Boolean alta) {
         this.alta = alta;
+        this.foto = foto;
+        this.resto = resto;
     }
-    
 
     public String getId() {
         return id;
@@ -76,6 +72,14 @@ public class Plato {
         this.descripcion = descripcion;
     }
 
+    public Boolean getAlta() {
+        return alta;
+    }
+
+    public void setAlta(Boolean alta) {
+        this.alta = alta;
+    }
+
     public Foto getFoto() {
         return foto;
     }
@@ -84,8 +88,19 @@ public class Plato {
         this.foto = foto;
     }
 
-    
-    
+    public Restaurante getResto() {
+        return resto;
+    }
+
+    public void setResto(Restaurante resto) {
+        this.resto = resto;
+    }
+
+    @Override
+    public String toString() {
+        return "Plato{" + "id=" + id + ", nombre=" + nombre + ", valor=" + valor + ", descripcion=" + descripcion + ", alta=" + alta + ", foto=" + foto + ", resto=" + resto + '}';
+    }
+
     
     
 }
