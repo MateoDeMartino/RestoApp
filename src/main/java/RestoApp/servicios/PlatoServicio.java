@@ -19,12 +19,12 @@ public class PlatoServicio {
 
     @Autowired
     private FotoServicio fS;
-    
+
     @Autowired
     private RestauranteServicio rS;
-    
+
     @Transactional
-    public Plato guardarPlato(MultipartFile archivo, String nombre, Integer valor, String descripcion,String idresto) throws ErrorServicio {
+    public Plato guardarPlato(MultipartFile archivo, String nombre, Integer valor, String descripcion, String idresto) throws ErrorServicio {
 
         validar(nombre, valor, descripcion);
 
@@ -34,7 +34,7 @@ public class PlatoServicio {
         plato.setDescripcion(descripcion);
         plato.setIdresto(idresto);
         plato.setAlta(true);
-        
+
         Foto foto = fS.guardar(archivo);
         plato.setFoto(foto);
 
@@ -50,9 +50,9 @@ public class PlatoServicio {
             plato.setNombre(nombre);
             plato.setValor(valor);
             plato.setDescripcion(descripcion);
-            
+
             String idFoto = null;
-            if (plato.getFoto() != null ) {
+            if (plato.getFoto() != null) {
                 idFoto = plato.getFoto().getId();
             }
             Foto foto = fS.actualizar(idFoto, archivo);
@@ -63,59 +63,68 @@ public class PlatoServicio {
         }
 
     }
+
     @Transactional
-    public void bajaPlato (String id) throws ErrorServicio{
+    public void bajaPlato(String id) throws ErrorServicio {
         Optional<Plato> respuesta = platoRepo.findById(id);
         if (respuesta.isPresent()) {
             Plato plato = respuesta.get();
             plato.setAlta(false);
             platoRepo.save(plato);
-        }else{
-            throw new ErrorServicio ("El plato no fue encontrado");
+        } else {
+            throw new ErrorServicio("El plato no fue encontrado");
         }
     }
+
     @Transactional
-    public void altaPlato (String id) throws ErrorServicio{
+    public void altaPlato(String id) throws ErrorServicio {
         Optional<Plato> respuesta = platoRepo.findById(id);
         if (respuesta.isPresent()) {
             Plato plato = respuesta.get();
             plato.setAlta(true);
             platoRepo.save(plato);
-        }else{
-            throw new ErrorServicio ("El plato no fue encontrado");
+        } else {
+            throw new ErrorServicio("El plato no fue encontrado");
         }
     }
+
     @Transactional
-    public void eliminarPlatoId(String id)throws ErrorServicio{
-        Optional<Plato> respuesta= platoRepo.findById(id);
+    public void eliminarPlatoId(String id) throws ErrorServicio {
+        Optional<Plato> respuesta = platoRepo.findById(id);
         if (respuesta.isPresent()) {
             Plato plato = respuesta.get();
             platoRepo.delete(plato);
             System.out.println("SE EJECUTO LA ELIMINACION");
-        }else{
+        } else {
             throw new ErrorServicio("El plato a eliminar no fue encontrado");
         }
     }
+
     @Transactional
-    public List <Plato> listarPlatos(){
-              
+    public List<Plato> listarPlatos() {
+
         return platoRepo.findAll();
     }
-     @Transactional
-    public Plato buscarPlatoId(String id){
-              Plato p1 = new Plato();
-              p1=platoRepo.buscarPlatoId(id);
-            
-        return p1;
+
+    @Transactional
+    public Plato buscarPlatoId(String id) throws ErrorServicio {
+
+        Optional<Plato> respuesta = platoRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Plato plato = respuesta.get();
+            return plato;
+        } else {
+            throw new ErrorServicio("El plato no fue encontrado");
+        }
+
     }
-    
 
     public void validar(String nombre, Integer valor, String descripcion) throws ErrorServicio {
 
         if (nombre == null || nombre.isEmpty()) {
             throw new ErrorServicio("El nombre no puede estar vacio");
         }
-        if (valor == null || valor<0) {
+        if (valor == null || valor < 0) {
             throw new ErrorServicio("El valor no puede ser nulo ni negativo");
         }
         if (descripcion == null || descripcion.isEmpty()) {
