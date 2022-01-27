@@ -35,7 +35,8 @@
 <section>
   
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img th:if="${plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + plato.id}" class="card-img-top" alt="...">
+      <img th:if="${plato.foto == null}" src="../static/blue.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         
         
