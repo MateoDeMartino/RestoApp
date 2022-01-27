@@ -19,34 +19,46 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+ 
 /**
  *
  * @author Federico
  */
- @Controller
- @RequestMapping("/foto")
+@Controller
+@RequestMapping("/foto")
 public class FotoControlador {
-    
+
     @Autowired
     private FotoServicio fS;
-    
+
     @Autowired
     private PlatoServicio pS;
-     
+
     @GetMapping("/fotoPlato")
-     public ResponseEntity<byte[]> fotoPlato(String id){
+    public ResponseEntity<byte[]> fotoPlato(@RequestParam String id) {
+
         
-         try{
-        Plato plato= pS.buscarPlatoId(id);
-         byte[] foto =plato.getFoto().getContenido();
-         HttpHeaders headers = new HttpHeaders();
-         headers.setContentType(MediaType.IMAGE_JPEG);
-         return new ResponseEntity<>(foto,headers,HttpStatus.OK);
-         }catch(ErrorServicio ex){
-             Logger.getLogger()
-         }
-     }
-             
-     
+            
+        try {
+            Plato plato = pS.buscarPlatoId(id);
+            if (plato.getFoto() == null) {
+                throw new ErrorServicio("El plato no tiene una foto asignada");
+            }
+            byte[] foto = plato.getFoto().getContenido();
+            
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
+                    
+            return new ResponseEntity<>(foto, headers, HttpStatus.OK);
+        } catch (ErrorServicio ex) {
+            java.util.logging.Logger.getLogger(FotoControlador.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+          
+ 
+
+    }
+
 }

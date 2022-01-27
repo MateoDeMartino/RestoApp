@@ -61,12 +61,20 @@ public class PlatoControlador {
 
     @GetMapping("/modplato/{id}")
     public String modPlato(@PathVariable("id") String id, ModelMap model) {
+        
+        
+        
+        try{
+            
         Plato plato = pS.buscarPlatoId(id);
+        model.put("plato",plato);
         model.put("id", id);
         model.put("nombre1", plato.getNombre());
         model.put("valor1", plato.getValor());
         model.put("descripcion1", plato.getDescripcion());
-
+        }catch(ErrorServicio ex){
+            model.put("error",ex.getMessage());
+        }
         return "modplato";
     }
 
