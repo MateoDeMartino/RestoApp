@@ -3,6 +3,7 @@ package RestoApp.Controladores;
 import RestoApp.entidades.Plato;
 import RestoApp.servicios.ErrorServicio;
 import RestoApp.servicios.PlatoServicio;
+import RestoApp.servicios.RestauranteServicio;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,22 +22,22 @@ public class PlatoControlador {
 
     @Autowired
     private PlatoServicio pS;
+    
+    @Autowired
+    private RestauranteServicio rS;
 
     List<Plato> platos = new ArrayList<>();
 
     @GetMapping("/crearplato")
-    public String crearPlato() {
+    public String crearPlato(ModelMap modelo) {
+        modelo.put("restos", rS.listaraRestaurantes());
         return "plato";
     }
 
     @PostMapping("/guardarplato")
-    public String guardarPlato(ModelMap model, MultipartFile archivo, @RequestParam String nombre, @RequestParam Integer valor, @RequestParam String descripcion) {
-//<form action = "/guardarplato" method="POST" enctype="multipart/form-data">      
-//adentro del form de html usar  <p th:if= "${error != null}" "th:text = ${error}"></p>
-//para mostrar el error en pantalla
-//Aca se podria poner a que restaurante pertenece el plato, pensaba para simplificarlo poner una lista desplegable tambien hay que modificar la entidad plato//
+    public String guardarPlato(ModelMap model, MultipartFile archivo, @RequestParam String nombre, @RequestParam Integer valor, @RequestParam String descripcion,String idresto) {
         try {
-            pS.guardarPlato(archivo, nombre, valor, descripcion);
+            pS.guardarPlato(archivo, nombre, valor, descripcion,idresto);
         } catch (ErrorServicio ex) {
             model.put("error", ex.getMessage());
             model.put("nombre", nombre);

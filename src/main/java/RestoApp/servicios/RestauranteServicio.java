@@ -22,13 +22,14 @@ public class RestauranteServicio {
     @Transactional
     public void guardarRestaurante(String nombre, Integer mesas, String zona, Boolean abierto) throws ErrorServicio {
   
+        abierto = true;
         validar(nombre,mesas, abierto, zona);
         
         Restaurante restaurante = new Restaurante();
         
         restaurante.setNombre(nombre);
         restaurante.setMesas(mesas);
-        restaurante.setAbierto(true);
+        restaurante.setAbierto(abierto);
         
         String zonaMayusc = zona.toUpperCase();
         Zona respuesta = zonaRepositorio.buscarZonaPorNombre(zonaMayusc);

@@ -19,23 +19,21 @@ public class Plato implements Serializable {
     private Integer valor;
     private String descripcion;
     private Boolean alta;
-    
+    private String idresto;
     @OneToOne
     private Foto foto;
-    
-   
 
     public Plato() {
     }
 
-    public Plato(String id, String nombre, Integer valor, String descripcion, Boolean alta, Foto foto) {
+    public Plato(String id, String nombre, Integer valor, String descripcion, Boolean alta, String idresto, Foto foto) {
         this.id = id;
         this.nombre = nombre;
         this.valor = valor;
         this.descripcion = descripcion;
         this.alta = alta;
+        this.idresto = idresto;
         this.foto = foto;
-       
     }
 
     public String getId() {
@@ -78,6 +76,14 @@ public class Plato implements Serializable {
         this.alta = alta;
     }
 
+    public String getIdresto() {
+        return idresto;
+    }
+
+    public void setIdresto(String idresto) {
+        this.idresto = idresto;
+    }
+
     public Foto getFoto() {
         return foto;
     }
@@ -85,10 +91,6 @@ public class Plato implements Serializable {
     public void setFoto(Foto foto) {
         this.foto = foto;
     }
-
-   
-   
-
 
     
     

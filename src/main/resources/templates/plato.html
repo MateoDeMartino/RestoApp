@@ -43,8 +43,13 @@
 
                     <form action="/plato/guardarplato" method="POST" enctype="multipart/form-data">
 
+                        <div>
+                            <label for="exampleInputEmail1" class="form-label">Seleccione el restaurante</label>
+                            <select class="form-select" name="idresto" aria-label="Default select example">
+                                <option th:each="resto : ${restos}" th:value="${resto.id}" th:text="${resto.nombre}"></option>
+                            </select>
+                        </div>
                         
-
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nombre del plato</label>
                             <input type="text" class="form-control" name="nombre" th:value="${nombre}">
