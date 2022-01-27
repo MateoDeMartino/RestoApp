@@ -1,11 +1,11 @@
 package RestoApp.Controladores;
 
-import RestoApp.Entidades.Menu;
 import RestoApp.Entidades.Zona;
 import RestoApp.servicios.RestauranteServicio;
 import RestoApp.servicios.ZonaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,21 +21,24 @@ public class RestauranteControlador {
     @Autowired
     private ZonaServicio zS;
 
-//    @GetMapping("/Restaurante")
-//    public String index() {
-//        return "Restaurante";
-//    }
-//    @PostMapping("/Restaurante/guardarRestaurante")
-//    public String guardarRestaurante(String nombre, Menu menu, Integer mesas, String zona, Boolean abierto) {
-//
-//        try {
-//            restauranteServicio.guardarRestaurante(nombre, menu, mesas, zona, abierto);
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//
-//        return "index";
-//    }
+    @GetMapping("/crearResto")
+    public String crearResto(ModelMap model) {
+        model.put("zonas", zS.listarZonas());
+        return "Restaurante";
+    }
+
+    @PostMapping("/guardarRestaurante")
+    public String guardarRestaurante(ModelMap model,String nombre, Integer mesas, String zona, Boolean abierto) {
+
+        try {
+            restauranteServicio.guardarRestaurante(nombre, mesas, zona, abierto);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        model.put("exito", "El restaurante fue ingresado exitosamente");
+        return "Restaurante";
+    }
+
     @PostMapping("/modificarRestaurante")
     public String modificarRestaurante(String Id, @RequestParam String nombre, @RequestParam Integer mesas, @RequestParam Zona zona, @RequestParam Boolean abierto) {
 

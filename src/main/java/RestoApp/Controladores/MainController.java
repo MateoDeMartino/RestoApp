@@ -1,6 +1,5 @@
 package RestoApp.Controladores;
 
-import RestoApp.Entidades.Menu;
 import RestoApp.servicios.ErrorServicio;
 import RestoApp.servicios.ReservaServicio;
 import RestoApp.servicios.RestauranteServicio;
@@ -66,50 +65,11 @@ public class MainController {
         return "registro";
     }
 
-    @GetMapping("/Reserva")
-    public String Reserva() {
-
-        return "Reserva";
-    }
-
-    @PostMapping("/guardarReserva")
-    public String guardarReserva(ModelMap model, @RequestParam String nombre, @RequestParam Integer cantidad, @DateTimeFormat(pattern = "yyyy-MM-dd") Date dia) {
-        try {
-            reservaServicio.guardarReserva(nombre, cantidad, dia);
-        } catch (ErrorServicio ex) {
-            model.put("error", ex.getMessage());
-            model.put("nombre", nombre);
-            model.put("cantidad", cantidad);
-            model.put("dia", dia);
-            return "Reserva";
-        }
-        model.put("exito", "Se realizo su reserva exitosamente");
-        return "Reserva";
-    }
-
     @GetMapping("/restoOpciones")
     /*En este get se colocan la lista de opciones que tendrán los dueños de los restos para cargar su información*/
 
     public String restoOpciones() {
         return "restoOpciones";
-    }
-
-    @GetMapping("/Restaurante")
-    public String restaurante(ModelMap model) {
-        model.put("zonas", zS.listarZonas());
-        return "Restaurante";
-    }
-
-    @PostMapping("/guardarRestaurante")
-    public String guardarRestaurante(String nombre, Integer mesas, String zona, Boolean abierto) {
-
-        try {
-            restauranteServicio.guardarRestaurante(nombre, mesas, zona, abierto);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        return "index";
     }
 
     @GetMapping("/zona")
