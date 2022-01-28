@@ -47,27 +47,31 @@
 
         <h1>Lista de Platos </h1>
         </header>
+
         <table class="table table-dark table-striped">
           <thead>
             <tr>
               <th>Nombre</th>
               <th>Editar</th>
-              <th>Eliminar</th>
+              <th>Dar de Baja</th>
             </tr>
           </thead>
 
           <tbody>
-             <tr>
-           <!-- <tr th:each="Zona :${zonas}" th:if="${Zona.alta != false">-->
+            <tr  th:each="Zona :${zonas}" th:if="${Zona.alta!=false}">
               <td th:text="${Zona.nombre}"></td>
+              
+              
+            
               <td>
-                <a class="btn btn-success" th:href="@{/zona/modzona/} + ${Zona.id}">Editar <i
-                    class="fa fa-edit"></i></a>
+                <a class="btn btn-success" th:href="@{/zona/modzona/} + ${Zona.id}">Editar <i class="fa fa-edit"></i></a>
               </td>
+              
               <td>
-                <a class="btn btn-danger" th:href="@{/zona/eliminarzona/} + ${Zona.id}">Eliminar <i
-                    class="fa fa-edit"></i></a>
+                <a class="btn btn-warning" th:href="@{/zona/eliminarzona/} + ${Zona.id}">Baja <i class="fa fa-edit"></i></a> 
               </td>
+              
+            
             </tr>
           </tbody>
 

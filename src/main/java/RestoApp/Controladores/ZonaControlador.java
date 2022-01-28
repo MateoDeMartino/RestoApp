@@ -64,10 +64,15 @@ public class ZonaControlador {
         return "redirect:/zona/lista";
     }
 
-    @PostMapping("/eliminarzona/{id}")
-    public String eliminarZona(@PathVariable("id") String id) throws ErrorServicio {
-        
+    @GetMapping("/eliminarzona/{id}")
+    public String eliminarZona(@PathVariable("id") String id,ModelMap model)  {
+        try{ 
         zS.deshabilitarZona(id);
+        }catch(ErrorServicio e){
+         model.put("error",e); 
+         return "redirect:/zona/lista";
+        }
+        model.put("exito","La zona fue dada de baja con éxito");
         return "redirect:/zona/lista";
     }
 
