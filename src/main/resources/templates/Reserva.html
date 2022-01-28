@@ -17,6 +17,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS Propio-->
     <link rel="stylesheet" href="../restoOpciones.css">
+        <link href="../vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="../vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="../vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
     <title>Reserva</title>
 </head>
 <body>
@@ -32,7 +36,7 @@
 <br>
 <!-- NAVEGADOR-->
 
-<section>
+<section style="height:100%">
   <div class="card">
     <div class="card-header">
       Datos reserva
@@ -59,132 +63,13 @@
           <button type="submit" class="btn btn-primary">Guardar</button>
           <button class="btn btn-primary" type="button" ><a href="/">Volver al Menu</a></button>
         </form>
-          </div>
-</div>
-           
-
-</section>
-
- <!--PIE-->
-<footer>
-    <p>Copyright 2001-2021 RestoApp. Todos los derechos reservados. Prohibida la duplicación, distribución o almacenamiento en cualquier medio.</p>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-</body>
-</html>
-
-<!-- <!DOCTYPE html>
-
-<html>
-    <head>-->
-        <!-- Bootstrap-->
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
 
 
-        <!-- Fuentes-->
-        <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300&family=Paytone+One&display=swap" rel="stylesheet"> -->
-        <!-- Animación-->
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-        <meta charset="UTF-8">
-
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-        <!-- CSS Propio-->
-        <!-- <link href="../static/vendor/animate.css/animate.min.css" rel="stylesheet">
-        <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-        <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-        <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-        <link href="../static/css/style.css" rel="stylesheet">
-        <title>RestoApp</title>
-    </head>
-    <body> -->
-        <!--logo Y BOTONES DE REGISTRO Y INICIO-->
-        <!-- <header>
-            <div class="container-fluid top"> 
-                <div class="">
-                    <div class="logo">
-                        <p  class="animate_animated animate_bounde"> RESTO APP</p>     
-                    </div>
 
 
-                    <div class="botones">
-                        <a href="##"><button type="button" class="btn btn-outline-secondary">Registrate</button></a>         
-                        <a href="##"><button type="button" class="btn btn-outline-secondary">Iniciar Sesión</button></a>
-                    </div>
-
-
-                </div>
-            </div>  
-        </header> -->
-        <!-- NAVEGADOR-->
-        <!-- <div class="navegador">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-                <div class="container-fluid">
-                   <a class="navbar-brand"  href="/">Menu</a>
-                    <a class="navbar-brand"  href="/Reserva">Reservas</a>
-                    <a class="navbar-brand"  href="#">Nosotros</a>
-                    <a class="navbar-brand"  href="#">Carrito</a>
-                    <a class="navbar-brand"  href="#">Beneficios</a>
-                    <a class="navbar-brand"  href="#">Recursos</a>
-                    <a class="navbar-brand"  href="/Restaurante">Ingresar Restaurante</a>
-                    <a class="navbar-brand"  href="/restoOpciones">RestoOpciones</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled">Disabled</a>
-                            </li>
-                        </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                            <button class="btn btn-outline-secondary" type="submit">Buscar</button>
-                        </form>
-                    </div>
-                </div>
-
-            </nav>
-        </div>
-
-        <h2>Haz tu Reserva</h2>
-
-        <form action="/guardarReserva"  method="Post">
-
-            <label for="nombre">Ingrese su nombre</label>
-            <input type="text" name="nombre">
-            <br>
-            <br>
-            <label for="cantidad">Ingrese la cantidad de gente</label>
-            <input type="number" name="cantidad">
-            <br>
-            <br>
-            <label for="dia">Ingrese el dia </label>
-            <input type="date" name="dia">
-
-            <br> -->
-
-
-            <!-- menu-->
-
-                <!-- ======= Menu Section ======= -->
-    <!-- <section id="menu" class="menu">
-        <div class="container">
+           <!-- ======= Menu Section ======= -->
+     
+        <div class="container menu">
   
           <div class="section-title">
             <h2>Mira nuestro sabroso <span>Menu</span></h2>
@@ -207,166 +92,170 @@
               <div class="menu-content">
                 <a href="#">Lomo de Cerdo</a><span>$900</span>
               </div>
-              <img src="../static/img/lomoCerdo.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/lomoCerdo.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
   
             <div class="col-lg-6 menu-item filter-starters">
               <div class="menu-content">
                 <a href="#">Lasaña </a><span>$600</span>
               </div>
-              <img src="../static/img/lasaña.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/lasaña.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
   
             <div class="col-lg-6 menu-item filter-starters">
               <div class="menu-content">
                 <a href="#">Tagliatelle a la primavera</a><span>$1000</span>
               </div>
-              <img src="../static/img/Tagliatelle_a_la_primavera.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/Tagliatelle_a_la_primavera.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
   
             <div class="col-lg-6 menu-item filter-starters">
               <div class="menu-content">
                 <a href="#">Angnolotis de Ricota y Espinaca</a><span>$500</span>
               </div>
-              <img src="../static/img/Agnolotis_de_Ricota_y_Espinaca.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/Agnolotis_de_Ricota_y_Espinaca.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
   
             <div class="col-lg-6 menu-item filter-starters">
               <div class="menu-content">
                 <a href="#">Asado de Tira</a><span>$1200</span>
               </div>
-              <img src="../static/img/Asado_tira.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/Asado_tira.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
   
             <div class="col-lg-6 menu-item filter-starters">
               <div class="menu-content">
                 <a href="#">Brochette Mixto</a><span>$2000</span>
               </div>
-              <img src="../static/img/Brochette_mixto.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/Brochette_mixto.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
   
             <div class="col-lg-6 menu-item filter-starters">
               <div class="menu-content">
                 <a href="#">Lechón a la Parrilla</a><span>$1500</span>
               </div>
-              <img src="../static/img/Lechón_parrilla.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/Lechón_parrilla.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
   
             <div class="col-lg-6 menu-item filter-starters">
               <div class="menu-content">
                 <a href="#">Milanesas a la Napolitana con Papas</a><span>$250</span>
               </div>
-              <img src="../static/img/Milanesas_Napo.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
-            </div> -->
+              <img src="../img/Milanesas_Napo.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
+            </div> 
   
             <!--bebidas-->
-            <!-- <div class="col-lg-6 menu-item filter-bebidas">
+            <div class="col-lg-6 menu-item filter-bebidas">
               <div class="menu-content">
                 <a href="#">Coca Cola 500cc</a><span>$190</span>
               </div>
-              <img src="../static/img/coca.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/coca.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
             <div class="col-lg-6 menu-item filter-bebidas">
               <div class="menu-content">
                 <a href="#">Sprite 500cc</a><span>$190</span>
               </div>
-              <img src="../static/img/sprite.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/sprite.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
             <div class="col-lg-6 menu-item filter-bebidas">
               <div class="menu-content">
                 <a href="#">Fernet</a><span>$300</span>
               </div>
-              <img src="../static/img/fernet.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/fernet.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
             <div class="col-lg-6 menu-item filter-bebidas">
               <div class="menu-content">
                 <a href="#">Vino Blanco</a><span>$500</span>
               </div>
-              <img src="../static/img/blancos.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
-            </div> -->
+              <img src="../img/blancos.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
+            </div> 
   
             <!--Postre-->
-            <!-- <div class="col-lg-6 menu-item filter-postre">
+           <div class="col-lg-6 menu-item filter-postre">
               <div class="menu-content">
                 <a href="#">Helado Mixto</a><span>$250</span>
               </div>
-              <img src="../static/img/HeladoMixto.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/HeladoMixto.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
             <div class="col-lg-6 menu-item filter-postre">
               <div class="menu-content">
                 <a href="#">Flan Casero</a><span>$150</span>
               </div>
-              <img src="../static/img/FlanCasero.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/FlanCasero.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
             <div class="col-lg-6 menu-item filter-postre">
               <div class="menu-content">
                 <a href="#">Copa Primavera</a><span>$350</span>
               </div>
-              <img src="../static/img/Copaprimavera.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
-            </div> -->
+              <img src="../img/Copaprimavera.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
+            </div> 
   
             <!--Cafeteria-->
-            <!-- <div class="col-lg-6 menu-item filter-cafeteria">
+             <div class="col-lg-6 menu-item filter-cafeteria">
               <div class="menu-content">
                 <a href="#">Café con leche</a><span>$150</span>
               </div>
-              <img src="../static/img/cafeLeche.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/cafeLeche.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
             <div class="col-lg-6 menu-item filter-cafeteria">
               <div class="menu-content">
                 <a href="#">Capuccino</a><span>$250</span>
               </div>
-              <img src="../static/img/capuccino.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/capuccino.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
             <div class="col-lg-6 menu-item filter-cafeteria">
               <div class="menu-content">
                 <a href="#">Medialuna</a><span>$85</span>
               </div>
-              <img src="../static/img/Medialuna.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/Medialuna.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
             <div class="col-lg-6 menu-item filter-cafeteria">
               <div class="menu-content">
                 <a href="#">Porcion Torta Chocolate</a><span>$350</span>
               </div>
-              <img src="../static/img/PorcionTorta.jpg" class="rounded float-start" alt="" width="100"
-                height="100">
+              <img src="../img/PorcionTorta.jpg" class="rounded float-start" alt="" width="200"
+                height="200">
             </div>
             
           </div>
   
         </div>
-      </section>End Menu Section -->
+      <!-- </section>End Menu Section  -->
+          </div>
+</div>
+           
 
 
 
-            <!-- <button type="submit"> Hacer Reserva</button>
-            <button type="reset"> Cancelar Reserva</button>
+ <!--PIE-->
+<footer>
+    <p>Copyright 2001-2021 RestoApp. Todos los derechos reservados. Prohibida la duplicación, distribución o almacenamiento en cualquier medio.</p>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="../vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="../vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="../js/main.js"></script>
+      </section>
+</body>
+</html>
 
-        </form>
-
-        <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
-        <script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-        <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
-        <script src="../static/js/main.js"></script>
-
-    </body>
-</html> --> 

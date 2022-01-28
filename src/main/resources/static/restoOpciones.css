@@ -133,7 +133,7 @@ footer{
     opacity: 50;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
-    width: 50rem;
+    width: 60rem;
     margin-left: 20rem;
     font-family: 'Readex Pro', sans-serif;
    }
@@ -141,7 +141,7 @@ footer{
 .col :hover{
   box-shadow: 0.2rem 0.2rem 0.4rem rgba(255,255,255,0.9 );
 }
-img{
+img .img{
   width: 60px;
   height: 100px;
   
