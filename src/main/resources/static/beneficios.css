@@ -1,0 +1,66 @@
+
+body{
+    background-image: url('../static/fondo2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.logo-tarjeta{
+    width: 14%;
+    height: 10%;
+}
+
+.descuento{
+    font-size: 120%;
+}
+
+.beneficio{
+    padding-top: 2%;
+    padding-left: 1%;
+    text-align: left;
+    
+}
+
+
+article{
+    float: left;
+    width: 45%;
+    margin-left: 3%;
+    background-color: rgb(240, 210, 144);
+    text-align: left;
+    line-height: 250%;
+    padding-bottom: 2%;
+    font-size: 110%;
+}
+
+.titulo{
+    font-size: 160%;
+    color: #461111;
+    text-align: center;
+}
+
+aside{
+    float: right;
+    width: 45%;
+    margin-right: 3%;
+    background-color: rgb(240, 210, 144);
+    text-align: center;
+    line-height: 200%;
+    padding-bottom: 2%;
+}
+
+
+footer {
+    background-color:#781D42;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:5%;
+    width:100%;
+  }
+
+
+
+
