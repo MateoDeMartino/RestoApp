@@ -13,12 +13,15 @@ public class Zona {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
-
+    private Boolean alta;
+    
     public Zona() {
     }
 
-    public Zona(String nombre) {
+    public Zona(String id, String nombre, Boolean alta) {
+        this.id = id;
         this.nombre = nombre;
+        this.alta = alta;
     }
 
     public String getId() {
@@ -37,9 +40,18 @@ public class Zona {
         this.nombre = nombre;
     }
 
+    public Boolean getAlta() {
+        return alta;
+    }
+
+    public void setAlta(Boolean alta) {
+        this.alta = alta;
+    }
+
     @Override
     public String toString() {
-        return "Zona{" + "id=" + id + ", nombreZona=" + nombre + '}';
+        return "Zona{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta + '}';
     }
+
 
 }

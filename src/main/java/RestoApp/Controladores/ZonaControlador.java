@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,10 +22,10 @@ public class ZonaControlador {
     ZonaServicio zS = new ZonaServicio();
 
     List<Zona> zonas = new ArrayList<>();
-    
-    @PostMapping("/crearzona")
+
+    @GetMapping("/crearzona")
     public String crearZona(ModelMap model) {
-        model.put("zonas", zS.listarZonas());
+        
         return "zona";
     }
 
@@ -34,28 +35,40 @@ public class ZonaControlador {
         return "zona";
     }
 
-    @GetMapping("/modzona")
-    public String modZona(ModelMap model) {
+    @GetMapping("/lista")
+    public String listarZona(ModelMap model) {
         model.put("zonas", zS.listarZonas());
+        return "listaZona";
+    }
+
+    @GetMapping("/modzona/{id}")
+    public String modZona(@PathVariable("id") String id, ModelMap model) {
+        try {
+            Zona zona = zS.buscarZonaId(id);
+            model.put("zona", zona);
+            } catch (ErrorServicio e) {
+            model.put("error", e.getMessage());
+        }
         return "zonamod";
     }
 
     @PostMapping("/modifizona")
-    public String modifiZona(@RequestParam String id, @RequestParam String nombre) throws ErrorServicio {
-        zS.modificarZona(id, nombre);
-        return "restoOpciones";
+    public String modifiZona(ModelMap modelo, @RequestParam String id, @RequestParam String nombre) throws ErrorServicio {
+        try {
+            zS.modificarZona(id, nombre);
+        } catch (ErrorServicio e) {
+            modelo.put("error", e.getMessage());
+            modelo.put("nombre", nombre);
+            return "zonamod";
+        }
+        return "redirect:/zona/lista";
     }
 
-    @PostMapping("/eliminarzona")
-    public String eliminarZona(@RequestParam String id) throws ErrorServicio {
+    @PostMapping("/eliminarzona/{id}")
+    public String eliminarZona(@PathVariable("id") String id) throws ErrorServicio {
+        
         zS.deshabilitarZona(id);
-        return "restoOpciones";
-    }
-
-    @GetMapping("/lista")
-    public String listarZona(ModelMap model) {
-        model.put("zonas", zS.listarZonas());
-        return "zona";
+        return "redirect:/zona/lista";
     }
 
 }

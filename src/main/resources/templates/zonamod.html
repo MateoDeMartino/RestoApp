@@ -33,47 +33,28 @@
 <section>
 <div class="card">
     <div class="card-header">
-        Modifique o elimine una Zona
+        Modifique Zona
     </div>
     <div class="card-body">
+        <p>Zona: <span class="card-title" th:text="${zona.nombre}"></span></p>
         <div class="col d-flex justify-content-center">
+
             <form action="/zona/modifizona" method="POST">
+                <input type="hidden" name="id" th:value="${zona.id}"/>
                 <p th:if= "${error != null}" th:text = ${error}></p>
-                <div class="mb-3">
-                    <label for="zona" class="form-label">Seleccione la Zona</label>
-                    <select name="id" class="form-select" >
-                        <option selected>Seleccione una opcion</option>
-                        <option th:each="z:${zonas}" th:value="${z.id}" th:text="${z.nombre}"></option>
-                    </select>
-                </div>
+               
                 <div class="mb-3">
                     <label class="form-label" >Nuevo Nombre</label>
-                    <input type="text" name="nombre" class="form-control" placeholder="Introduzca el nuevo nombre">               
+                    <input type="text" name="nombre" class="form-control" th:value="${nombre2}" placeholder="Introduzca el nuevo nombre">               
                 </div>
                 <button type="submit" class="btn btn-primary">Guardar</button>
-                <button class="btn btn-primary" type="button" ><a href="/restoOpciones">Volver al Menu</a></button>
+                <button type="button" ><a href="/zona/lista" class="btn btn-primary">Volver al Menu</a></button>
             </form>
         </div>
 
         
     </div>
-    <div class="card-body">
-        <div class="col d-flex justify-content-center">                    
-                        
-            <form action="/zona/eliminarzona" method="POST">
-                <div class="mb-3">
-                    <label for="zona">Elimine la zona</label>
-                    <select name="id" class="form-select" aria-label="Default select example">
-                        <option selected>Seleccione una opcion</option>
-                        <option th:each="z: ${zonas}" th:value="${z.id}" th:text="${z.nombre}"></option>
-                    </select>
-                </div>
-                <input type="submit" class="btn btn-outline-dark" value="Eliminar Zona">                  
-            </form>
-        </div>
-    </div>
-</div>
-
+ 
 
 </section>
 
