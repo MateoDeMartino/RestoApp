@@ -1,6 +1,6 @@
 package RestoApp.servicios;
 
-import RestoApp.entidades.Foto;
+import RestoApp.Entidades.Foto;
 import RestoApp.repositorios.FotoRepositorio;
 import java.util.Optional;
 import javax.transaction.Transactional;

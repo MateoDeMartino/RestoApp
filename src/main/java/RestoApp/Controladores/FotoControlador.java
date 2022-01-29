@@ -5,11 +5,10 @@
  */
 package RestoApp.Controladores;
 
-import RestoApp.entidades.Plato;
+import RestoApp.Entidades.Plato;
 import RestoApp.servicios.ErrorServicio;
 import RestoApp.servicios.FotoServicio;
 import RestoApp.servicios.PlatoServicio;
-import com.sun.istack.logging.Logger;
 import java.util.logging.Level;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

@@ -1,8 +1,7 @@
 package RestoApp.servicios;
 
-import RestoApp.Entidades.Restaurante;
-import RestoApp.entidades.Foto;
-import RestoApp.entidades.Plato;
+import RestoApp.Entidades.Foto;
+import RestoApp.Entidades.Plato;
 import RestoApp.repositorios.PlatoRepositorio;
 import java.util.List;
 import java.util.Optional;

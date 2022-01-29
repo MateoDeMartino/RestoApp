@@ -1,6 +1,6 @@
 package RestoApp.Controladores;
 
-import RestoApp.entidades.Plato;
+import RestoApp.Entidades.Plato;
 import RestoApp.servicios.ErrorServicio;
 import RestoApp.servicios.PlatoServicio;
 import RestoApp.servicios.RestauranteServicio;
@@ -38,6 +38,7 @@ public class PlatoControlador {
     public String guardarPlato(ModelMap model, MultipartFile archivo, @RequestParam String nombre, @RequestParam Integer valor, @RequestParam String descripcion,String idresto) {
         try {
             pS.guardarPlato(archivo, nombre, valor, descripcion,idresto);
+            rS.guardarPlatos(idresto);
         } catch (ErrorServicio ex) {
             model.put("error", ex.getMessage());
             model.put("nombre", nombre);

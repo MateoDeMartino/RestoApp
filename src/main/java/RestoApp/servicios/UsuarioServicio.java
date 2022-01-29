@@ -1,6 +1,6 @@
 package RestoApp.servicios;
 
-import RestoApp.entidades.Usuario;
+import RestoApp.Entidades.Usuario;
 import RestoApp.enums.Role;
 import RestoApp.repositorios.UsuarioRepositorio;
 import java.util.ArrayList;

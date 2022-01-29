@@ -1,4 +1,4 @@
-package RestoApp.entidades;
+package RestoApp.Entidades;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;

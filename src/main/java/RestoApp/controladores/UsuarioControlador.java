@@ -1,7 +1,7 @@
 
 package RestoApp.controladores;
 
-import RestoApp.entidades.Usuario;
+import RestoApp.Entidades.Usuario;
 import RestoApp.servicios.ErrorServicio;
 import RestoApp.servicios.UsuarioServicio;
 import javax.servlet.http.HttpSession;

@@ -1,7 +1,7 @@
 
 package RestoApp.repositorios;
 
-import RestoApp.entidades.Foto;
+import RestoApp.Entidades.Foto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

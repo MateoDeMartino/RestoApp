@@ -1,12 +1,15 @@
 package RestoApp.Controladores;
 
+import RestoApp.Entidades.Restaurante;
 import RestoApp.Entidades.Zona;
+import RestoApp.servicios.ErrorServicio;
 import RestoApp.servicios.RestauranteServicio;
 import RestoApp.servicios.ZonaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,6 +42,12 @@ public class RestauranteControlador {
         
         return "Restaurante";
     }
+    
+    @GetMapping("/verPlatos/{id}")
+    public String verPlatos(@PathVariable("id") String id, ModelMap model){        
+        model.put("platos", restauranteServicio.listarPlatos(id));        
+        return "resto1";
+    }    
 
     @PostMapping("/modificarRestaurante")
     public String modificarRestaurante(String Id, @RequestParam String nombre, @RequestParam Integer mesas, @RequestParam Zona zona, @RequestParam Boolean abierto) {

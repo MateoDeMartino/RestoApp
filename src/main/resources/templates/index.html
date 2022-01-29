@@ -111,8 +111,8 @@
                                 <li class="list-group-item">Ubicacion: <span th:text="${Restaurante.zona.nombre}"></span></li>
                             </ul>
                             <div class="card-body">
-                                <a href="/Reserva/crearReserva" class="card-link">Reservar</a>
-                                <a href="#" class="card-link">Ver Menu</a>
+                                <a class="btn btn-success" th:href="@{/Reserva/crearReserva/} + ${Restaurante.id}">Reservar <i class="fa fa-edit"></i></a>
+                                <a class="btn btn-success" th:href="@{/Restaurante/verPlatos/} + ${Restaurante.id}">Ver Menu <i class="fa fa-edit"></i></a>
                             </div>
                         </div> 
                     </div>

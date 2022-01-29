@@ -23,17 +23,31 @@ public class Restaurante implements Serializable{
     private Zona zona;
     private Boolean abierto;
     
+    @OneToMany
+    private List<Plato> platos;
+    
     
     public Restaurante() {
     }
 
-    public Restaurante(String id, String nombre, Integer mesas, Zona zona, Boolean abierto) {
+    public Restaurante(String id, String nombre, Integer mesas, Zona zona, Boolean abierto, List<Plato> platos) {
         this.id = id;
         this.nombre = nombre;
         this.mesas = mesas;
         this.zona = zona;
         this.abierto = abierto;
+        this.platos = platos;
     }
+
+    public List<Plato> getPlatos() {
+        return platos;
+    }
+
+    public void setPlatos(List<Plato> platos) {
+        this.platos = platos;
+    }
+
+   
 
     public String getId() {
         return id;

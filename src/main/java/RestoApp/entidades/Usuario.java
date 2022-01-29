@@ -1,5 +1,4 @@
-
-package RestoApp.entidades;
+package RestoApp.Entidades;
 
 import RestoApp.enums.Role;
 import java.io.Serializable;

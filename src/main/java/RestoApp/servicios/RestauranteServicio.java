@@ -1,7 +1,9 @@
 package RestoApp.servicios;
 
+import RestoApp.Entidades.Plato;
 import RestoApp.Entidades.Restaurante;
 import RestoApp.Entidades.Zona;
+import RestoApp.repositorios.PlatoRepositorio;
 import RestoApp.repositorios.RestauranteRepositorio;
 import RestoApp.repositorios.ZonaRepositorio;
 import java.util.List;
@@ -18,6 +20,9 @@ public class RestauranteServicio {
 
     @Autowired
     private ZonaRepositorio zonaRepositorio;
+
+    @Autowired
+    private PlatoRepositorio platoRepo;
 
     @Transactional
     public void guardarRestaurante(String nombre, Integer mesas, String zona, Boolean abierto) throws ErrorServicio {
@@ -41,6 +46,15 @@ public class RestauranteServicio {
 
         restauranteRepositorio.save(restaurante);
 
+    }
+    @Transactional
+    public void guardarPlatos(String idresto){
+        Restaurante resto = buscarRestauranteId(idresto);
+        resto.setPlatos(platoRepo.buscarPlatoidResto(idresto));
+    }
+    public List<Plato> listarPlatos(String idresto){
+        Restaurante resto = buscarRestauranteId(idresto);
+        return resto.getPlatos();        
     }
 
     @Transactional
