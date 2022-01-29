@@ -14,6 +14,8 @@
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS Propio-->
+    <link rel="stylesheet" href="../static/style.css">
         <title>RestoApp</title>
     </head>
     <body>
@@ -95,59 +97,25 @@
 
             <section>
 
-                <div class="container">
+                <div th:each="Restaurante :${restos}" class="container" >
                     <!-- cartas de los diferentes restaruantes-->
-                    <div class="row row-cols-1 row-cols-md-4 g-4">
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../static/rest1.png" class="card-img-top" alt="restorant1">
-                                <div class="card-body">
-                                    <h5 class="card-title">RESTAURANTE N1</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </div>
+                    <div class="flex-item">                    
+                        <div class="card" style="width: 18rem;">  
+                            <img src="iconoresto.jpeg" class="card-img-top" alt="Aca iba una imagen muy copada">     
+                            <div class="card-body">                                
+                                <p class="card-title" th:text="${Restaurante.nombre}"></p>
                             </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../static/rest3.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">RESTAURANTE N2</h5>
-                                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Abierto: <span th:text="${Restaurante.abierto}"></span></li>
+                                <li class="list-group-item">Mesas Disponibles: <span th:text="${Restaurante.mesas}"></span></li>
+                                <li class="list-group-item">Ubicacion: <span th:text="${Restaurante.zona.nombre}"></span></li>
+                            </ul>
+                            <div class="card-body">
+                                <a href="/Reserva/crearReserva" class="card-link">Reservar</a>
+                                <a href="#" class="card-link">Ver Menu</a>
                             </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../static/rest4.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">RESTAURANTE N3</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../static/rest5.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">RESTAURANTE N4</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </div>
-                            </div>
-                        </div>
+                        </div> 
                     </div>
-
                 </div>
             </section>
 

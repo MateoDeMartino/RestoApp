@@ -32,10 +32,11 @@ public class RestauranteControlador {
 
         try {
             restauranteServicio.guardarRestaurante(nombre, mesas, zona, abierto);
+            model.put("exito", "El restaurante fue ingresado exitosamente");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        model.put("exito", "El restaurante fue ingresado exitosamente");
+        
         return "Restaurante";
     }
 

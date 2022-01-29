@@ -32,7 +32,8 @@ public class MainController {
     ZonaServicio zS;
 
     @GetMapping("/")
-    public String index() {
+    public String index(ModelMap model) {
+        model.put("restos", restauranteServicio.listaraRestaurantes());
         return "index";
     }
 
