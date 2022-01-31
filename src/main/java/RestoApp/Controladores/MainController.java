@@ -51,9 +51,9 @@ public class MainController {
     }
 
     @PostMapping("/registrar")
-    public String registrar(ModelMap modelo, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String mail, @RequestParam String clave) {
+    public String registrar(ModelMap modelo, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String mail, @RequestParam String clave, @RequestParam Integer role) {
         try {
-            usuarioServicio.registrar(nombre, apellido, mail, clave);
+            usuarioServicio.registrar(nombre, apellido, mail, clave, role);
         } catch (ErrorServicio ex) {
             modelo.put("error", ex.getMessage());
             modelo.put("nombre", nombre);
@@ -66,16 +66,21 @@ public class MainController {
         return "registro";
     }
 
+    @GetMapping("/zona")
+    public String zona() {
+        return "zona";
+    }
+    
+    @GetMapping("/nosotros")
+    public String nosotros() {
+        return "nosotros";
+    }
+    
     @GetMapping("/restoOpciones")
     /*En este get se colocan la lista de opciones que tendrán los dueños de los restos para cargar su información*/
 
     public String restoOpciones() {
-        return "restoOpciones";
-    }
-
-    @GetMapping("/zona")
-    public String zona() {
-        return "zona";
+        return "login";
     }
 
 }

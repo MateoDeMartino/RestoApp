@@ -35,7 +35,7 @@ public class UsuarioServicio implements UserDetailsService { //esta interface Us
 
     //Se llama cuando un usuario completa el formulario de registro
     @Transactional
-    public void registrar(String nombre, String apellido, String mail, String clave) throws ErrorServicio { //recibimos los datos de un formulario
+    public void registrar(String nombre, String apellido, String mail, String clave, Integer role) throws ErrorServicio { //recibimos los datos de un formulario
 
         //antes de persistir deberiamos validar si los datos que se envían no vienen vacios
         validar(nombre, apellido, mail, clave);
@@ -53,13 +53,13 @@ public class UsuarioServicio implements UserDetailsService { //esta interface Us
         usuario.setClave(encriptada);
 
         usuario.setAlta(new Date());
-        usuario.setRol(Role.USER);
-//        if (role_user == true) {
-//            usuario.setRol(Role.USER);
-//        }
-//        if (role_seller == true) {
-//            usuario.setRol(Role.SELLER);
-//        }
+        
+        if (role == 1) {
+            usuario.setRol(Role.USER);
+        }
+        if (role == 2) {
+            usuario.setRol(Role.SELLER);
+        }
 
         usuarioRepositorio.save(usuario);       //por ultimo le decimos al repositorio que lo guarde en la BD
 
