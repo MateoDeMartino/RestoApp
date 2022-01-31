@@ -6,9 +6,11 @@
 package RestoApp.Controladores;
 
 import RestoApp.Entidades.Plato;
+import RestoApp.Entidades.Restaurante;
 import RestoApp.servicios.ErrorServicio;
 import RestoApp.servicios.FotoServicio;
 import RestoApp.servicios.PlatoServicio;
+import RestoApp.servicios.RestauranteServicio;
 import java.util.logging.Level;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -34,6 +36,9 @@ public class FotoControlador {
 
     @Autowired
     private PlatoServicio pS;
+    
+    @Autowired
+    private RestauranteServicio rS;
 
     @GetMapping("/fotoPlato")
     public ResponseEntity<byte[]> fotoPlato(@RequestParam String id) {
@@ -59,5 +64,31 @@ public class FotoControlador {
  
 
     }
+    
+    @GetMapping("/fotoRestaurante")
+    public ResponseEntity<byte[]> fotoRestaurante(@RequestParam String id) {
+
+        
+            
+        try {
+            Restaurante restaurante = rS.buscarRestauranteId(id);
+            if (restaurante.getFoto() == null) {
+                throw new ErrorServicio("El restaurante no tiene una foto asignada");
+            }
+            byte[] foto = restaurante.getFoto().getContenido();
+            
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
+                    
+            return new ResponseEntity<>(foto, headers, HttpStatus.OK);
+        } catch (ErrorServicio ex) {
+            java.util.logging.Logger.getLogger(FotoControlador.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+          
+ 
+
+    }
+
 
 }

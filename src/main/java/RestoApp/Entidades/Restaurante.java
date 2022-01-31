@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -25,29 +26,11 @@ public class Restaurante implements Serializable{
     
     @OneToMany
     private List<Plato> platos;
-    
+    @OneToOne   
+    private Foto foto;
     
     public Restaurante() {
     }
-
-    public Restaurante(String id, String nombre, Integer mesas, Zona zona, Boolean abierto, List<Plato> platos) {
-        this.id = id;
-        this.nombre = nombre;
-        this.mesas = mesas;
-        this.zona = zona;
-        this.abierto = abierto;
-        this.platos = platos;
-    }
-
-    public List<Plato> getPlatos() {
-        return platos;
-    }
-
-    public void setPlatos(List<Plato> platos) {
-        this.platos = platos;
-    }
-
-   
 
     public String getId() {
         return id;
@@ -89,8 +72,32 @@ public class Restaurante implements Serializable{
         this.abierto = abierto;
     }
 
+    public List<Plato> getPlatos() {
+        return platos;
+    }
 
-    
+    public void setPlatos(List<Plato> platos) {
+        this.platos = platos;
+    }
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
+    }
+
+    public Restaurante(String id, String nombre, Integer mesas, Zona zona, Boolean abierto, List<Plato> platos, Foto foto) {
+        this.id = id;
+        this.nombre = nombre;
+        this.mesas = mesas;
+        this.zona = zona;
+        this.abierto = abierto;
+        this.platos = platos;
+        this.foto = foto;
+    }
+
 
     
     

@@ -1,5 +1,6 @@
 package RestoApp.servicios;
 
+import RestoApp.Entidades.Foto;
 import RestoApp.Entidades.Plato;
 import RestoApp.Entidades.Restaurante;
 import RestoApp.Entidades.Zona;
@@ -11,6 +12,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class RestauranteServicio {
@@ -23,9 +25,12 @@ public class RestauranteServicio {
 
     @Autowired
     private PlatoRepositorio platoRepo;
+    
+    @Autowired
+    private FotoServicio fS;
 
     @Transactional
-    public void guardarRestaurante(String nombre, Integer mesas, String zona, Boolean abierto) throws ErrorServicio {
+    public void guardarRestaurante(MultipartFile archivo,String nombre, Integer mesas, String zona, Boolean abierto) throws ErrorServicio {
   
         abierto = true;
         validar(nombre,mesas, abierto, zona);
@@ -43,7 +48,8 @@ public class RestauranteServicio {
         } else {
             throw new ErrorServicio("No se encontro la zona");
         }
-
+        Foto foto =fS.guardar(archivo);
+        restaurante.setFoto(foto);
         restauranteRepositorio.save(restaurante);
 
     }
@@ -76,13 +82,15 @@ public class RestauranteServicio {
     }
 
     @Transactional
-    public void modificarRestaurante(String nombre, Integer mesas, Zona zona, Boolean abierto) {
+    public void modificarRestaurante(MultipartFile archivo,String nombre, Integer mesas, Zona zona, Boolean abierto) {
 
         Restaurante restaurante = restauranteRepositorio.buscarRestaurantePorNombre(nombre);
         restaurante.setNombre(nombre);
         restaurante.setAbierto(abierto);
         restaurante.setMesas(mesas);
         restaurante.setZona(zona);
+        Foto foto=fS.guardar(archivo);
+        restaurante.setFoto(foto);
         restauranteRepositorio.save(restaurante);
 
     }

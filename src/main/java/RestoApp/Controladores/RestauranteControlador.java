@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/Restaurante")
@@ -31,10 +32,10 @@ public class RestauranteControlador {
     }
 
     @PostMapping("/guardarRestaurante")
-    public String guardarRestaurante(ModelMap model,String nombre, Integer mesas, String zona, Boolean abierto) {
+    public String guardarRestaurante(ModelMap model,MultipartFile archivo,String nombre, Integer mesas, String zona, Boolean abierto) {
 
         try {
-            restauranteServicio.guardarRestaurante(nombre, mesas, zona, abierto);
+            restauranteServicio.guardarRestaurante(archivo,nombre, mesas, zona, abierto);
             model.put("exito", "El restaurante fue ingresado exitosamente");
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -50,10 +51,10 @@ public class RestauranteControlador {
     }    
 
     @PostMapping("/modificarRestaurante")
-    public String modificarRestaurante(String Id, @RequestParam String nombre, @RequestParam Integer mesas, @RequestParam Zona zona, @RequestParam Boolean abierto) {
+    public String modificarRestaurante(String Id,MultipartFile archivo, @RequestParam String nombre, @RequestParam Integer mesas, @RequestParam Zona zona, @RequestParam Boolean abierto) {
 
         try {
-            restauranteServicio.modificarRestaurante(nombre, mesas, zona, abierto);
+            restauranteServicio.modificarRestaurante(archivo,nombre, mesas, zona, abierto);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
