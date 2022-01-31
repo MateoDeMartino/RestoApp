@@ -97,26 +97,31 @@
 
             <section>
 
-                <div th:each="Restaurante :${restos}" class="container" >
-                    <!-- cartas de los diferentes restaruantes-->
-                    <div class="flex-item">                    
-                        <div class="card" style="width: 18rem;">  
-                            <img src="iconoresto.jpeg" class="card-img-top" alt="Aca iba una imagen muy copada">     
-                            <div class="card-body">                                
-                                <p class="card-title" th:text="${Restaurante.nombre}"></p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Abierto: <span th:text="${Restaurante.abierto}"></span></li>
-                                <li class="list-group-item">Mesas Disponibles: <span th:text="${Restaurante.mesas}"></span></li>
-                                <li class="list-group-item">Ubicacion: <span th:text="${Restaurante.zona.nombre}"></span></li>
-                            </ul>
-                            <div class="card-body">
-                                <a class="btn btn-success" th:href="@{/Reserva/crearReserva/} + ${Restaurante.id}">Reservar <i class="fa fa-edit"></i></a>
-                                <a class="btn btn-success" th:href="@{/Restaurante/verPlatos/} + ${Restaurante.id}">Ver Menu <i class="fa fa-edit"></i></a>
-                            </div>
-                        </div> 
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div th:each="Restaurante :${restos}" class="container" >
+                        <!-- cartas de los diferentes restaruantes-->
+                        <div class="flex-item">                    
+                            <div class="card" style="width: 18rem;">  
+                                <img src="iconoresto.jpeg" class="card-img-top" alt="Aca iba una imagen muy copada">     
+                                <div class="card-body">                                
+                                    <p class="card-title" th:text="${Restaurante.nombre}"></p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Abierto: <span th:text="${Restaurante.abierto}"></span></li>
+                                    <li class="list-group-item">Mesas Disponibles: <span th:text="${Restaurante.mesas}"></span></li>
+                                    <li class="list-group-item">Ubicacion: <span th:text="${Restaurante.zona.nombre}"></span></li>
+                                </ul>
+                                <div class="card-body">
+                                    <a class="btn btn-success" th:href="@{/Reserva/crearReserva/} + ${Restaurante.id}">Reservar <i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-success" th:href="@{/Restaurante/verPlatos/} + ${Restaurante.id}">Ver Menu <i class="fa fa-edit"></i></a>
+                                </div>
+                            </div> 
+                        </div>
                     </div>
+
                 </div>
+
+                
             </section>
 
 
