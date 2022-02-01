@@ -15,6 +15,9 @@ public interface RestauranteRepositorio extends JpaRepository<Restaurante, Strin
     
     @Query("SELECT c FROM Restaurante c WHERE c.zona = :zona")
     public Restaurante buscarRestaurantePorZona(@Param("zona") String nombre);
+    
+    @Query("SELECT c FROM Restaurante c WHERE c.idUsuario = :idUsuario")
+    public Restaurante buscarRestaurantePorIdusuario(@Param("idUsuario") String idUsuario);
 
 }
 

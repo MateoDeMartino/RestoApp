@@ -53,7 +53,7 @@
                             <label for="exampleInputEmail1" class="form-label">Zona donde se ubica el Restaurante</label>
                             <select name="zona" class="form-select" aria-label="Default select example">
                                 <option selected>Seleccione una opcion</option>
-                                <option th:each="z: ${zonas}" th:value="${z.nombre}" th:text="${z.nombre}"></option>
+                                <option th:each="z: ${zonas}" th:if="${z.alta!=false}" th:value="${z.nombre}" th:text="${z.nombre}" ></option>
                             </select>
                         </div>
                         <div class="mb-3">

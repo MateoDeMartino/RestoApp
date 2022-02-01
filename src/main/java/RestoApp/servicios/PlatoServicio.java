@@ -2,6 +2,7 @@ package RestoApp.servicios;
 
 import RestoApp.Entidades.Foto;
 import RestoApp.Entidades.Plato;
+import RestoApp.Entidades.Restaurante;
 import RestoApp.repositorios.PlatoRepositorio;
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +24,7 @@ public class PlatoServicio {
     private RestauranteServicio rS;
 
     @Transactional
-    public Plato guardarPlato(MultipartFile archivo, String nombre, Integer valor, String descripcion, String idresto) throws ErrorServicio {
+    public Plato guardarPlato(MultipartFile archivo, String nombre, Integer valor, String descripcion, String idUsuario) throws ErrorServicio {
 
         validar(nombre, valor, descripcion);
 
@@ -31,7 +32,8 @@ public class PlatoServicio {
         plato.setNombre(nombre);
         plato.setValor(valor);
         plato.setDescripcion(descripcion);
-        plato.setIdresto(idresto);
+        Restaurante restaurante = rS.buscarRestauranteIdUsuario(idUsuario);
+        plato.setIdresto(restaurante.getId());
         plato.setAlta(true);
 
         Foto foto = fS.guardar(archivo);

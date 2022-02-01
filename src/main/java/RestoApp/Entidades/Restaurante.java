@@ -28,21 +28,10 @@ public class Restaurante implements Serializable{
     private List<Plato> platos;
     @OneToOne   
     private Foto foto;
-    @OneToOne 
-    private Usuario idUsuario;
+     
+    private String idUsuario;
     
     public Restaurante() {
-    }
-
-    public Restaurante(String id, String nombre, Integer mesas, Zona zona, Boolean abierto, List<Plato> platos, Foto foto, Usuario idUsuario) {
-        this.id = id;
-        this.nombre = nombre;
-        this.mesas = mesas;
-        this.zona = zona;
-        this.abierto = abierto;
-        this.platos = platos;
-        this.foto = foto;
-        this.idUsuario = idUsuario;
     }
 
     public String getId() {
@@ -101,11 +90,22 @@ public class Restaurante implements Serializable{
         this.foto = foto;
     }
 
-    public Usuario getIdUsuario() {
+    public String getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Usuario idUsuario) {
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public Restaurante(String id, String nombre, Integer mesas, Zona zona, Boolean abierto, List<Plato> platos, Foto foto, String idUsuario) {
+        this.id = id;
+        this.nombre = nombre;
+        this.mesas = mesas;
+        this.zona = zona;
+        this.abierto = abierto;
+        this.platos = platos;
+        this.foto = foto;
         this.idUsuario = idUsuario;
     }
 

@@ -35,10 +35,11 @@ public class PlatoControlador {
     }
 
     @PostMapping("/guardarplato")
-    public String guardarPlato(ModelMap model, MultipartFile archivo, @RequestParam String nombre, @RequestParam Integer valor, @RequestParam String descripcion,String idresto) {
+    public String guardarPlato(ModelMap model, MultipartFile archivo, @RequestParam String nombre, @RequestParam Integer valor, @RequestParam String descripcion,@RequestParam String idUsuario) {
         try {
-            pS.guardarPlato(archivo, nombre, valor, descripcion,idresto);
-            rS.guardarPlatos(idresto);
+            System.out.println(idUsuario);
+            pS.guardarPlato(archivo, nombre, valor, descripcion,idUsuario);
+            rS.guardarPlatos(idUsuario);
         } catch (ErrorServicio ex) {
             model.put("error", ex.getMessage());
             model.put("nombre", nombre);

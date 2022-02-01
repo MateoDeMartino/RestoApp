@@ -55,15 +55,15 @@ public class RestauranteServicio {
         Foto foto =fS.guardar(archivo);
         restaurante.setFoto(foto);
         
-        Usuario usuario = usuarioServicio.buscarPorId(idUsuario);
-        restaurante.setIdUsuario(usuario);
+        
+        restaurante.setIdUsuario(idUsuario);
         restauranteRepositorio.save(restaurante);
 
     }
     @Transactional
-    public void guardarPlatos(String idresto){
-        Restaurante resto = buscarRestauranteId(idresto);
-        resto.setPlatos(platoRepo.buscarPlatoidResto(idresto));
+    public void guardarPlatos(String idUsuario){
+        Restaurante resto = restauranteRepositorio.buscarRestaurantePorIdusuario(idUsuario);
+        resto.setPlatos(platoRepo.buscarPlatoidResto(resto.getId()));
     }
     public List<Plato> listarPlatos(String idresto){
         Restaurante resto = buscarRestauranteId(idresto);
@@ -117,6 +117,13 @@ public class RestauranteServicio {
           Restaurante r =restaurante.get();
         return r;
 
+    }
+    @Transactional
+    public Restaurante buscarRestauranteIdUsuario(String idUsuario){
+        
+        Restaurante restaurante = restauranteRepositorio.buscarRestaurantePorIdusuario(idUsuario);
+        System.out.println(restaurante.getId());
+        return restaurante;
     }
 
     public void validar(String nombre, Integer mesas, Boolean abierto, String idZona, String idUsuario) throws ErrorServicio {
