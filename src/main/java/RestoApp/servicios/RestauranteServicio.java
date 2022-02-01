@@ -3,6 +3,7 @@ package RestoApp.servicios;
 import RestoApp.Entidades.Foto;
 import RestoApp.Entidades.Plato;
 import RestoApp.Entidades.Restaurante;
+import RestoApp.Entidades.Usuario;
 import RestoApp.Entidades.Zona;
 import RestoApp.repositorios.PlatoRepositorio;
 import RestoApp.repositorios.RestauranteRepositorio;
@@ -29,11 +30,14 @@ public class RestauranteServicio {
     @Autowired
     private FotoServicio fS;
 
+    @Autowired
+    private UsuarioServicio usuarioServicio;
+    
     @Transactional
-    public void guardarRestaurante(MultipartFile archivo,String nombre, Integer mesas, String zona, Boolean abierto) throws ErrorServicio {
+    public void guardarRestaurante(MultipartFile archivo,String nombre, Integer mesas, String zona, Boolean abierto, String idUsuario) throws ErrorServicio {
   
         abierto = true;
-        validar(nombre,mesas, abierto, zona);
+        validar(nombre,mesas, abierto, zona, idUsuario);
         
         Restaurante restaurante = new Restaurante();
         
@@ -50,6 +54,9 @@ public class RestauranteServicio {
         }
         Foto foto =fS.guardar(archivo);
         restaurante.setFoto(foto);
+        
+        Usuario usuario = usuarioServicio.buscarPorId(idUsuario);
+        restaurante.setIdUsuario(usuario);
         restauranteRepositorio.save(restaurante);
 
     }
@@ -112,7 +119,7 @@ public class RestauranteServicio {
 
     }
 
-    public void validar(String nombre, Integer mesas, Boolean abierto, String idZona) throws ErrorServicio {
+    public void validar(String nombre, Integer mesas, Boolean abierto, String idZona, String idUsuario) throws ErrorServicio {
         if (nombre == null || nombre.isEmpty()) {
             throw new ErrorServicio("El nombre no puede ser nulo");
         }
@@ -125,6 +132,9 @@ public class RestauranteServicio {
         }
         if (abierto == null) {
             throw new ErrorServicio("Se necesita saber si esta abierto o cerrado");
+        }
+        if (idUsuario == null || idUsuario.isEmpty()) {
+            throw new ErrorServicio("Se necesita saber la zona");
         }
     }
 

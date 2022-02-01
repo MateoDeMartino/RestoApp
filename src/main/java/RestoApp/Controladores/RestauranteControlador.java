@@ -1,6 +1,7 @@
 package RestoApp.Controladores;
 
 import RestoApp.Entidades.Restaurante;
+import RestoApp.Entidades.Usuario;
 import RestoApp.Entidades.Zona;
 import RestoApp.servicios.ErrorServicio;
 import RestoApp.servicios.RestauranteServicio;
@@ -32,10 +33,10 @@ public class RestauranteControlador {
     }
 
     @PostMapping("/guardarRestaurante")
-    public String guardarRestaurante(ModelMap model,MultipartFile archivo,String nombre, Integer mesas, String zona, Boolean abierto) {
+    public String guardarRestaurante(ModelMap model,MultipartFile archivo,String nombre, Integer mesas, String zona, Boolean abierto, String idUsuario) {
 
         try {
-            restauranteServicio.guardarRestaurante(archivo,nombre, mesas, zona, abierto);
+            restauranteServicio.guardarRestaurante(archivo,nombre, mesas, zona, abierto, idUsuario);
             model.put("exito", "El restaurante fue ingresado exitosamente");
         } catch (Exception e) {
             System.out.println(e.getMessage());
