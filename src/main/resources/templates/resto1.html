@@ -69,11 +69,12 @@
                             <div class="col-lg-6 menu-item filter-starters" th:if="${Plato.categoria == 'principal'}" th:each="Plato :${platos}" >
                                 <div class="menu-content">
                                     <a th:text="${Plato.nombre}"></a>
-                                    <a>$<span th:text="${Plato.valor}"></span></a>                                    
+                                    <a>$<span th:text="${Plato.valor}"></span></a>                                                                   
                                 </div>
-                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="card-img-top" alt="..." width="100%" height="100%"> <br>
+                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="rounded float-start" alt="..." width="200" height="200"> 
+                                <br>
                                 <label for="exampleInputEmail1" class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" name="check" >
+                                <input type="number" class="form-control" name="check" >                              
                             </div> 
                                             <!--Bebidas-->
                             <div class="col-lg-6 menu-item filter-bebidas" th:if="${Plato.categoria == 'bebida'}" th:each="Plato :${platos}" >
@@ -81,7 +82,7 @@
                                     <a th:text="${Plato.nombre}"></a>
                                     <a>$<span th:text="${Plato.valor}"></span></a>                                    
                                 </div>
-                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="card-img-top" alt="..." width="150" height="150"> <br>
+                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="rounded float-start" alt="..." width="200" height="200"> <br>
                                 <label for="exampleInputEmail1" class="form-label">Cantidad</label>
                                 <input type="number" class="form-control" name="check" >
                             </div>
@@ -91,7 +92,7 @@
                                     <a th:text="${Plato.nombre}"></a>
                                     <a>$<span th:text="${Plato.valor}"></span></a>                                    
                                 </div>
-                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="card-img-top" alt="..." width="150" height="150"> <br>
+                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="rounded float-start" alt="..." width="200" height="200"> <br>
                                 <label for="exampleInputEmail1" class="form-label">Cantidad</label>
                                 <input type="number" class="form-control" name="check" >
                             </div>
@@ -101,7 +102,7 @@
                                     <a th:text="${Plato.nombre}"></a>
                                     <a>$<span th:text="${Plato.valor}"></span></a>                                    
                                 </div>
-                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="card-img-top" alt="..." width="150" height="150"> <br>
+                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="rounded float-start" alt="..." width="200" height="200"> <br>
                                 <label for="exampleInputEmail1" class="form-label">Cantidad</label>
                                 <input type="number" class="form-control" name="check" >
                             </div>
