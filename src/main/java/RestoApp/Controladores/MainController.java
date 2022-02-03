@@ -76,6 +76,16 @@ public class MainController {
         return "nosotros";
     }
     
+    @GetMapping("/beneficios")
+    public String beneficios(){
+        return "beneficios";
+    }
+    
+    @GetMapping("carrito")
+    public String carrito(){
+        return "carrito";
+    }
+    
     @GetMapping("/restoOpciones")
     /*En este get se colocan la lista de opciones que tendrán los dueños de los restos para cargar su información*/
 
