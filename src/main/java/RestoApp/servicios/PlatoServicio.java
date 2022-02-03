@@ -107,6 +107,16 @@ public class PlatoServicio {
 
         return platoRepo.findAll();
     }
+    
+    @Transactional
+    public List<Plato> listarPlatosdelResto(String idUsuario) {
+         Restaurante resto = rS.buscarRestauranteIdUsuario(idUsuario);
+         
+         
+         List<Plato> platos =resto.getPlatos();
+         
+        return platos;
+    }
 
     @Transactional
     public Plato buscarPlatoId(String id) throws ErrorServicio {

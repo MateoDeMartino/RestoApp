@@ -122,7 +122,7 @@ public class RestauranteServicio {
     public Restaurante buscarRestauranteIdUsuario(String idUsuario){
         
         Restaurante restaurante = restauranteRepositorio.buscarRestaurantePorIdusuario(idUsuario);
-        System.out.println(restaurante.getId());
+        
         return restaurante;
     }
 

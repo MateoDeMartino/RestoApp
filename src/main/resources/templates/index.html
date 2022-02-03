@@ -69,7 +69,7 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="/plato/crearplato">Crear</a></li>
-                                        <li><a class="dropdown-item" href="/plato/listar">Listar</a></li>
+                                        <li><a class="dropdown-item" sec:authorize="hasAnyRole('ROLE_SELLER')" th:href="@{/plato/listarDeResto/} + ${session.usuariosession.id}">Listar</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -78,7 +78,7 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="/zona/crearzona">Crear</a></li>
-                                        <li><a class="dropdown-item" href="/zona/modzona">Opciones</a></li>
+                                        <!-- <li><a class="dropdown-item" href="/zona/modzona">Opciones</a></li> -->
                                         <li><a class="dropdown-item" href="/zona/lista">Listar</a></li>
                                     </ul>
                                 </li>
@@ -114,7 +114,7 @@
                                     <li class="list-group-item">Ubicacion: <span th:text="${Restaurante.zona.nombre}"></span></li>
                                 </ul>
                                 <div class="card-body">
-                                    <a class="btn btn-success" th:href="@{/Reserva/crearReserva/} + ${Restaurante.id}">Reservar <i class="fa fa-edit"></i></a>
+                                    <!-- <a class="btn btn-success" th:href="@{/Reserva/crearReserva/} + ${Restaurante.id}">Reservar <i class="fa fa-edit"></i></a> -->
                                     <a class="btn btn-success" th:href="@{/Restaurante/verPlatos/} + ${Restaurante.id}">Ver Menu <i class="fa fa-edit"></i></a>
                                 </div>
                             </div> 

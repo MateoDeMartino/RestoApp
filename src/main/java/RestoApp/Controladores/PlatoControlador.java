@@ -60,6 +60,14 @@ public class PlatoControlador {
 
         return "listaPlatos";
     }
+    
+      @GetMapping("/listarDeResto/{id}")
+    public String listarPlatosDeResto(@PathVariable("id") String id,ModelMap model) {
+          
+        model.put("platos", pS.listarPlatosdelResto(id));
+
+        return "listaPlatos";
+    }
 
     @GetMapping("/modplato/{id}")
     public String modPlato(@PathVariable("id") String id, ModelMap model) {
