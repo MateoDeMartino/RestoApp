@@ -24,7 +24,7 @@ public class PlatoServicio {
     private RestauranteServicio rS;
 
     @Transactional
-    public Plato guardarPlato(MultipartFile archivo, String nombre, Integer valor, String descripcion, String idUsuario) throws ErrorServicio {
+    public Plato guardarPlato(MultipartFile archivo, String categoria,String nombre, Integer valor, String descripcion, String idUsuario) throws ErrorServicio {
 
         validar(nombre, valor, descripcion);
 
@@ -32,6 +32,7 @@ public class PlatoServicio {
         plato.setNombre(nombre);
         plato.setValor(valor);
         plato.setDescripcion(descripcion);
+        plato.setCategoria(categoria);
         Restaurante restaurante = rS.buscarRestauranteIdUsuario(idUsuario);
         plato.setIdresto(restaurante.getId());
         plato.setAlta(true);

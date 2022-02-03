@@ -64,38 +64,66 @@
                             </div>
                         </div>
 
-                        <div class="row menu-container">            
-                            <div th:each="Plato :${platos}" class="col-lg-6 menu-item filter-starters">
+                        <div class="row menu-container"> 
+                                            <!--Principales-->
+                            <div class="col-lg-6 menu-item filter-starters" th:if="${Plato.categoria == 'principal'}" th:each="Plato :${platos}" >
                                 <div class="menu-content">
                                     <a th:text="${Plato.nombre}"></a>
-                                    <a>$<span th:text="${Plato.valor}"></span></a>
-                                    <!-- <a th:text="${Plato.valor}">$</a> -->
+                                    <a>$<span th:text="${Plato.valor}"></span></a>                                    
                                 </div>
-                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="card-img-top" alt="..." width="150" height="150"> <br>
-                                <label for="exampleInputEmail1" class="form-label">Cantidad de platos</label>
+                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="card-img-top" alt="..." width="100%" height="100%"> <br>
+                                <label for="exampleInputEmail1" class="form-label">Cantidad</label>
                                 <input type="number" class="form-control" name="check" >
                             </div> 
+                                            <!--Bebidas-->
+                            <div class="col-lg-6 menu-item filter-bebidas" th:if="${Plato.categoria == 'bebida'}" th:each="Plato :${platos}" >
+                                <div class="menu-content">
+                                    <a th:text="${Plato.nombre}"></a>
+                                    <a>$<span th:text="${Plato.valor}"></span></a>                                    
+                                </div>
+                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="card-img-top" alt="..." width="150" height="150"> <br>
+                                <label for="exampleInputEmail1" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" name="check" >
+                            </div>
+                                            <!--Postres-->
+                            <div class="col-lg-6 menu-item filter-postre" th:if="${Plato.categoria == 'postre'}" th:each="Plato :${platos}" >
+                                <div class="menu-content">
+                                    <a th:text="${Plato.nombre}"></a>
+                                    <a>$<span th:text="${Plato.valor}"></span></a>                                    
+                                </div>
+                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="card-img-top" alt="..." width="150" height="150"> <br>
+                                <label for="exampleInputEmail1" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" name="check" >
+                            </div>
+                                            <!--Cafeteria-->
+                            <div class="col-lg-6 menu-item filter-cafeteria" th:if="${Plato.categoria == 'cafeteria'}" th:each="Plato :${platos}" >
+                                <div class="menu-content">
+                                    <a th:text="${Plato.nombre}"></a>
+                                    <a>$<span th:text="${Plato.valor}"></span></a>                                    
+                                </div>
+                                <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="card-img-top" alt="..." width="150" height="150"> <br>
+                                <label for="exampleInputEmail1" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" name="check" >
+                            </div>
                             <!-- <a class="btn btn-success" th:href="@{/Reserva/crearReserva/} + ${Restaurante.id}">Reservar <i class="fa fa-edit"></i></a> -->
                         </div>
-                        
+                    <!-- ======= End Menu Section ======= -->
                     </div>
-                    <!-- </section>End Menu Section  -->
-                </div>
             </div>
 
 
 
-            <!--PIE-->
-            <footer>
-                <p>Copyright 2001-2021 RestoApp. Todos los derechos reservados. Prohibida la duplicación, distribución o almacenamiento en cualquier medio.</p>
-            </footer>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-            <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-            <script src="../vendor/glightbox/js/glightbox.min.js"></script>
-            <script src="../vendor/isotope-layout/isotope.pkgd.min.js"></script>
-            <script src="../vendor/swiper/swiper-bundle.min.js"></script>
-            <script src="../js/main.js"></script>
-        </section>
-    </body>
+<!--PIE-->
+<footer>
+    <p>Copyright 2001-2021 RestoApp. Todos los derechos reservados. Prohibida la duplicación, distribución o almacenamiento en cualquier medio.</p>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+    <script src="/../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/../vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="/../vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="/../vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="/../js/main.js"></script>
+    </section>
+</body>
 </html>
 

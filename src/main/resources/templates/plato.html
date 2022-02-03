@@ -16,7 +16,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSS Propio-->
-        <link rel="stylesheet" href="../static/restoOpciones.css">
+        <link rel="stylesheet" href="/restoOpciones.css">
         <title>Cargar Plato</title>
     </head>
     <body>
@@ -37,7 +37,7 @@
                 <div class="card-header">
                     Cargue su plato
                 </div>
-                <p th:text="${session.usuariosession.id}"></p>
+                
                 <div class="card-body">
                     <p class="error" th:if= "${error != null}" th:text = ${error}></p>
                     <p class="exito" th:if= "${exito != null}" th:text = ${exito}></p>
@@ -45,7 +45,17 @@
                     <form action="/plato/guardarplato" method="POST" enctype="multipart/form-data">
 
                         <input type="hidden" name="idUsuario" th:value="${session.usuariosession.id}"/>
-                        
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Tipo de plato</label>
+                            <select name="categoria">
+                                <option selected="">Seleccione una opcion</option>
+                                <option value="principal">Plato Principal</option>
+                                <option value="postre">Postre</option>
+                                <option value="bebida">Bebida</option>
+                                <option value="cafeteria">Cafeteria</option>
+                            </select>
+                        </div>                        
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nombre del plato</label>
                             <input type="text" class="form-control" name="nombre" th:value="${nombre}">
