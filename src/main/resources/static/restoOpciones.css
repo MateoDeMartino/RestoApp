@@ -1,12 +1,9 @@
-
 body{
-background-color:#461111;
+  background-image: url('fondo1.jpg');
+  background-repeat:repeat-y;
+  background-size: cover;
 }
-header{
-    width: 100%;
-    background-color:#461111;
-    height: 15%;
-}
+
 a{
   color:#fff;  
  text-decoration: none; 
@@ -95,11 +92,8 @@ color:#DE934D;
 
 
 section{
-    padding-top: 70px;
+    padding-top: 10%;
     width: 100%;
-    background-image: url('fondo1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 800px;
 
 }
