@@ -1,4 +1,12 @@
 
+body{
+background-color:#461111;
+}
+header{
+    width: 100%;
+    background-color:#461111;
+    height: 15%;
+}
 a{
   color: #fff;  
  text-decoration: none; 
@@ -78,7 +86,7 @@ color:#DE934D;
 
 
 section{
-    padding-top: 10%;
+    padding-top: 70px;
     width: 100%;
     background-image: url('fondo1.jpg');
     background-repeat: no-repeat;

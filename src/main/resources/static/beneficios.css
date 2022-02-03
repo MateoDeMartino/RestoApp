@@ -1,106 +1,11 @@
-a{
-    color:#fff;  
-   text-decoration: none; 
-  }
-a:hover{
-      color:#fff;
-  }
-  
-.logo{
-  width: 20%;
-  height: 10%;
-  font-family: 'Open Sans', sans-serif;
-  font-family: 'Paytone One', sans-serif;
-  float: left;
-  }
-  /* LOGO */
-.logo p{
-  padding-left: 15px;
-  font-size: 60px;
-  position: absolute;
-  animation: jackInTheBox;
-  animation-duration:3s;
-  text-align: center;
-  vertical-align: bottom;
-  box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
-  font-family: 'Paytone One', sans-serif;
-  color:#DE934D;
-  }
-.botones{
-    display:inline-block;
-    width: 70%;
-    height: 90px;
-    
-    margin: 0 auto;
-   padding-top: 25px;
-   padding-left:65em;
-    
-  }
-.btn-outline-secondary {
-      color: #DE934D;
-      border-color: #DE934D;
-    }
-.btn-outline-secondary:hover {
-      color: #fff;
-      background-color: #DE934D;
-      border-color: #DE934D;
-    }
-  
-.bg-light {
-      --bs-bg-opacity: 0;
-      background-color: rgba(#781D42) !important;
-    }
-
-.col :hover{
-    box-shadow: 0.2rem 0.2rem 0.4rem rgba(255,255,255,0.9 );
-  }
-img .img{
-    width: 60px;
-    height: 100px;
-    
-  }
-p{
-      color:#fff;
-  }
-p.error{
-  color: red;
-  }
-p.exito{
-    color: green;
-    }
-
-
-/*NAVEGADOR*/
-.navegador{
-    background-color:#A3423C ;
-    padding-left: 27%;
-    height: 10%;
-    display: flex;
-    align-items: center;
-}
-.navbar-light .navbar-brand {
-  color: #DE934D;
-}
-.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
-  color: #DE934D;
-}
-
-section{
-    padding-top: 10%;
-    width: 100%;
-    background-image: url('fondo1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 800px;
-}
 
 body{
-    background-image: url('fondo1.jpg');
+    background-image: url('../static/fondo2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 800px;
 }
+
+
 
 .logo-tarjeta{
     width: 14%;
