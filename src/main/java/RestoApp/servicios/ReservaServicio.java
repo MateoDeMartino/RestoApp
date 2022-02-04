@@ -3,6 +3,7 @@ package RestoApp.servicios;
 import RestoApp.Entidades.Reserva;
 import RestoApp.repositorios.ReservaRepositorio;
 import java.util.Date;
+import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,9 @@ public class ReservaServicio {
 
         reservaRepositorio.save(reserva);
     }
-
+ 
+     public List<Reserva> buscarReservas(String id){
+         List<Reserva> lista = reservaRepositorio.buscarReservas(id);
+         return lista;
+     }
 }

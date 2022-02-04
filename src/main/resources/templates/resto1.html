@@ -74,7 +74,7 @@
                                 <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="rounded float-start" alt="..." width="200" height="200"> 
                                 <br>
                                 <label for="exampleInputEmail1" class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" name="check" >                              
+                                                             
                             </div> 
                                             <!--Bebidas-->
                             <div class="col-lg-6 menu-item filter-bebidas" th:if="${Plato.categoria == 'bebida'}" th:each="Plato :${platos}" >
@@ -84,7 +84,7 @@
                                 </div>
                                 <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="rounded float-start" alt="..." width="200" height="200"> <br>
                                 <label for="exampleInputEmail1" class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" name="check" >
+                               
                             </div>
                                             <!--Postres-->
                             <div class="col-lg-6 menu-item filter-postre" th:if="${Plato.categoria == 'postre'}" th:each="Plato :${platos}" >
@@ -94,7 +94,7 @@
                                 </div>
                                 <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="rounded float-start" alt="..." width="200" height="200"> <br>
                                 <label for="exampleInputEmail1" class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" name="check" >
+                                
                             </div>
                                             <!--Cafeteria-->
                             <div class="col-lg-6 menu-item filter-cafeteria" th:if="${Plato.categoria == 'cafeteria'}" th:each="Plato :${platos}" >
@@ -104,13 +104,14 @@
                                 </div>
                                 <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="rounded float-start" alt="..." width="200" height="200"> <br>
                                 <label for="exampleInputEmail1" class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" name="check" >
+                                
                             </div>
                             <!-- <a class="btn btn-success" th:href="@{/Reserva/crearReserva/} + ${Restaurante.id}">Reservar <i class="fa fa-edit"></i></a> -->
                         </div>
                     <!-- ======= End Menu Section ======= -->
                     </div>
             </div>
+            <button class="btn btn-primary" type="button" ><a href="/Reserva/crearReserva">Realizar Reserva</a></button>
             <button class="btn btn-primary" type="button" ><a href="/">Volver al Menu</a></button>
 
 

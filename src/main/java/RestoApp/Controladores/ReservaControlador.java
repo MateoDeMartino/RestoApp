@@ -1,14 +1,19 @@
 
 package RestoApp.Controladores;
 
+import RestoApp.repositorios.ReservaRepositorio;
 import RestoApp.servicios.ErrorServicio;
 import RestoApp.servicios.ReservaServicio;
+import RestoApp.servicios.UsuarioServicio;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +24,8 @@ public class ReservaControlador {
     
     @Autowired
     private ReservaServicio reservaServicio;
+    @Autowired
+    private UsuarioServicio uS;
     
     @GetMapping("/crearReserva")
     public String crearReserva() {
@@ -26,7 +33,7 @@ public class ReservaControlador {
     }
 
     @PostMapping("/guardarReserva")
-    public String guardarReserva(ModelMap model, @RequestParam String nombre, @RequestParam Integer cantidad, @DateTimeFormat(pattern = "yyyy-MM-dd") Date dia) {
+    public String guardarReserva(ModelMap model,@RequestParam  String nombre, @RequestParam Integer cantidad, @DateTimeFormat(pattern = "dd-MM-YYYY") Date dia) {
         try {
             reservaServicio.guardarReserva(nombre, cantidad, dia);
         } catch (ErrorServicio ex) {
@@ -40,4 +47,19 @@ public class ReservaControlador {
         return "Reserva";
     }
     
+    
+       @GetMapping("/listarReservas/{id}")
+    public String listarReservas(@PathVariable("id") String id,ModelMap model) {
+        try {
+            String nombre = uS.buscarPorId(id).getNombre();
+            System.out.println(nombre);
+            model.put("reservas", reservaServicio.buscarReservas(nombre));
+        } catch (ErrorServicio ex) {
+            Logger.getLogger(ReservaControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+
+        return "listaReserva";
+    }
+
 }

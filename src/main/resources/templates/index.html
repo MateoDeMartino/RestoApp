@@ -50,7 +50,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
                     <div class="container-fluid">
-                        <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/Reserva/crearReserva">Reservas</a>
+                        <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_USER')"  th:href="@{/Reserva/listarReservas/} + ${session.usuariosession.id}">Reservas</a>
                         <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="#">Carrito</a>
                         <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="#">Beneficios</a>
                         <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_SELLER','ROLE_ADMIN')" href="/Restaurante/crearResto">Crear Resto</a>
