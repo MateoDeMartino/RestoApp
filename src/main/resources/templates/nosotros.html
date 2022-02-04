@@ -33,15 +33,13 @@
         <header>
 
             <div class="logo">
-                <p class="animate_animated animate_bounde"> RESTO APP</p>
+                <a class="animate_animated animate_bounde" href="/"> RESTO APP</a>
             </div>
 
             <div class="botones">
                 <a href="/registro"><button type="button" class="btn btn-outline-secondary">Registrate</button></a>
                 <a href="/login"><button type="button" class="btn btn-outline-secondary">Iniciar Sesión</button></a>
             </div>
-
-
 
         </header>
 
@@ -50,46 +48,39 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
                 <div class="container-fluid">
-                    <a class="navbar-brand" sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')"
-                        href="/Reserva/crearReserva">Reservas</a>
-                    <a class="navbar-brand" sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="#">Carrito</a>
-                    <a class="navbar-brand" sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="#">Beneficios</a>
-                    <a class="navbar-brand" sec:authorize="hasAnyRole('ROLE_SELLER','ROLE_ADMIN')"
-                        href="/Restaurante/crearResto">Crear Resto</a>
+                    <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/Reserva/crearReserva">Reservas</a>
+                    <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/carrito">Carrito</a>
+                    <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/beneficios">Beneficios</a>
+                    <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_SELLER','ROLE_ADMIN')" href="/Restaurante/crearResto">Crear Resto</a>
                     <!-- <a class="navbar-brand"  sec:authorize="hasRole('ROLE_SELLER')" href="/restoOpciones">Recursos</a> -->
 
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle"
-                                    sec:authorize="hasAnyRole('ROLE_SELLER','ROLE_ADMIN')" href="#" id="navbarDropdown"
-                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" sec:authorize="hasAnyRole('ROLE_SELLER','ROLE_ADMIN')" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Plato
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="/plato/crearplato">Crear</a></li>
-                                    <li><a class="dropdown-item" href="/plato/listar">Listar</a></li>
+                                    <li><a class="dropdown-item" sec:authorize="hasAnyRole('ROLE_SELLER')" th:href="@{/plato/listarDeResto/} + ${session.usuariosession.id}">Listar</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" sec:authorize="hasAnyRole('ROLE_ADMIN')" href="#"
-                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" sec:authorize="hasAnyRole('ROLE_ADMIN')" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Zona
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="/zona/crearzona">Crear</a></li>
-                                    <li><a class="dropdown-item" href="/zona/modzona">Opciones</a></li>
+                                    <!-- <li><a class="dropdown-item" href="/zona/modzona">Opciones</a></li> -->
                                     <li><a class="dropdown-item" href="/zona/lista">Listar</a></li>
                                 </ul>
                             </li>
-                            <a class="navbar-brand" href="/nosotros">Nosotros</a>
+                            <a class="navbar-brand"  href="/nosotros">Nosotros</a>
                         </ul>
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
@@ -101,8 +92,9 @@
             </nav>
         </div>
 
+    <section>
 
-        <div class="card" style="width: 100%;">
+        <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Los Desarrolladores de esta pagina son:</h5>
                 <p class="card-text">
@@ -117,10 +109,10 @@
                     <li>Mateo de Martino</li>
                 </ul>
                 </p>
-                <button class="btn btn-primary" type="button" ><a href="/">Volver al Menu</a></button>
+                <button class="btn btn-warning" type="button" ><a href="/">Volver al Menu</a></button>
             </div>
         </div>
-
+    </section>
 
         <!--PIE-->
         <footer>

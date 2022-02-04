@@ -51,8 +51,8 @@
 
                     <div class="container-fluid">
                         <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/Reserva/crearReserva">Reservas</a>
-                        <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="#">Carrito</a>
-                        <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="#">Beneficios</a>
+                        <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/carrito">Carrito</a>
+                        <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/beneficios">Beneficios</a>
                         <a class="navbar-brand"  sec:authorize="hasAnyRole('ROLE_SELLER','ROLE_ADMIN')" href="/Restaurante/crearResto">Crear Resto</a>
                         <!-- <a class="navbar-brand"  sec:authorize="hasRole('ROLE_SELLER')" href="/restoOpciones">Recursos</a> -->
 

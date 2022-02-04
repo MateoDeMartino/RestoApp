@@ -1,87 +1,97 @@
-#mainContainer{
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  
   body{
-   margin:0;
+    background-image: url('fondo1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   header{
       width: 100%;
       background-color:#461111;
-      height: 150px;
+      height: 15%;
   }
   
   .logo{
-  width: 100%;
-  height: 90px;
-  font-family: 'Open Sans', sans-serif;
-  font-family: 'Paytone One', sans-serif;
-  
-  }
-  /* LOGO */
-  .logo p{
-    padding-left: 15px;
-  font-size:60px;
-  animation: jackInTheBox;
-  animation-duration:3s;
-  text-align: center;
-  vertical-align: bottom;
-  box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
-  font-family: 'Paytone One', sans-serif;
-  color:#DE934D;
-  }
-  .botones{
-   float:right;
+    width: 20%;
+    height: 90px;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Paytone One', sans-serif;
+    float: left;
     
-  }
-  .btn-outline-secondary {
-      color: #DE934D;
-      border-color: #DE934D;
     }
-  .btn-outline-secondary:hover {
-      color: #fff;
-      background-color: #DE934D;
-      border-color: #DE934D;
+    /* LOGO */
+    .logo a{
+      padding-left: 15px;
+    font-size:60px;
+    position: absolute;
+    animation: jackInTheBox;
+    animation-duration:3s;
+    text-align: center;
+    vertical-align: bottom;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Paytone One', sans-serif;
+    color:#DE934D;
+    text-decoration: none;
     }
+    .botones{
+      display:inline-block;
+      width: 70%;
+      height: 90px;
+      margin: 0 auto;
+      padding-top: 25px;
+      text-align: right;
+      
+    }
+
+    .btn-outline-secondary {
+        color: #DE934D;
+        border-color: #DE934D;
+      }
+      .btn-outline-secondary:hover {
+        color: #fff;
+        background-color: #DE934D;
+        border-color: #DE934D;
+      }
+
   /*NAVEGADOR*/
-  .navegador{
-      background-color:#A3423C ;
-      padding-left: 0px;
-  }
-  .navbar-light .navbar-brand {
-    color: #DE934D;
-  }
-  .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
-    color: #DE934D;
-  }
-  /* .row {
-    padding-left: 20px;
-    padding-right: 20px;
-  } */
-  .bg-light{
-      
-      
-      width: 100%;
-      height: 40%;
-      padding-left: 130px;
-      padding-right: 130px;
-      font-family: 'Open Sans', sans-serif;
-      font-family: 'Paytone One', sans-serif;
-      
-  }
+.navegador{
+  background-color:#A3423C ;
+  padding-left: 0px;
+}
+.navbar-light .navbar-brand {
+color: #DE934D;
+}
+.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+color: #DE934D;
+}
+.row {
+padding-left: 20px;
+padding-right: 20px;
+}
+.bg-light{
   
+  --bs-bg-opacity: 0;
+  background-color: rgba(#781D42) !important;
+  width: 100%;
+  height: 40%;
+  padding-left: 130px;
+  padding-right: 130px;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Paytone One', sans-serif;
   
-  
+}
+.list-group-item {
+position: relative;
+display: block;
+padding: 0.5rem 1rem;
+color: #212529;
+text-decoration: none;
+background-color: #444343;
+border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
   section{
-      padding-top: 70px;
+      padding-top: 10%;
       width: 100%;
-      background-image: url('fondo1.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
       height: 800px;
   
   }
@@ -93,22 +103,20 @@
   
   
   
-      footer {
-          background-color: black;
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          height: 40px;
-          color: white;
-        }
+  footer{
+    background-color:#781D42;
+    width: 100%;
+    height: 15%;
+    text-align: center;
+}
         
   }
   .bg-light {
       --bs-bg-opacity: 0;
       background-color: rgba(#781D42) !important;
     }
-  .card {
-      
+    .card {
+    
       position: relative;
       display: flex;
       flex-wrap: wrap;
@@ -120,7 +128,8 @@
       opacity: 50;
       border: 1px solid rgba(0, 0, 0, 0.125);
       border-radius: 0.25rem;
-      width: 300px;
+      width: 40rem;
+      margin-left: 20rem;
       font-family: 'Readex Pro', sans-serif;
      }
   
@@ -139,3 +148,12 @@
     margin: 0;
   }
   
+
+
+
+
+ 
+
+
+
+
