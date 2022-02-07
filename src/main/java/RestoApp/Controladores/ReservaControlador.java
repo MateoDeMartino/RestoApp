@@ -33,7 +33,7 @@ public class ReservaControlador {
     }
 
     @PostMapping("/guardarReserva")
-    public String guardarReserva(ModelMap model,@RequestParam  String nombre, @RequestParam Integer cantidad, @DateTimeFormat(pattern = "YYYY-dd-MM") Date dia) {
+    public String guardarReserva(ModelMap model,@RequestParam  String nombre, @RequestParam Integer cantidad, @DateTimeFormat(pattern = "dd-MM-YYYY") Date dia) {
         try {
             reservaServicio.guardarReserva(nombre, cantidad, dia);
         } catch (ErrorServicio ex) {

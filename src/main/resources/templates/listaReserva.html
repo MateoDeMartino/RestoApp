@@ -49,18 +49,19 @@
         <th>Fecha</th>
         
         
-        <!-- <th>Dar de baja</th> -->
+         <th>Dar de baja</th> 
         <!-- <th>Eliminar</th> -->
       </tr>
       </thead>
       <!-- th:if="${reserva.alta!=false}" -->
       <tbody>
-        <tr  th:each="reserva :${reservas}">
+        <tr  th:each="reserva :${reservas}"  th:if="${reserva.alta!=false}">
 
           <td th:text="${reserva.nombre}"></td>
           <td th:text="${reserva.cantidad}"></td>
-          <td th:text="${#dates.format(reserva.dia, 'YYYY-dd-MM')}" ></tr>
-
+          
+          <td th:text="${#dates.format(reserva.dia, 'YY-dd')}" >  
+           
           
           
           
@@ -68,9 +69,9 @@
 <!--          
             <a class="btn btn-success" th:href="@{/plato/modplato/} + ${Plato.id}">Editar <i class="fa fa-edit"></i></a>
           </td>-->
-          <!-- <td>
+          <td>
             <a class="btn btn-warning" th:href="@{/Reserva/bajaReserva/} + ${reserva.id}">Baja <i class="fa fa-edit"></i></a> 
-          </td>  -->
+          </td>  
           <!--
             <a class="btn btn-danger" th:href="@{/plato/eliminarplato/} + ${Plato.id}">Eliminar <i class="fa fa-edit"></i></a> 
         -->
