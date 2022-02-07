@@ -42,7 +42,7 @@ public class RestauranteControlador {
             System.out.println(e.getMessage());
         }
         
-        return "Restaurante";
+        return "redirect:/";
     }
     
     @GetMapping("/verPlatos/{id}")

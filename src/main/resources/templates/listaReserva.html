@@ -41,15 +41,15 @@
  
       <h1>Lista de Reservas </h1>
     </header>
-    <table class="table table-dark table-striped">
+    <table class="table table-striped">
       <thead>
       <tr>  
         <th>Nombre</th>
         <th>Cantidad de gente</th>
         <th>Fecha</th>
         
-        <th>Modificar</th>
-        <th>Dar de baja</th>
+        
+        <!-- <th>Dar de baja</th> -->
         <!-- <th>Eliminar</th> -->
       </tr>
       </thead>
@@ -59,7 +59,7 @@
 
           <td th:text="${reserva.nombre}"></td>
           <td th:text="${reserva.cantidad}"></td>
-          <td th:text="${#dates.format(reserva.dia, 'dd-MM-YYYY')}" ></tr>
+          <td th:text="${#dates.format(reserva.dia, 'YYYY-dd-MM')}" ></tr>
 
           
           
@@ -67,11 +67,11 @@
         
 <!--          
             <a class="btn btn-success" th:href="@{/plato/modplato/} + ${Plato.id}">Editar <i class="fa fa-edit"></i></a>
-          </td>
-          <td>
-            <a class="btn btn-warning" th:href="@{/plato/bajaplato/} + ${Plato.id}">Baja <i class="fa fa-edit"></i></a> 
-          </td> 
-          
+          </td>-->
+          <!-- <td>
+            <a class="btn btn-warning" th:href="@{/Reserva/bajaReserva/} + ${reserva.id}">Baja <i class="fa fa-edit"></i></a> 
+          </td>  -->
+          <!--
             <a class="btn btn-danger" th:href="@{/plato/eliminarplato/} + ${Plato.id}">Eliminar <i class="fa fa-edit"></i></a> 
         -->
         </tr>
@@ -80,16 +80,16 @@
 
 
     </table>
-    <button class="btn btn-warning" type="button" ><a href="/">Volver al Menu</a></button>
+    <button class="btn btn-primary" type="button" ><a href="/">Volver al Menu</a></button>
 </div>
            
 
 </section>
 
  <!--PIE-->
-<footer>
+<!-- <footer>
     <p>Copyright 2001-2021 RestoApp. Todos los derechos reservados. Prohibida la duplicación, distribución o almacenamiento en cualquier medio.</p>
-</footer>
+</footer> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 </body>
 </html>

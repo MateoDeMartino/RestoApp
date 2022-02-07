@@ -73,8 +73,8 @@
                                 </div>
                                 <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="rounded float-start" alt="..." width="200" height="200"> 
                                 <br>
-                                <label for="exampleInputEmail1" class="form-label">Cantidad</label>
-                                                             
+                                <!-- <label for="exampleInputEmail1" class="form-label">Cantidad</label> -->
+                                                            
                             </div> 
                                             <!--Bebidas-->
                             <div class="col-lg-6 menu-item filter-bebidas" th:if="${Plato.categoria == 'bebida'}" th:each="Plato :${platos}" >
@@ -83,7 +83,7 @@
                                     <a>$<span th:text="${Plato.valor}"></span></a>                                    
                                 </div>
                                 <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="rounded float-start" alt="..." width="200" height="200"> <br>
-                                <label for="exampleInputEmail1" class="form-label">Cantidad</label>
+                                <!-- <label for="exampleInputEmail1" class="form-label">Cantidad</label> -->
                                
                             </div>
                                             <!--Postres-->
@@ -103,7 +103,7 @@
                                     <a>$<span th:text="${Plato.valor}"></span></a>                                    
                                 </div>
                                 <img th:if="${Plato.foto != null}" th:src="${'/foto/fotoPlato?id=' + Plato.id}" class="rounded float-start" alt="..." width="200" height="200"> <br>
-                                <label for="exampleInputEmail1" class="form-label">Cantidad</label>
+                                <!-- <label for="exampleInputEmail1" class="form-label">Cantidad</label> -->
                                 
                             </div>
                             <!-- <a class="btn btn-success" th:href="@{/Reserva/crearReserva/} + ${Restaurante.id}">Reservar <i class="fa fa-edit"></i></a> -->
@@ -111,15 +111,17 @@
                     <!-- ======= End Menu Section ======= -->
                     </div>
             </div>
+            <div >
             <button class="btn btn-primary" type="button" ><a href="/Reserva/crearReserva">Realizar Reserva</a></button>
             <button class="btn btn-primary" type="button" ><a href="/">Volver al Menu</a></button>
-
+            </div>
 
         </section>
+       
 <!--PIE-->
-<footer>
+<!-- <footer>
         <p>Copyright 2001-2021 RestoApp. Todos los derechos reservados. Prohibida la duplicación, distribución o almacenamiento en cualquier medio.</p>
-</footer>
+</footer> -->
     <script src="/https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
     <script src="/../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/../vendor/glightbox/js/glightbox.min.js"></script>

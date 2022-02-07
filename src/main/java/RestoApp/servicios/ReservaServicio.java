@@ -4,6 +4,7 @@ import RestoApp.Entidades.Reserva;
 import RestoApp.repositorios.ReservaRepositorio;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,8 @@ public class ReservaServicio {
 
     @Autowired
     private ReservaRepositorio reservaRepositorio;
+    
+            
 
     @Transactional
     public void guardarReserva(String nombre, Integer cantidad, Date dia) throws ErrorServicio {
@@ -34,7 +37,7 @@ public class ReservaServicio {
         reserva.setNombre(nombre);
         reserva.setCantidad(cantidad);
         reserva.setDia(dia);
-
+        reserva.setAlta(true);
         reservaRepositorio.save(reserva);
     }
  
@@ -42,4 +45,17 @@ public class ReservaServicio {
          List<Reserva> lista = reservaRepositorio.buscarReservas(id);
          return lista;
      }
+     
+     
+        @Transactional
+    public void bajaReserva(String id) throws ErrorServicio {
+        Optional<Reserva> respuesta = reservaRepositorio.findById(id);
+        if (respuesta.isPresent()) {
+            Reserva reserva = respuesta.get();
+            reserva.setAlta(false);
+            reservaRepositorio.save(reserva);
+        } else {
+            throw new ErrorServicio("La reserva no fue encontrada");
+        }
+    }
 }

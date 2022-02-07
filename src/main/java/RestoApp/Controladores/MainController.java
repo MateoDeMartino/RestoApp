@@ -63,7 +63,7 @@ public class MainController {
             return "registro";
         }
         modelo.put("exito", "El usuario fue ingresado exitosamente");
-        return "registro";
+        return "login";
     }
 
     @GetMapping("/zona")

@@ -33,7 +33,7 @@ public class ReservaControlador {
     }
 
     @PostMapping("/guardarReserva")
-    public String guardarReserva(ModelMap model,@RequestParam  String nombre, @RequestParam Integer cantidad, @DateTimeFormat(pattern = "dd-MM-YYYY") Date dia) {
+    public String guardarReserva(ModelMap model,@RequestParam  String nombre, @RequestParam Integer cantidad, @DateTimeFormat(pattern = "YYYY-dd-MM") Date dia) {
         try {
             reservaServicio.guardarReserva(nombre, cantidad, dia);
         } catch (ErrorServicio ex) {
@@ -44,7 +44,7 @@ public class ReservaControlador {
             return "Reserva";
         }
         model.put("exito", "Se realizo su reserva exitosamente");
-        return "Reserva";
+        return "redirect:/";
     }
     
     
@@ -60,6 +60,18 @@ public class ReservaControlador {
         
 
         return "listaReserva";
+    }
+    
+    @GetMapping("/bajaReserva/{id}")
+    public String bajaReserva(ModelMap model, @PathVariable("id")String id) {
+        try {
+            reservaServicio.bajaReserva(id);
+        } catch (ErrorServicio ex) {
+            model.put("error", ex.getMessage());
+            return "redirect:/Reserva/listarReservas/";
+        }
+        model.put("exito", "La reserva ha si dado de baja correctamente");
+        return "redirect:/";
     }
 
 }

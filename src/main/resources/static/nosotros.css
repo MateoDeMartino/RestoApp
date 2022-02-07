@@ -6,7 +6,8 @@
   header{
       width: 100%;
       background-color:#461111;
-      height: 15%;
+      height: 150px;
+      overflow:hidden;
   }
   
   .logo{
@@ -110,7 +111,7 @@ border: 1px solid rgba(0, 0, 0, 0.125);
     text-align: center;
 }
         
-  }
+  
   .bg-light {
       --bs-bg-opacity: 0;
       background-color: rgba(#781D42) !important;
@@ -149,10 +150,24 @@ border: 1px solid rgba(0, 0, 0, 0.125);
   }
   
 
+  .btn-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+  }
+  .btn-primary:hover {
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+  }
 
-
-
- 
+a{
+  color: #fff;
+  text-decoration: none;
+}
+a:hover{
+  color:#fff
+}
 
 
 

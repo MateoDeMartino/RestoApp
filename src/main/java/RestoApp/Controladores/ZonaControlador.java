@@ -32,6 +32,7 @@ public class ZonaControlador {
     @PostMapping("/guardarzona")
     public String guardarZona(ModelMap model, @RequestParam String nombre) {
         zS.crearZona(nombre);
+        model.put("exito","Se creo la zona con éxito.");
         return "zona";
     }
 

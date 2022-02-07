@@ -101,7 +101,7 @@ public class PlatoControlador {
             //en el form poner th:value="${nombre.variable}" para conservar los datos l
         }
         model.put("exito", "El plato fue modificado con éxito");
-        return "redirect:/plato/listar";
+        return "redirect:/";
     }
 
     @GetMapping("/bajaplato/{id}")
@@ -113,7 +113,7 @@ public class PlatoControlador {
             return "redirect:/plato/listar";
         }
         model.put("exito", "Plato dado de baja correctamente");
-        return "redirect:/plato/listar";
+        return "redirect:/";
     }
     
       @GetMapping("/eliminarplato/{id}")

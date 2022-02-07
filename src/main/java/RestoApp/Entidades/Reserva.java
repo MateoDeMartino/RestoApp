@@ -20,16 +20,16 @@ public class Reserva {
     private Integer cantidad;
     @Temporal(TemporalType.DATE)
     private Date dia;
-
+    private Boolean alta;
     public Reserva() {
     }
 
-    public Reserva(String id, String nombre, Integer cantidad, Date dia) {
+    public Reserva(String id, String nombre, Integer cantidad, Date dia, Boolean alta) {
         this.id = id;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.dia = dia;
-        
+        this.alta = alta;
     }
 
     public String getId() {
@@ -62,6 +62,14 @@ public class Reserva {
 
     public void setDia(Date dia) {
         this.dia = dia;
-    }    
-    
+    }
+
+    public Boolean getAlta() {
+        return alta;
+    }
+
+    public void setAlta(Boolean alta) {
+        this.alta = alta;
+    }
+
 }
