@@ -1,33 +1,37 @@
 package RestoApp.Entidades;
 
+
+import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Restaurante {
+public class Restaurante implements Serializable{
 
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
-    private Menu menu;
     private Integer mesas;
+    @ManyToOne
     private Zona zona;
     private Boolean abierto;
-
+    
+    @OneToMany
+    private List<Plato> platos;
+    @OneToOne   
+    private Foto foto;
+     
+    private String idUsuario;
+    
     public Restaurante() {
-    }
-
-    public Restaurante(String id, String nombre, Menu menu, Integer mesas, Zona zona, Boolean abierto) {
-        this.id = id;
-        this.nombre = nombre;
-        this.menu = menu;
-        this.mesas = mesas;
-        this.zona = zona;
-        this.abierto = abierto;
     }
 
     public String getId() {
@@ -44,14 +48,6 @@ public class Restaurante {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Menu menu) {
-        this.menu = menu;
     }
 
     public Integer getMesas() {
@@ -71,17 +67,49 @@ public class Restaurante {
     }
 
     public Boolean getAbierto() {
-        return Abierto;
+        return abierto;
     }
 
-    public void setAbierto(Boolean Abierto) {
-        this.Abierto = Abierto;
+    public void setAbierto(Boolean abierto) {
+        this.abierto = abierto;
     }
 
-    @Override
-    public String toString() {
-        return "Restaurante{" + "id=" + id + ", nombre=" + nombre + ", menu=" + menu + ", mesas=" + mesas + ", zona=" + zona + ", Abierto=" + abierto + '}';
+    public List<Plato> getPlatos() {
+        return platos;
     }
-    
+
+    public void setPlatos(List<Plato> platos) {
+        this.platos = platos;
+    }
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
+    }
+
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public Restaurante(String id, String nombre, Integer mesas, Zona zona, Boolean abierto, List<Plato> platos, Foto foto, String idUsuario) {
+        this.id = id;
+        this.nombre = nombre;
+        this.mesas = mesas;
+        this.zona = zona;
+        this.abierto = abierto;
+        this.platos = platos;
+        this.foto = foto;
+        this.idUsuario = idUsuario;
+    }
+
     
 }
+
+ 

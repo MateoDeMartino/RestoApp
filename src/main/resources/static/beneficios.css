@@ -1,0 +1,38 @@
+
+.logo-tarjeta{
+    width: 14%;
+    height: 10%;
+}
+
+
+.beneficio{
+    padding-top: 2%;
+    padding-left: 1%;
+    text-align: left;
+    
+}
+
+
+article{
+    float: left;
+    width: 45%;
+    margin-left: 3%;
+    background-color: white;
+    line-height: 250%;
+    
+}
+
+aside{
+    float: right;
+    width: 45%;
+    margin-right: 3%;
+    background-color: white;
+    line-height: 200%;
+    
+}
+
+
+
+
+
+

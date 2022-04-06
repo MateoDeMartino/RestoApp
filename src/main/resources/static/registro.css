@@ -1,0 +1,53 @@
+body{
+    background-image: url('../static/fondo2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#card{
+    background-color: rgb(240, 210, 144);
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+    padding: 1%;
+    line-height: 150%;
+}
+
+footer {
+    background-color:#781D42;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:5%;
+    width:100%;
+  }
+
+#espacio{
+    height: 30px;
+}
+
+#nombre{
+    width: 20%;
+}
+
+#apellido{
+    width: 20%;
+    
+}
+
+#email{
+    width: 41%;
+}
+
+#contrasena{
+    width: 41%;
+}
+
+#generos{
+    text-align: 
+}
+
