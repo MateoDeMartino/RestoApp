@@ -1,13 +1,13 @@
 
 body{
-    background-image: url('fondo1.jpg');
+    background-image: url('fondoblack.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 header{
     width: 100%;
-    background-color:#461111;
-    height: 15%;
+    background-color:white;
+    height: 0%;
 }
 a{
   color:#fff;  
@@ -19,7 +19,7 @@ a:hover{
 
 .logo{
 width: 20%;
-height: 90px;
+height: 80px;
 font-family: 'Open Sans', sans-serif;
 font-family: 'Paytone One', sans-serif;
 float: left;
@@ -37,7 +37,7 @@ vertical-align: bottom;
 box-sizing: border-box;
 font-family: 'Open Sans', sans-serif;
 font-family: 'Paytone One', sans-serif;
-color:#DE934D;
+color: white;
 }
 .logo p{
   padding-left: 15px;
@@ -49,7 +49,7 @@ vertical-align: bottom;
 box-sizing: border-box;
 font-family: 'Open Sans', sans-serif;
 font-family: 'Paytone One', sans-serif;
-color:#DE934D;
+color: white;
 }
 .botones{
   display:inline-block;
@@ -61,26 +61,30 @@ color:#DE934D;
  padding-left:65em;
   
 }
+
 .btn-outline-secondary {
-    color: #0d6efd;
-    border-color: #0d6efd;
-  }
+  color: black;
+  border-color: black;
+}
 .btn-outline-secondary:hover {
-    color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-  }
+  color: #fff;
+  background-color: black;
+  border-color: black;
+}
+
 /*NAVEGADOR*/
 .navegador{
-    background-color:#A3423C ;
+    background-color:white ;
     padding-left: 0px;
+    height: 0px;
 }
 .navbar-light .navbar-brand {
-  color: #DE934D;
+  color: black;
 }
 .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
-  color: #DE934D;
+  color: black;
 }
+
 .row {
   padding-left: 20px;
   padding-right: 20px;
@@ -122,7 +126,7 @@ section{
 
 
 footer{
-    background-color:#781D42;
+    background-color:black;
    
     
       position: flex;
